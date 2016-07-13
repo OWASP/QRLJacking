@@ -10,9 +10,9 @@ QRLJacking attack consists of two sides:
 1. Server side: the server side script to serve and shape the final look to the victim.
 2. Client side: Cloning the QR and push it to the phishing page.
 
-## Our example will be: WhatsApp Web Application!
+### Our example will be: WhatsApp Web Application!
 
-### Server Setup (Attacker's hosting):
+## Server Setup (Attacker's hosting):
 1. Upload "qrHandler.php" to your server which is a php file to convert the base64 qr code string to a valid .JPG file
 
 	Now we have a valid generated QR image named "tmp.jpg" resides in the same root folder of your files and will be updated whenever that php file will be called, So we can put it anywhere "for example a WhatsApp page, a scam page with an offer related to WhatsApp, etc... depending on your creativity"
