@@ -1,0 +1,11 @@
+<script>
+var myTimer;
+myTimer = window.setInterval(reloadD,5000);
+
+function reloadD(){
+d = new Date();
+document.getElementById('qrcodew').src="tmp.jpg?h="+d.getTime();
+}
+</script>
+
+<img id="qrcodew" alt="Scan me!" src="tmp.jpg" style="display: block;">
