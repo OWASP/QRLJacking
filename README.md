@@ -7,7 +7,7 @@ QRLJacking or Quick Response Code Login Jacking is a simple-but-nasty attack vec
 ## What are the requirements to achieve a successful QRLJacking attack?
 QRLJacking attack consists of two sides:
 
-1. Server side: The server side script to serve and shape the final look to the victim.
+1. Server side: the server side script to serve and shape the final look to the victim.
 2. Client side: Cloning the QR and push it to the phishing page.
 
 ## Our example will be: WhatsApp Web Application!
@@ -18,16 +18,17 @@ QRLJacking attack consists of two sides:
 	Now we have a valid generated QR image named "tmp.jpg" resides in the same root folder of your files and will be updated whenever that php file will be called, So we can put it anywhere "for example a WhatsApp page, a scam page with an offer related to WhatsApp, etc... depending on your creativity"
 
 2. Now upload your prefered phishing page which includes the JS piece of code resides in "phishing.html" that code will be responsible for reloading your qr image in your phishing page once updated by the "qrHandler.php" file.
-#
-#
+
+
 ## Client Side Setup (Attacker's browser):
 
 1. Open your Firefox browser!
 2. Write "about:config" in the url area, click "i'll be careful, i promise" confirmation button.
 3. Search for preference name "security.csp.enable" and change it's value to "false" by double clicking it to allow performing an XHR Request over a different domain (We're not supporting leaving this preference disabled, here is just for test).
 4. Instal Greasemonkey addon (https://addons.mozilla.org/en-US/firefox/addon/greasemonkey) and be sure that the module file "WhatsAppQRJackingModule.js" is loaded and already running!
-5. Now We're Ready, Browse to our example "https://web.whatsapp.com" on your side, Wait for a WhatsApp session to be loaded, Greasemonkey should now inject our WhatsApp module file to catch and clone the QR code to your phishing page.
-6. Send the direct link of your phishing page to a victim "Once the QR scanned, Victim's session is yours"
+5. Now We're Ready, Browse to our example "https://web.whatsapp.com" on your side, Wait for a WhatsApp session to be loaded, Greasemonkey should now inject our WhatsApp module file to catch and  .
+6. Send the direct link of the final phishing page to a victim "Once the QR scanned, Victim's session is yours now"
+
 
 ## Demo Video:
 Attacking WhatsApp Web Application and performing MiTM attack to inject a bogus ad including WhatsApp QR Code
