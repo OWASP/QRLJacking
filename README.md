@@ -17,7 +17,7 @@ QRLJacking attack consists of two sides:
 
 	Now we have a valid generated QR image named "tmp.jpg" resides in the same root folder of your files and will be updated whenever that php file will be called, So we can put it anywhere "for example a WhatsApp page, a scam page with an offer related to WhatsApp, etc... depending on your creativity"
 
-2. Now upload your prefered phishing page which includes the JS piece of code resides in "phishing.html" that code will be responsible for reloading your qr image in your phishing page once updated by the "qrHandler.php" file.
+2. Now update the "phishing.html" file your prefered phishing page source code.
 
 
 ## Client Side Setup (Attacker's browser):
