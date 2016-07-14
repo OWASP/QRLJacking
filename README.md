@@ -36,5 +36,10 @@ QRLJacking attack consists of two sides:
 Attacking WhatsApp Web Application and performing MiTM attack to inject a bogus ad including WhatsApp QR Code
 [Demo Video](https://goo.gl/NLRdtZ)
 
+## Live Demo
+We made a live demo for "WhatsApp web" as an example! (deactivated for now for a security reasons but ready to activate it any time as a proof of concept)
+
+Live demo link: https://www.seekurity.com/researches/WhatsApp/App.php
+
 ## Technical Paper
 The technical paper clarifying  everything about QRLJacking attack vector can be found [here](https://github.com/OWASP/QRLJacking/blob/master/blob/QRLJacking%20Technical%20Paper.pdf) or directly visit our [Wiki](https://github.com/OWASP/QRLJacking/wiki).
