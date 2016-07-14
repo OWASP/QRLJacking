@@ -2,6 +2,7 @@
 ====================
 ![](https://github.com/OWASP/QRLJacking/blob/master/blob/images/QRLJacking.JPG?raw=true)
 
+
 Find documentation in our [Wiki](https://github.com/OWASP/QRLJacking/wiki).
 ## What is QRLJacking?
 QRLJacking or Quick Response Code Login Jacking is a simple-but-nasty attack vector affecting all applications that relay on “Login with QR code” feature as a secure way to login into accounts. In a simple way, It’s all about convincing the victim to scan the attacker’s QR code.
