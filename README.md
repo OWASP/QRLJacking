@@ -46,50 +46,25 @@ The technical paper clarifying everything about QRLJacking attack vector can be 
 
 # Vulnerable Web Applications and Services
 
-There is a lot of well-known web applications and Services which are vulnerable to this attack till the date we wrote this paper. Some examples include, but not limited to:
+There is a lot of well-known web applications and Services which are vulnerable to this attack till the date we wrote this paper. Here's some examples (that we have reported) include but not limited to:
 
 ### Chat Applications:
-WhatsApp
 
-WeChat
-
-Line
-
-Weibo
-
-QQ Instant Messaging
+WhatsApp, WeChat, Line, Weibo, QQ Instant Messaging
 
 
 ### Mailing Services:
 
-QQ Mail (Personal and Business Corporate)
-
-Yandex Mail
+QQ Mail (Personal and Business Corporate), Yandex Mail
 
 ### eCommerce:
 
-Alibaba
-
-Aliexpress
-
-Taobao
-
-Tmall
-
-1688.com
-
-Alimama
-
-Taobao Trips
+Alibaba, Aliexpress, Taobao, Tmall, 1688.com, Alimama, Taobao Trips
 
 
 ### Online Banking:
 
-AliPay
-
-Yandex Money
-
-TenPay
+AliPay, Yandex Money, TenPay
 
 
 ### Passport Services “Critical”:
@@ -102,13 +77,5 @@ AirDroid
 
 ### Other Services:
 
-MyDigiPass
-
-Zapper & Zapper WordPress Login by QR Code plugin
-
-Trustly App
-
-Yelophone
-
-Alibaba Yunos
+MyDigiPass, Zapper & Zapper WordPress Login by QR Code plugin, Trustly App, Yelophone, Alibaba Yunos
 
