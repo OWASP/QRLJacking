@@ -43,3 +43,72 @@ Live demo link: https://www.seekurity.com/researches/WhatsApp/app.php
 
 ## Technical Paper
 The technical paper clarifying  everything about QRLJacking attack vector can be found [here](https://github.com/OWASP/QRLJacking/blob/master/blob/QRLJacking%20Technical%20Paper.pdf) or directly visit our [Wiki](https://github.com/OWASP/QRLJacking/wiki).
+
+# Vulnerable Web Applications and Services
+
+There is a lot of well-known web applications and Services which are vulnerable to this attack till the date we wrote this paper. Some examples include, but not limited to:
+
+### Chat Applications:
+WhatsApp
+
+WeChat
+
+Line
+
+Weibo
+
+QQ Instant Messaging
+
+
+### Mailing Services:
+
+QQ Mail (Personal and Business Corporate)
+
+Yandex Mail
+
+### eCommerce:
+
+Alibaba
+
+Aliexpress
+
+Taobao
+
+Tmall
+
+1688.com
+
+Alimama
+
+Taobao Trips
+
+
+### Online Banking:
+
+AliPay
+
+Yandex Money
+
+TenPay
+
+
+### Passport Services “Critical”:
+
+Yandex Passport (Yandex Mail, Yandex Money, Yandex Maps, Yandex Videos, etc...)
+
+### Mobile Management Software:
+
+AirDroid
+
+### Other Services:
+
+MyDigiPass
+
+Zapper & Zapper WordPress Login by QR Code plugin
+
+Trustly App
+
+Yelophone
+
+Alibaba Yunos
+
