@@ -1,5 +1,6 @@
 *QRLJacking* - A new Social Engineering Attack Vector
 ====================
+![](https://github.com/OWASP/QRLJacking/blob/master/blob/images/QRLJacking.JPG?raw=true)
 
 Find documentation in our [Wiki](https://github.com/OWASP/QRLJacking/wiki).
 ## What is QRLJacking?
