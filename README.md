@@ -75,3 +75,16 @@ AirDroid
 
 MyDigiPass, Zapper & Zapper WordPress Login by QR Code plugin, Trustly App, Yelophone, Alibaba Yunos
 
+
+# Acknowledgements
+I would like to personally thank the talented people who helped shaping the QRLJacking attack and getting it out to the light. (List in no particular order)
+
+Thanks to:
+
+- [Mohamed Abdel Aty (@M_Aty)](https://github.com/mohamedaty)
+- [Mostafa Kassem (@Zanzofily)](https://github.com/Zanzofily)
+- [Abdelrahman Shawky (@ShawkyZ)](https://github.com/ShawkyZ)
+- [Ahmed Elsobky (@0xSobky)](https://github.com/0xSobky)
+- [Ahmed Abbas (@Fiberghost)](https://github.com/fiberghost)
+- [Juan Carlos Mejia (@Th3kr45h)](https://github.com/th3kr45h)
+- Mohamed Elfateh (OWASP Egypt)
