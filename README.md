@@ -36,4 +36,4 @@ Attacking WhatsApp Web Application and performing MiTM attack to inject a bogus 
 <a href="https://goo.gl/NLRdtZ">Demo Video</a>
 
 ## Technical Paper
-The technical paper clarifying  everything about QRLJacking attack vector can be found <a href="https://github.com/OWASP/QRLJacking/blob/master/QRLJacking%20Technical%20Paper.pdf">here</a>
+The technical paper clarifying  everything about QRLJacking attack vector can be found <a href="https://github.com/OWASP/QRLJacking/blob/master/blob/QRLJacking%20Technical%20Paper.pdf">here</a>
