@@ -42,7 +42,7 @@ We made a live demo for "WhatsApp web" as an example! (deactivated for now for a
 Live demo link: https://www.seekurity.com/researches/WhatsApp/app.php
 
 ## Technical Paper
-The technical paper clarifying  everything about QRLJacking attack vector can be found [here](https://github.com/OWASP/QRLJacking/blob/master/blob/QRLJacking%20Technical%20Paper.pdf) or directly visit our [Wiki](https://github.com/OWASP/QRLJacking/wiki).
+The technical paper clarifying everything about QRLJacking attack vector can be found directly via our [Wiki](https://github.com/OWASP/QRLJacking/wiki).
 
 # Vulnerable Web Applications and Services
 
