@@ -1,6 +1,7 @@
 *QRLJacking* - A new Social Engineering Attack Vector
 ====================
 
+Find documentation in our [Wiki](https://github.com/OWASP/QRLJacking/wiki).
 ## What is QRLJacking?
 QRLJacking or Quick Response Code Login Jacking is a simple-but-nasty attack vector affecting all applications that relay on “Login with QR code” feature as a secure way to login into accounts. In a simple way, It’s all about convincing the victim to scan the attacker’s QR code.
 
@@ -36,4 +37,4 @@ Attacking WhatsApp Web Application and performing MiTM attack to inject a bogus 
 <a href="https://goo.gl/NLRdtZ">Demo Video</a>
 
 ## Technical Paper
-The technical paper clarifying  everything about QRLJacking attack vector can be found [here](https://github.com/OWASP/QRLJacking/blob/master/blob/QRLJacking%20Technical%20Paper.pdf)
+The technical paper clarifying  everything about QRLJacking attack vector can be found [here](https://github.com/OWASP/QRLJacking/blob/master/blob/QRLJacking%20Technical%20Paper.pdf) or directly visit our [Wiki](https://github.com/OWASP/QRLJacking/wiki).
