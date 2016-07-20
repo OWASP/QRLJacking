@@ -83,11 +83,10 @@ MyDigiPass, Zapper & Zapper WordPress Login by QR Code plugin, Trustly App, Yelo
 
 # Author
 
-Mohamed Abdelbasset Elnouby
+
+[Mohamed Abdelbasset Elnouby (@SymbianSyMoh)](https://github.com/SymbianSyMoh)
 
 Information Security Researcher
-
-@SymbianSyMoh
 
 Seekurity Labs
 
