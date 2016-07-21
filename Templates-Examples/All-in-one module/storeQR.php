@@ -1,6 +1,5 @@
 <?php
-//Get The base64 img, The “C” parameter is vulnerable to XSS :P
-$qrdata= $_GET['c'];
+$qrdata= htmlspecialchars($_POST['c'] , ENT_QUOTES);
 
 //Format the data and write the QR data to a local file
 $qrdata= str_replace(" ", "+", $qrdata);

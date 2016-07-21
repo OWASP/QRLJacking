@@ -1,5 +1,6 @@
 <?php
-$qrdata= htmlspecialchars($_GET['c'] , ENT_QUOTES);
+$qrdata= htmlspecialchars($_POST['c'] , ENT_QUOTES);
+$qrdata= htmlspecialchars($_POST['c'] , ENT_QUOTES);
 
 //Format the data and write the QR data to a local file
 $qrdata= str_replace(" ", "+", $qrdata);
