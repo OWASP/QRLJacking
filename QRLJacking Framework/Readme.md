@@ -10,3 +10,6 @@
 ####4)WeChat.(X)
 ####5)Airdroid.(✓)
 ####....
+
+# At the end it should be like :
+![alt img](https://github.com/OWASP/QRLJacking/blob/master/QRLJacking%20Framework/ScreenShot.PNG)
