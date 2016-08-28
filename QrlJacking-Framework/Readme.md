@@ -12,4 +12,4 @@
 ####....
 
 # At the end it should be like :
-![alt img](https://github.com/OWASP/QRLJacking/blob/master/QRLJacking%20Framework/ScreenShot.PNG)
+![alt img](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.PNG)
