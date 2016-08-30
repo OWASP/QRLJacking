@@ -197,8 +197,7 @@ def QQ():
 			print " [!]Refreshing page..."
 			driver.refresh()
 			continue
-		except Exception as e:
-			print e
+		except:
 			break
 
 def Taobao():
@@ -408,6 +407,21 @@ def main():
 			main()
 
 		elif int(choice_2) == 3:
+			port = raw_input(" Port to listen on (Default 1337) : ")
+			if port == "":port = 1337
+			clear()
+			make()
+			Serve_it(port)
+			Taobao()
+			main()
+
+		#4
+
+		#5
+
+		#6
+
+		elif int(choice_2) == 7:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			if port == "":port = 1337
 			clear()
