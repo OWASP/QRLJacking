@@ -375,7 +375,7 @@ def main():
 		elif int(choice_2) == 1:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
-				int(userInput)
+				int(port)
 			except ValueError:
 				port = 1337
 
@@ -390,7 +390,13 @@ def main():
 		#Wechat
 		elif int(choice_2) == 2:
 			port = raw_input(" Port to listen on (Default 1337) : ")
-			if port == "":port = 1337
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
 			clear()
 			make()
 			Serve_it(port)
@@ -411,7 +417,13 @@ def main():
 
 		elif int(choice_2) == 5:
 			port = raw_input(" Port to listen on (Default 1337) : ")
-			if port == "":port = 1337
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
 			clear()
 			make()
 			Serve_it(port)
@@ -432,7 +444,13 @@ def main():
 
 		elif int(choice_2) == 2:
 			port = raw_input(" Port to listen on (Default 1337) : ")
-			if port == "":port = 1337
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
 			clear()
 			make("svg")
 			Serve_it(port)
@@ -457,7 +475,13 @@ def main():
 
 		elif int(choice_2) == 3:
 			port = raw_input(" Port to listen on (Default 1337) : ")
-			if port == "":port = 1337
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
 			clear()
 			make()
 			Serve_it(port)
@@ -472,7 +496,13 @@ def main():
 
 		elif int(choice_2) == 7:
 			port = raw_input(" Port to listen on (Default 1337) : ")
-			if port == "":port = 1337
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
 			clear()
 			make()
 			Serve_it(port)
@@ -514,7 +544,13 @@ def main():
 
 		elif int(choice_2) == 1:
 			port = raw_input(" Port to listen on (Default 1337) : ")
-			if port == "":port = 1337
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
 			clear()
 			make()
 			Serve_it(port)
