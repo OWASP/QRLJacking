@@ -17,21 +17,20 @@ try:
 
 except:
 	print "[!] Error Importing Exterinal Libraries"
-	print "[!] Trying to install it using pip"
+	print "[!] Trying to install it using pip\n"
 	try:
-		os.popen("python -m pip install selenium")
-		os.popen("python -m pip install Pillow")
+		os.system("python -m pip install selenium")
+		os.system("python -m pip install Pillow")
 	except:
 		try:
-			os.popen("pip install selenium")
-			os.popen("pip install Pillow")
+			os.system("pip install selenium")
+			os.system("pip install Pillow")
 		except:
 			print "[!] Can't install libraries "
 			print "[!!] Try to install it yourself"
 			exit(0)
 
 finally:
-	clear()
 	from PIL import Image
 	import selenium
 	from selenium import webdriver
