@@ -1,10 +1,40 @@
 #!/usr/bin/env python
 #-*- encoding:utf-8 -*-
 #Author:D4Vinci
-import base64 ,time ,selenium ,os ,urllib ,sys ,threading ,configparser
-from selenium import webdriver
+import base64 ,time ,os ,urllib ,sys ,threading ,configparser
 from binascii import a2b_base64
-from PIL import Image
+
+def clear():
+	if os.name == "nt":
+		os.system("cls")
+	else:
+		os.system("clear")
+
+try:
+	from PIL import Image
+	import selenium
+	from selenium import webdriver
+
+except:
+	print "[!] Error Importing Exterinal Libraries"
+	print "[!] Trying to install it using pip"
+	try:
+		os.popen("python -m pip install selenium")
+		os.popen("python -m pip install Pillow")
+	except:
+		try:
+			os.popen("pip install selenium")
+			os.popen("pip install Pillow")
+		except:
+			print "[!] Can't install libraries "
+			print "[!!] Try to install it yourself"
+			exit(0)
+
+finally:
+	clear()
+	from PIL import Image
+	import selenium
+	from selenium import webdriver
 
 #settings = configparser.ConfigParser()
 
@@ -12,10 +42,10 @@ def Serve_it(port=1337):
 	def serve(port):
 		if os.name=="nt":
 			print " [!] Serving files on "+str(port)+" port"
-			os.system("python -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
+			os.popen("python -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
 		else:
 			print " [!] Serving files on "+str(port)+" port"
-			os.system("python -m SimpleHTTPServer "+str(port)+" > /dev/null 2>&1")
+			os.popen("python -m SimpleHTTPServer "+str(port)+" > /dev/null 2>&1")
 	threading.Thread(target=serve,args=(port,)).start()
 
 def create_driver():
@@ -24,9 +54,28 @@ def create_driver():
 		print " [+]Opening Mozila FireFox..."
 		return web
 	except:
-		web = webdriver.Chrome()
-		print " [+]Opening Google Chrome..."
-		return web
+		try:
+			web = webdriver.Chrome()
+			print " [+]Opening Google Chrome..."
+			return web
+		except:
+			try:
+				web = webdriver.Opera()
+				print " [+]Opening Opera..."
+				return web
+			except:
+				try:
+					web = webdriver.Edge()
+					print " [+]Opening Edge..."
+					return web
+				except:
+					try:
+						web = webdriver.Ie()
+						print " [+]Opening Internet Explorer..."
+						return web
+					except:
+						print " Error : \n Can not call webbrowsers\n  Check your pc"
+						exit(0)
 
 #Stolen from stackoverflow :D
 def Screenshot(PicName ,location ,size):
@@ -282,12 +331,6 @@ def Simple_Exploit(classname,url,image_number,s=10):
 		except:
 			break
 
-def clear():
-	if os.name == "nt":
-		os.system("cls")
-	else:
-		os.system("clear")
-
 def main():
 	#clear()
 	print """\n
@@ -331,7 +374,13 @@ def main():
 		#Whatsapp
 		elif int(choice_2) == 1:
 			port = raw_input(" Port to listen on (Default 1337) : ")
-			if port == "":port = 1337
+			try:
+				int(userInput)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
 			clear()
 			make()
 			Serve_it(port)
