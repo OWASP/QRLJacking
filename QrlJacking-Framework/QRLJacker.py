@@ -451,7 +451,7 @@ def main():
   7.Other Services
   8.Customization [Soon]
 """
-	choice = input(" Choice > ")
+	choice = int(raw_input(" Choice > "))
 
 	#Chat Applications
 	if choice == 1:
