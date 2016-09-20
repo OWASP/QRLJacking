@@ -1,33 +1,68 @@
-# Qrl Jacker
-### A python framework which goal is to exploit Qrl-Jacking attack vector easily
+# QrlJacker - QrlJacking Exploitation Framework
+### A python framework which goal is to exploit QrlJacking attack vector easily
 
-> #### Note: The framework not finished yet and there's a lot of work to do :)
+# Installation
+
+## Requirements
+* Python 2.7.x
+* Requests
+* Pillow
+* Selenium
+
+## Installation on Windows
+
+	After downloading [the framework](https://github.com/OWASP/QRLJacking)
+  cd QrlJacking-Framework
+	pip install -r requirements.txt
+	python QRLJacker.py
+
+## Installation on Ubuntu 16.04
+
+	sudo apt-get install python-dev python-pip libncurses5-dev git
+	git clone https://github.com/OWASP/QRLJacking
+	cd QrlJacking-Framework
+	pip install -r requirements.txt
+	python QRLJacker.py
+
+## Installation on OSX
+
+	git clone https://github.com/OWASP/QRLJacking
+	cd QrlJacking-Framework
+	sudo easy_install pip
+	sudo pip install -r requirements.txt
+	python QRLJacker.py
+
+## ScreenShot
+![alt img](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.PNG)
+
+##Currently QrlJacker support the following websites :
+####1)whatsapp
+####2)WeChat
+####3)Weibo
+####4)Yandex
+####5)Taobao
+####6)Taobao Trips
+####7)AliPay
+####8)Yandex Money
+####9)Yandex Passport
+####10)Airdroid
+####11)MyDigiPass
+####12)Zapper
+####13)Trustly App
+####14)Yelophone
+
+------------------
 
 ##To Do List :
-####1)whatsapp............................(✓)
-####2)WeChat..............................(✓)
-####3)Line................................(X)
-####4)Weibo...............................(✓)
-####5)QQ Instant Messaging................(X)
-####6)QQ Mail.............................(X)
-####7)Yandex..............................(✓)
-####8)Alibaba.............................(X)
-####9)Aliexpress..........................(X)
-####10)Taobao.............................(✓)
-####11)Tmall..............................(X)
-####12)1688.com...........................(X)
-####13)Alimama............................(X)
-####14)Taobao Trips.......................(✓)
-####15)AliPay.............................(✓)
-####16)Yandex Money.......................(✓)
-####17)TenPay.............................(X)
-####18)Yandex Passport....................(✓)
-####19)Airdroid...........................(✓)
-####20)MyDigiPass.........................(✓)
-####21)Zapper.............................(✓)
-####22)Trustly App........................(✓)
-####23)Yelophone..........................(✓)
-####24)Alibaba Yunos......................(X)
+####1)Line
+####2)QQ Instant Messaging
+####3)QQ Mail
+####4)Alibaba
+####5)Aliexpress
+####6)Tmall
+####7)1688.com
+####8)Alimama
+####9)TenPay
+####10)Alibaba Yunos
 
-# At the end it should be like :
-![alt img](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.PNG)
+> #### Stay Tuned :smile:

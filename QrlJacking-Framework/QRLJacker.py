@@ -17,20 +17,12 @@ try:
 
 except:
 	print "[!] Error Importing Exterinal Libraries"
-	print "[!] Trying to install it using pip\n"
+	print "[!] Trying install it using the requirements.txt file..\n"
 	try:
-		os.system("python -m pip install selenium")
-		os.system("python -m pip install Pillow")
-		os.system("python -m pip install requests")
+		os.system("pip install -r requirements.txt")
 	except:
-		try:
-			os.system("pip install selenium")
-			os.system("pip install Pillow")
-			os.system("pip install requests")
-		except:
-			print "[!] Can't install libraries "
-			print "[!!] Try to install it yourself"
-			exit(0)
+		print "[!] Failed installing it [ Install it yourself :p ]"
+		exit(0)
 
 finally:
 	from PIL import Image
@@ -451,16 +443,14 @@ def main():
   7.Other Services
   8.Customization [Soon]
 """
-	choice = int(raw_input(" Choice > "))
+	choice = input(" Choice > ")
 
 	#Chat Applications
 	if choice == 1:
 		print """
  1.WhatsApp
  2.WeChat
- 3.Line     [Soon]
- 4.Weibo
- 5.QQ Instant Messaging [Soon]
+ 3.Weibo
  00.Back To Main Menu
 	"""
 
@@ -501,10 +491,8 @@ def main():
 			WeChat()
 			main()
 
-		#3
-
 		#Weibo
-		elif int(choice_2) == 4:
+		elif int(choice_2) == 3:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			if port == "":port = 1337
 			clear()
@@ -513,14 +501,10 @@ def main():
 			Weibo()
 			main()
 
-		#QQ
-
-
 	#Mailing Services
 	if choice == 2:
 		print """
- 1.QQ Mail [Soon]
- 2.Yandex Mail
+ 1.Yandex Mail
  00.Back To Main Menu
 	"""
 		choice_2 = raw_input(" Second Choice > ")
@@ -528,9 +512,8 @@ def main():
 		if choice_2 == "00":
 			main()
 
-		#1
-
-		elif int(choice_2) == 2:
+		#Yandex Mail
+		elif int(choice_2) == 1:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
 				int(port)
@@ -548,20 +531,16 @@ def main():
 	#eCommerce
 	if choice == 3:
 		print """
- 1.Alibaba
- 2.Aliexpress
- 3.Taobao
- 4.Tmall [Soon]
- 5.1688.com [Soon]
- 6.Alimama [Soon]
- 7.Taobao Trips
+ 1.Taobao
+ 2.Taobao Trips
  00.Back To Main Menu
 	"""
 		choice_2 = raw_input(" Second Choice > ")
 		if choice_2 == "00":
 			main()
 
-		elif int(choice_2) == 3:
+		#Taobao
+		elif int(choice_2) == 1:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
 				int(port)
@@ -576,13 +555,8 @@ def main():
 			Taobao()
 			main()
 
-		#4
-
-		#5
-
-		#6
-
-		elif int(choice_2) == 7:
+		#Taobao Trips
+		elif int(choice_2) == 2:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
 				int(port)
@@ -602,13 +576,13 @@ def main():
 		print """
  1.AliPay
  2.Yandex Money
- 3.TenPay [Soon]
  00.Back To Main Menu
 	"""
 		choice_2 = raw_input(" Second Choice > ")
 		if choice_2 == "00":
 			main()
 
+		#AliPay
 		elif int(choice_2) == 1:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
@@ -624,6 +598,7 @@ def main():
 			AliPay()
 			main()
 
+		#Yandex Money
 		elif int(choice_2) == 2:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
@@ -638,7 +613,6 @@ def main():
 			Serve_it(port)
 			Yandex()
 			main()
-	#Mobile Management
 
 	#Passport Services
 	if choice == 5:
@@ -650,6 +624,7 @@ def main():
 		if choice_2 == "00":
 			main()
 
+		#Yandex Passport
 		elif int(choice_2) == 1:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
@@ -664,6 +639,7 @@ def main():
 			Serve_it(port)
 			Yandex()
 			main()
+
 	#Mobile Management Software
 	if choice == 6:
 		print """
@@ -675,6 +651,7 @@ def main():
 		if choice_2 == "00":
 			main()
 
+		#Airdroid
 		elif int(choice_2) == 1:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
@@ -697,13 +674,13 @@ def main():
  2.Zapper
  3.Trustly App
  4.Yelophone
- 5.Alibaba Yunos [Soon]
  00.Back To Main Menu
 """
 		choice_2 = raw_input(" Second Choice > ")
 		if choice_2 == "00":
 			main()
 
+		#MyDigiPass
 		elif int(choice_2) == 1:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
@@ -719,6 +696,7 @@ def main():
 			mydigipass()
 			main()
 
+		#Zapper
 		elif int(choice_2) == 2:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
@@ -734,6 +712,7 @@ def main():
 			Zapper()
 			main()
 
+		#Trustly App
 		elif int(choice_2) == 3:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
@@ -749,6 +728,7 @@ def main():
 			Trustly_App()
 			main()
 
+		#Yelophone
 		elif int(choice_2) == 4:
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			try:
@@ -770,5 +750,6 @@ def main():
 		#url = settings.get("WeChat","url")
 		#image_number = settings.get("WeChat","image_number")
 		#classname = settings.get("WeChat","classname")
+
 if __name__ == '__main__':
 	main()
