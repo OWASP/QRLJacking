@@ -11,8 +11,9 @@
 
 ## Installation on Windows
 
-	After downloading [the framework](https://github.com/OWASP/QRLJacking)
-  cd QrlJacking-Framework
+After downloading [the framework](https://github.com/OWASP/QRLJacking)
+  
+  	cd QrlJacking-Framework
 	pip install -r requirements.txt
 	python QRLJacker.py
 
