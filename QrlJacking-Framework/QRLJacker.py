@@ -39,6 +39,8 @@ def Serve_it(port=1337):
 		else:
 			print " [!] Serving files on "+str(port)+" port"
 			os.system("python -m SimpleHTTPServer "+str(port)+" > /dev/null 2>&1")
+		print " [N] Note : Now we created simple html file for you.."
+		print " [N]..if you want to create a custom scam,you will find the qr picture at the same folder [ Good Luck :D ]"
 	threading.Thread(target=serve,args=(port,)).start()
 
 def create_driver():
