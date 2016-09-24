@@ -34,10 +34,10 @@ settings = configparser.ConfigParser()
 def Serve_it(port=1337):
 	def serve(port):
 		if os.name=="nt":
-			print " [*] Serving files on http://localhost:"+str(port)
+			print " [*]  on http://localhost:"+str(port)
 			os.system("python -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
 		else:
-			print " [*] Serving files on http://localhost:"+str(port)
+			print " [*] Starting attacker session on http://localhost:"+str(port)
 			os.system("python -m SimpleHTTPServer "+str(port)+" > /dev/null 2>&1")
 	threading.Thread(target=serve,args=(port,)).start()
 
