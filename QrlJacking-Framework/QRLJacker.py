@@ -386,7 +386,7 @@ Now you have a local webserver hosting your QRLJacking payload, Here's some inst
 1. This is your always updated """+str(service_name)+""" QR Code</b>
 <img id="qrcodew" alt="Scan me!" src="tmp.png" style="display: block;"></b>
 2. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)</b>
-3. Point your victim to your phishing <a href='http://localhost:"""+str(port)+"""'>URL</a>, Convince to scan the QR code and Bob is your uncle!
+</br>3. Point your victim to your phishing <a href='http://localhost:"""+str(port)+"""'>URL</a>, Convince to scan the QR code and Bob is your uncle!
 </center>
 </body>
 </html>"""
@@ -410,7 +410,7 @@ Now you have a local webserver hosting your QRLJacking payload, Here's some inst
 1. This is your always updated """+str(service_name)+""" QR Code</b>
 <img id="qrcodew" alt="Scan me!" src="tmp.svg" style="display: block;"></b>
 2. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)</b>
-3. Point your victim to your phishing <a href='http://localhost:"""+str(port)+"""'>URL</a>, Convince to scan the QR code and Bob is your uncle!
+</br>3. Point your victim to your phishing <a href='http://localhost:"""+str(port)+"""'>URL</a>, Convince to scan the QR code and Bob is your uncle!
 </center>
 </body>
 </html>"""
