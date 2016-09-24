@@ -659,15 +659,17 @@ def Third_Method(url,image_number,s=10):
 def main():
 	clear()
 	print """
-  ___  ____  _		 _			_
- / _ \|  _ \| |	   | | __ _  ___| | _____ _ __
-| | | | |_) | |	_  | |/ _` |/ __| |/ / _ | '__|
-| |_| |  _ <| |___| |_| | (_| | (__|   |  __| |
- \__\_|_| \_|_____|\___/ \__,_|\___|_|\_\___|_|
 
-#Hacking With QRLJacking Attack Vector Become Easy
-#Attack Author: Mohamed A. Baset | @SymbianSyMoh
-#Coded By: Karim Shoair | @D4Vinci
+   ____  _____  _          _            _             
+  / __ \|  __ \| |        | |          | |            
+ | |  | | |__) | |        | | __ _  ___| | _____ _ __ 
+ | |  | |  _  /| |    _   | |/ _` |/ __| |/ / _ \ '__|
+ | |__| | | \ \| |___| |__| | (_| | (__|   <  __/ |   
+  \___\_\_|  \_\______\____/ \__,_|\___|_|\_\___|_|                                                                                                              
+  
+  #Hacking With QRLJacking Attack Vector Become Easy
+  #Attack Author: Mohamed A. Baset | @SymbianSyMoh
+  #Coded By: Karim Shoair | @D4Vinci
 
  Vulnerable Web Applications and Services:
   1.Chat Applications
