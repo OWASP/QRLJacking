@@ -855,7 +855,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make( "Yandex Money" , port )
+			make( "Yandex Money" , port , "svg")
 			Serve_it(port)
 			Yandex()
 			main()
