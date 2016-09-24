@@ -689,7 +689,6 @@ def main():
 	#Chat Applications
 
 	if choice == 9:
-		time.sleep(1.5)
 		exit(0)
 
 	if choice == 1:
