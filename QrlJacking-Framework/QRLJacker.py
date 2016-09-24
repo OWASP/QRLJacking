@@ -196,16 +196,17 @@ def Weibo():
 
 def WeChat():
 	driver = create_driver()
-	time.sleep(10)
+	time.sleep(5)
 	print " [*] Navigating To Website..."
 	driver.get("https://web.wechat.com")
-	time.sleep(10)
+	time.sleep(5)
 	while True:
-
+		
 		try:
-			imgs = driver.find_elements_by_tag_name('img')[0]
+			imgs = driver.find_elements_by_tag_name('img')
+			img = imgs[0]
 			print " [*] QR code image detected !"
-			src = imgs.get_attribute('src')
+			src = img.get_attribute('src')
 			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
 			print " [*] Saved To tmp.png"
