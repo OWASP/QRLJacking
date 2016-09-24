@@ -666,7 +666,6 @@ def main():
  | |  | |  _  /| |    _   | |/ _` |/ __| |/ / _ \ '__|
  | |__| | | \ \| |___| |__| | (_| | (__|   <  __/ |   
   \___\_\_|  \_\______\____/ \__,_|\___|_|\_\___|_|                                                                                                              
-  
   #Hacking With QRLJacking Attack Vector Become Easy
   #Attack Author: Mohamed A. Baset | @SymbianSyMoh
   #Coded By: Karim Shoair | @D4Vinci
