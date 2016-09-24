@@ -203,7 +203,7 @@ def WeChat():
 	while True:
 		
 		try:
-			imgs = driver.find_elements_by_tag_name('img')
+			imgs = driver.find_elements_by_class_name('img')
 			img = imgs[0]
 			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
