@@ -135,9 +135,9 @@ def Yandex():
 			time.sleep(20)
 			if "yandex.com" in webdriver.current_url.encode("utf-8"):
 			    if "mode=qr" not in webdriver.current_url.encode("utf-8"):
-                    print " [*] Refreshing page..."
-    			    driver.get("https://passport.yandex.com/auth?mode=qr")
-                    time.sleep(5)
+					print " [*] Refreshing page..."
+					driver.get("https://passport.yandex.com/auth?mode=qr")
+					time.sleep(5)
 			continue
 		except:
 			break
