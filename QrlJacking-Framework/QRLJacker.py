@@ -228,8 +228,8 @@ def AliPay():
 	while True:
 
 		try:
-			c = driver.find_element_by_class_name('ui-nav')[0]
-			t = c.find_elements_by_tag_name("li")[0]
+			c = driver.find_elements_by_class_name('ui-nav')[0]
+			button = c.find_elements_by_tag_name("li")[0]
 			print " [*] Clicking to show QR code image..."
 			button._execute(webdriver.remote.command.Command.CLICK_ELEMENT)
 			time.sleep(5)
@@ -246,7 +246,7 @@ def AliPay():
 			Screenshot("tmp.png" ,location ,size)
 			print " [*] Saved To tmp.png"
 			webdriver.delete_all_cookies()
-			time.sleep(10)
+			time.sleep(60)
 			print " [*] Refreshing page..."
 			driver.refresh()
 			continue
