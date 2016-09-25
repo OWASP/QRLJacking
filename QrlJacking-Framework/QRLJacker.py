@@ -313,7 +313,7 @@ def Zapper():
 	driver.get("https://www.zapper.com/login.php")
 	time.sleep(5)
 	while True:
-        img = driver.find_elements_by_tag_name("img")[3]
+		img = driver.find_elements_by_tag_name("img")[3]
 		print " [*] QR code image detected !"
 		src = img.get_attribute('src')
 		print " [*] Downloading the image.."
@@ -321,7 +321,7 @@ def Zapper():
 		print " [*] Saved To tmp.png"
 		time.sleep(20)
 		if "Login" not in driver.title.encode("utf-8"):
-            break
+			break
 
 def Trustly_App():
 	driver = create_driver()
