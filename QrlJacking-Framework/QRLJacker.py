@@ -659,8 +659,8 @@ def main():
  | |__| | | \ \| |___| |__| | (_| | (__|   <  __/ |   
   \___\_\_|  \_\______\____/ \__,_|\___|_|\_\___|_|                                                                                                              
   #QRLJacker is a customizable framework to demonstrate "QRLJacking Attack Vector" and shows How easy to hijack services that relies on QR Code Authentication!
-  #Attack Author: Mohamed A. Baset | @SymbianSyMoh
-  #Coded By: Karim Shoair | @D4Vinci
+  #A Social Engineering Attack Vector by: Mohamed A. Baset (@SymbianSyMoh)
+  #Coded by: Karim Shoair (@D4Vinci)
 
  Vulnerable Web Applications and Services:
   1.Chat Applications
