@@ -264,7 +264,7 @@ def Taobao():
 	while True:
 
 		try:
-			button_class = web.find_element_by_class_name("msg-err")
+			button_class = driver.find_element_by_class_name("msg-err")
 			button = button_class.find_elements_by_tag_name("a")[0]
 			print " [*] Clicking to reload QR code image..."
 			button._execute(webdriver.remote.command.Command.CLICK_ELEMENT)
@@ -333,7 +333,7 @@ def Trustly_App():
 	while True:
 
 		try:
-			c = web.find_elements_by_class_name("qrcode-tab")[0]
+			c = driver.find_elements_by_class_name("qrcode-tab")[0]
 			img = c.find_elements_by_tag_name("img")[0]
 			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
@@ -354,7 +354,7 @@ def Yelophone():
 	while True:
 
 		try:
-			c = web.find_elements_by_id("qrcode")[0]
+			c = driver.find_elements_by_id("qrcode")[0]
 			print " [*] QR code image detected !"
 			src = c.get_attribute("src")
 			print " [*] Downloading the image.."
