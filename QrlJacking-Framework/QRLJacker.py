@@ -207,10 +207,9 @@ def WeChat():
 	driver.get("https://web.wechat.com")
 	time.sleep(5)
 	while True:
-
 		try:
-			imgs = driver.find_elements_by_tag_name('img')
-			img = imgs[0]
+			iclass = driver.find_element_by_class_name('qrcode')[0]
+			img = iclass.find_elements_by_tag_name("img")[0]
 			print " [*] QR code image detected !"
 			src = img.get_attribute('src')
 			print " [*] Downloading the image.."
