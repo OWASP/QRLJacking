@@ -658,8 +658,7 @@ def main():
  | |  | |  _  /| |    _   | |/ _` |/ __| |/ / _ \ '__|
  | |__| | | \ \| |___| |__| | (_| | (__|   <  __/ |   
   \___\_\_|  \_\______\____/ \__,_|\___|_|\_\___|_|                                                                                                              
-  #QRLJacker is a customizable framework to demonstrate "QRLJacking Attack Vector"
-  #and shows How easy to hijack services that relies on QR Code Authentication!
+  #QRLJacker is a customizable framework to demonstrate "QRLJacking Attack Vector" and shows How easy to hijack services that relies on QR Code Authentication!
   #Attack Author: Mohamed A. Baset | @SymbianSyMoh
   #Coded By: Karim Shoair | @D4Vinci
 
