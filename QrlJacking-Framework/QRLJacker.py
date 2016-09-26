@@ -22,7 +22,7 @@ except:
 		os.system("pip install -r requirements.txt")
 	except:
 		print "[*] Failed installing the requirements [ Install it yourself :p ]"
-		exit(0)
+		exit()
 
 finally:
 	from PIL import Image
@@ -72,7 +72,7 @@ def create_driver():
 						return web
 					except:
 						print " Error: \n Can not call any WebBrowsers\n  Check your Installed Browsers!"
-						exit(0)
+						exit()
 
 #Stolen from stackoverflow :D
 def Screenshot(PicName ,location ,size):
@@ -133,8 +133,8 @@ def Yandex():
 			f = open("tmp.svg","w").write(data)
 			print " [*] Saved To tmp.svg"
 			time.sleep(20)
-			if "yandex.com" in webdriver.current_url.encode("utf-8"):
-			    if "mode=qr" not in webdriver.current_url.encode("utf-8"):
+			if "yandex.com" in driver.current_url.encode("utf-8"):
+			    if "mode=qr" not in driver.current_url.encode("utf-8"):
 					print " [*] Refreshing page..."
 					driver.get("https://passport.yandex.com/auth?mode=qr")
 					time.sleep(5)
@@ -193,7 +193,7 @@ def Weibo():
 			print " [*] Downloading the image.."
 			qr = urllib.urlretrieve(src, "tmp.png")
 			print " [*] Saved To tmp.png"
-			time.sleep(10)
+			time.sleep(60)
 			print " [*] Refreshing page..."
 			driver.refresh()
 			continue
@@ -680,7 +680,7 @@ def main():
 	#Chat Applications
 
 	if choice == 9:
-		exit(0)
+		exit()
 
 	if choice == 1:
 		print """
