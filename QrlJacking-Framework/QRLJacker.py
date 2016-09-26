@@ -432,7 +432,7 @@ def Add_website():
 		except ValueError:
 			port = 1337
 		print " [*] Saving settings..."
-		settings.read("Data/Custom.ini")
+		settings.read(os.path.join('Data', 'Custom.ini'))
 		name = url.replace("http://","").replace("https://","").split("/")[0]
 		settings.add_section(name)
 		settings.set(name,"method","1")
@@ -440,7 +440,7 @@ def Add_website():
 		settings.set(name,"url",url)
 		settings.set(name,"image_number",str(image_number))
 		settings.set(name,"Seconds",str(Seconds))
-		settings.write(open("Data/Custom.ini","wb"))
+		settings.write(open(os.path.join('Data', 'Custom.ini'),"wb"))
 		clear()
 		print " [*] Settings saved."
 		print " [*] Running the exploit..."
@@ -464,14 +464,14 @@ def Add_website():
 		except ValueError:
 			port = 1337
 		print " [*] Saving settings..."
-		settings.read("Data/Custom.ini")
+		settings.read(os.path.join('Data', 'Custom.ini'))
 		name = url.replace("http://","").replace("https://","").split("/")[0]
 		settings.add_section(name)
 		settings.set(name,"method","2")
 		settings.set(name,"url",url)
 		settings.set(name,"image_number",str(image_number))
 		settings.set(name,"Seconds",str(Seconds))
-		settings.write(open("Data/Custom.ini","wb"))
+		settings.write(open(os.path.join('Data', 'Custom.ini'),"wb"))
 		clear()
 		print " [*] Settings saved."
 		print " [*] Running the exploit..."
@@ -495,14 +495,14 @@ def Add_website():
 		except ValueError:
 			port = 1337
 		print " [*] Saving settings..."
-		settings.read("Data/Custom.ini")
+		settings.read(os.path.join('Data', 'Custom.ini'))
 		name = url.replace("http://","").replace("https://","").split("/")[0]
 		settings.add_section(name)
 		settings.set(name,"method","3")
 		settings.set(name,"url",url)
 		settings.set(name,"image_number",str(image_number))
 		settings.set(name,"Seconds",str(Seconds))
-		settings.write(open("Data/Custom.ini","wb"))
+		settings.write(open(os.path.join('Data', 'Custom.ini'),"wb"))
 		clear()
 		print " [*] Settings saved."
 		print " [*] Running the exploit..."
@@ -516,7 +516,7 @@ def Add_website():
 		main()
 
 def Use_website():
-	settings.read("Data/Custom.ini")
+	settings.read(os.path.join('Data', 'Custom.ini'))
 	print "\n"
 	for n,w in enumerate(settings.sections()):
 		print " "+str(n)+"."+w.encode("utf-8")
@@ -558,7 +558,7 @@ def Use_website():
 		Use_website()
 
 def Remove_website():
-	settings.read("Data/Custom.ini")
+	settings.read(os.path.join('Data', 'Custom.ini'))
 	print "\n"
 	for n,w in enumerate(settings.sections()):
 		print " "+str(n)+"."+w.encode("utf-8")
@@ -1024,12 +1024,12 @@ def main():
 		else:
 			main()
 
-		#settings.read("Data/Custom.ini")
+		#settings.read(os.path.join('Data', 'Custom.ini'))
 		#sections = settings.sections()
 		#url = settings.get(section,"url")
 		#settings.add_section(name)
 		#settings.set(name,"url",url)
-		#settings.write(open("Data/Custom.ini","wb"))
+		#settings.write(open(os.path.join('Data', 'Custom.ini'),"wb"))
 
 	else:
 		main()
