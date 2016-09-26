@@ -246,7 +246,6 @@ def AliPay():
 			print " [*] Grabbing photo.."
 			Screenshot("tmp.png" ,location ,size)
 			print " [*] Saved To tmp.png"
-			webdriver.delete_all_cookies()
 			time.sleep(60)
 			print " [*] Refreshing page..."
 			driver.refresh()
