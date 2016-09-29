@@ -1,5 +1,5 @@
 # QrlJacker - QrlJacking Exploitation Framework
-### A python framework which goal is to exploit QrlJacking attack vector easily
+### A python framework whose goal is to exploit the QrlJacking attack vector easily
 
 # Installation
 
