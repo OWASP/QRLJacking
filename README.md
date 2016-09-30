@@ -23,7 +23,7 @@ QRLJacking attack consists of two sides:
 ## Server Setup (Attacker's hosting):
 1. Upload "qrHandler.php" to your server. This PHP file is used to convert the base64 QR code string into a valid .JPG file
 
-	Now we have a valid generated QR image named "tmp.jpg" residing in the same root folder of your files and will be updated whenever that php file will be called. We can put it anywhere, for example, on a fake WhatsApp page (a scam page with an offer related to WhatsApp). You can get creative with this! 
+	Now we have a valid generated QR image named "tmp.jpg" residing in the same root folder of your files and will be updated whenever that PHP file will be called. We can put it anywhere, for example, on a fake WhatsApp page (a scam page with an offer related to WhatsApp). You can get creative with this! 
 
 2. Now update the "phishing.html" file to your prefered phishing page source code.
 
