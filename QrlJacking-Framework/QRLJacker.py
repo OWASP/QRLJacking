@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #-*- encoding:utf-8 -*-
 #Author: @D4Vinci
-import base64 ,time ,os ,urllib ,sys ,threading ,configparser
+import base64 ,time ,os ,urllib ,sys ,threading
 from binascii import a2b_base64
 
 def clear():
@@ -12,7 +12,7 @@ def clear():
 
 try:
 	from PIL import Image
-	import selenium, requests
+	import selenium, requests, configparser
 	from selenium import webdriver
 
 except:

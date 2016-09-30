@@ -1,18 +1,17 @@
 # QrlJacker - QrlJacking Exploitation Framework
 ### A python framework which goal is to exploit QrlJacking attack vector easily
 
-# Installation
-
 ## Requirements
 * Python 2.7.x
 * Requests
 * Pillow
 * Selenium
+* configparser
 
 ## Installation on Windows
 
 After downloading [the framework](https://github.com/OWASP/QRLJacking)
-  
+
   	cd QrlJacking-Framework
 	pip install -r requirements.txt
 	python QRLJacker.py
