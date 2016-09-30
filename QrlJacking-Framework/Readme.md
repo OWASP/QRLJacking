@@ -33,7 +33,7 @@ After downloading [the framework](https://github.com/OWASP/QRLJacking)
 	python QRLJacker.py
 
 ## ScreenShot
-![alt img](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.PNG)
+![alt img](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.JPG)
 
 ##Currently QrlJacker support the following websites :
 ####1)whatsapp
