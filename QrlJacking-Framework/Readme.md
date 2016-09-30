@@ -1,5 +1,5 @@
 # QrlJacker - QrlJacking Exploitation Framework
-### A python framework which goal is to exploit QrlJacking attack vector easily
+### A python framework with the goal of easily exploiting the QrlJacking attack vector
 
 # Installation
 
@@ -11,7 +11,7 @@
 
 ## Installation on Windows
 
-After downloading [the framework](https://github.com/OWASP/QRLJacking)
+After downloading [this framework](https://github.com/OWASP/QRLJacking)
   
   	cd QrlJacking-Framework
 	pip install -r requirements.txt
@@ -34,10 +34,10 @@ After downloading [the framework](https://github.com/OWASP/QRLJacking)
 	python QRLJacker.py
 
 ## ScreenShot
-![alt img](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.PNG)
+![Screenshot of QRLJacking on the command line](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.PNG)
 
-##Currently QrlJacker support the following websites :
-####1)whatsapp
+##Currently QrlJacker supports the following websites :
+####1)Whatsapp
 ####2)WeChat
 ####3)Weibo
 ####4)Yandex
