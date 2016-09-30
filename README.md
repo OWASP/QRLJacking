@@ -9,7 +9,7 @@
 
 Find documentation in our [Wiki](https://github.com/OWASP/QRLJacking/wiki).
 ## What is QRLJacking?
-QRLJacking or Quick Response Code Login Jacking is a simple social engineering attack vector capable of session hijacking affecting all applications that rely on “Login with QR code” feature as a secure way to login into accounts. In a simple way, In a nutshell victim scans the attacker’s QR code results of session hijacking.
+QRLJacking or Quick Response Code Login Jacking is a simple social engineering attack vector capable of session hijacking affecting all applications that rely on “Login with QR code” feature as a secure way to login into accounts. In a nutshell, the victim scans the attacker’s QR code results of session hijacking.
 
 
 ## What are the requirements to achieve a successful QRLJacking attack?
@@ -21,11 +21,11 @@ QRLJacking attack consists of two sides:
 ### Our example will be: WhatsApp Web Application!
 
 ## Server Setup (Attacker's hosting):
-1. Upload "qrHandler.php" to your server, this php file is used to convert the base64 qr code string into a valid .JPG file
+1. Upload "qrHandler.php" to your server. This PHP file is used to convert the base64 QR code string into a valid .JPG file
 
-	Now we have a valid generated QR image named "tmp.jpg" residing in the same root folder of your files and will be updated whenever that php file will be called, So we can put it anywhere "for example a fake WhatsApp page, a scam page with an offer related to WhatsApp, etc... depending on your creativity"
+	Now we have a valid generated QR image named "tmp.jpg" residing in the same root folder of your files and will be updated whenever that php file will be called. We can put it anywhere, for example, on a fake WhatsApp page (a scam page with an offer related to WhatsApp). You can get creative with this! 
 
-2. Now update the "phishing.html" file your prefered phishing page source code.
+2. Now update the "phishing.html" file to your prefered phishing page source code.
 
 
 ## Client Side Setup (Attacker's browser):
