@@ -21,7 +21,11 @@ except:
 	try:
 		os.system("pip install -r requirements.txt")
 	except:
-		print "[*] Failed installing the requirements [ Install it yourself :p ]"
+		try:
+			#if python not in the path (In windows case)
+			os.system(str(sys.executable)+" -m pip install -r requirements.txt")
+		except:
+			print "[*] Failed installing the requirements [ Install it yourself :p ]"
 		exit()
 
 finally:
@@ -39,6 +43,7 @@ def Serve_it(port=1337):
 				os.system("python -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
 			except:
 				print " [*] Starting victim session on http://localhost:"+str(port)
+				#if python not in the path (In windows case)
 				os.system(str(sys.executable)+" -m SimpleHTTPServer "+str(port)+" > NUL 2>&1")
 		else:
 			print " [*] Starting victim session on http://localhost:"+str(port)
