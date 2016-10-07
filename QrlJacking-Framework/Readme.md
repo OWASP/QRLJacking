@@ -35,8 +35,8 @@ After downloading [the framework](https://github.com/OWASP/QRLJacking)
 ## ScreenShot
 ![alt img](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.JPG)
 
-##Currently QrlJacker support the following websites :
-####1)whatsapp
+##Currently QrlJacker supports the following websites :
+####1)Whatsapp
 ####2)WeChat
 ####3)Weibo
 ####4)Yandex
