@@ -12,7 +12,7 @@
 
 After downloading [the framework](https://github.com/OWASP/QRLJacking)
 
-  	cd QrlJacking-Framework
+  	cd QRLJacking/QrlJacking-Framework
 	pip install -r requirements.txt
 	python QRLJacker.py
 
@@ -20,14 +20,14 @@ After downloading [the framework](https://github.com/OWASP/QRLJacking)
 
 	sudo apt-get install python-dev python-pip libncurses5-dev git
 	git clone https://github.com/OWASP/QRLJacking
-	cd QrlJacking-Framework
+	cd QRLJacking/QrlJacking-Framework
 	pip install -r requirements.txt
 	python QRLJacker.py
 
 ## Installation on OSX
 
 	git clone https://github.com/OWASP/QRLJacking
-	cd QrlJacking-Framework
+	cd QRLJacking/QrlJacking-Framework
 	sudo easy_install pip
 	sudo pip install -r requirements.txt
 	python QRLJacker.py
