@@ -1,5 +1,5 @@
-# QrlJacker - QrlJacking Exploitation Framework
-### A python framework which goal is to exploit QrlJacking attack vector easily
+# QRLJacker - QRLJacking Exploitation Framework
+### A customizable framework to demonstrate "QRLJacking Attack Vector" and shows How easy to hijack services that relies on QR Code Authentication!
 
 ## Requirements
 * Python 2.7.x
