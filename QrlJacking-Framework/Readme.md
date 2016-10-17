@@ -1,5 +1,5 @@
 # QRLJacker - QRLJacking Exploitation Framework
-### A customizable framework to demonstrate "QRLJacking Attack Vector" and shows How easy to hijack services that relies on QR Code Authentication!
+### A customizable framework to demonstrate "QRLJacking Attack Vector" and shows How easy to hijack services that rely on QR Code Authentication!
 
 ## Requirements
 * Python 2.7.x
@@ -12,25 +12,25 @@
 
 After downloading [the framework](https://github.com/OWASP/QRLJacking)
 
-  	cd QRLJacking/QrlJacking-Framework
-	pip install -r requirements.txt
-	python QRLJacker.py
+      cd QRLJacking/QrlJacking-Framework
+    pip install -r requirements.txt
+    python QRLJacker.py
 
 ## Installation on Ubuntu 16.04
 
-	sudo apt-get install python-dev python-pip libncurses5-dev git
-	git clone https://github.com/OWASP/QRLJacking
-	cd QRLJacking/QrlJacking-Framework
-	pip install -r requirements.txt
-	python QRLJacker.py
+    sudo apt-get install python-dev python-pip libncurses5-dev git
+    git clone https://github.com/OWASP/QRLJacking
+    cd QRLJacking/QrlJacking-Framework
+    pip install -r requirements.txt
+    python QRLJacker.py
 
 ## Installation on OSX
 
-	git clone https://github.com/OWASP/QRLJacking
-	cd QRLJacking/QrlJacking-Framework
-	sudo easy_install pip
-	sudo pip install -r requirements.txt
-	python QRLJacker.py
+    git clone https://github.com/OWASP/QRLJacking
+    cd QRLJacking/QrlJacking-Framework
+    sudo easy_install pip
+    sudo pip install -r requirements.txt
+    python QRLJacker.py
 
 ## ScreenShot
 ![alt img](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.JPG)
