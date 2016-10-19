@@ -50,7 +50,7 @@ The technical paper clarifying everything about the QRLJacking attack vector can
 
 # Vulnerable Web Applications and Services
 
-There are a lot of well-known web applications and services which were vulnerable to this attack unttil the date we wrote this paper. Here are some examples (that we have reported) including, but not limited to:
+There are a lot of well-known web applications and services which were vulnerable to this attack until the date we wrote this paper. Here are some examples (that we have reported) including, but not limited to:
 
 ### Chat Applications:
 
