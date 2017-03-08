@@ -1,43 +1,42 @@
-# QrlJacker - QrlJacking Exploitation Framework
-### A python framework which goal is to exploit QrlJacking attack vector easily
-
-# Installation
+# QRLJacker - QRLJacking Exploitation Framework
+### A customizable framework to demonstrate "QRLJacking Attack Vector" and shows How easy to hijack services that rely on QR Code Authentication!
 
 ## Requirements
 * Python 2.7.x
 * Requests
 * Pillow
 * Selenium
+* configparser
 
 ## Installation on Windows
 
 After downloading [the framework](https://github.com/OWASP/QRLJacking)
-  
-  	cd QrlJacking-Framework
-	pip install -r requirements.txt
-	python QRLJacker.py
+
+      cd QRLJacking/QrlJacking-Framework
+    pip install -r requirements.txt
+    python QRLJacker.py
 
 ## Installation on Ubuntu 16.04
 
-	sudo apt-get install python-dev python-pip libncurses5-dev git
-	git clone https://github.com/OWASP/QRLJacking
-	cd QrlJacking-Framework
-	pip install -r requirements.txt
-	python QRLJacker.py
+    sudo apt-get install python-dev python-pip libncurses5-dev git
+    git clone https://github.com/OWASP/QRLJacking
+    cd QRLJacking/QrlJacking-Framework
+    pip install -r requirements.txt
+    python QRLJacker.py
 
 ## Installation on OSX
 
-	git clone https://github.com/OWASP/QRLJacking
-	cd QrlJacking-Framework
-	sudo easy_install pip
-	sudo pip install -r requirements.txt
-	python QRLJacker.py
+    git clone https://github.com/OWASP/QRLJacking
+    cd QRLJacking/QrlJacking-Framework
+    sudo easy_install pip
+    sudo pip install -r requirements.txt
+    python QRLJacker.py
 
 ## ScreenShot
-![alt img](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.PNG)
+![alt img](https://github.com/OWASP/QRLJacking/blob/master/QrlJacking-Framework/ScreenShot.JPG)
 
-##Currently QrlJacker support the following websites :
-####1)whatsapp
+##Currently QrlJacker supports the following websites :
+####1)Whatsapp
 ####2)WeChat
 ####3)Weibo
 ####4)Yandex
