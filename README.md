@@ -28,7 +28,9 @@ The QRLJacking attack consists of two sides:
 2. Now update the "phishing.html" file with your prefered phishing page source code.
 
 
-## Client Side Setup (Attacker's browser):
+## Exploitation, Client Side Setup (Attacker's browser):
+
+Manually:
 
 1. Open your Firefox browser.
 2. Write "about:config" in the url area, click the "I'll be careful, I promise" confirmation button.
@@ -39,6 +41,9 @@ The QRLJacking attack consists of two sides:
 
 Once the QR Code is scanned, the victim's session is yours.
 
+Automatically:
+
+Using QRLJacker - [QRLJacking Exploitation Framework] (https://github.com/OWASP/QRLJacking/tree/master/QrlJacking-Framework).
 
 ## Demo Video:
 Attacking WhatsApp Web Application and performing a MITM attack to inject a bogus ad including WhatsApp QR Code.
