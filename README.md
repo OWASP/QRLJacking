@@ -43,7 +43,7 @@ Once the QR Code is scanned, the victim's session is yours.
 
 Automatically:
 
-Using QRLJacker - [QRLJacking Exploitation Framework] (https://github.com/OWASP/QRLJacking/tree/master/QrlJacking-Framework).
+Using QRLJacker - [QRLJacking Exploitation Framework](https://github.com/OWASP/QRLJacking/tree/master/QrlJacking-Framework)
 
 ## Demo Video:
 Attacking WhatsApp Web Application and performing a MITM attack to inject a bogus ad including WhatsApp QR Code.
