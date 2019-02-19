@@ -111,4 +111,4 @@ Thanks to:
 - [Ahmed Abbas (@Fiberghost)](https://github.com/fiberghost)
 - [Hiram Camarillo (@Hiramcoop)](https://github.com/hiramcoop)
 - [Juan Carlos Mejia (@Th3kr45h)](https://github.com/th3kr45h)
-- Mohamed Elfateh (OWASP Egypt)
+
