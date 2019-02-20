@@ -52,28 +52,28 @@ def Serve_it(port=1337):
 
 def create_driver():
 	try:
-		web = webdriver.Firefox()
 		print " [*] Opening Mozila FireFox..."
+		web = webdriver.Firefox()
 		return web
 	except:
 		try:
-			web = webdriver.Chrome()
 			print " [*] We got some errors running Firefox, Opening Google Chrome instead..."
+			web = webdriver.Chrome()
 			return web
 		except:
 			try:
-				web = webdriver.Opera()
 				print " [*] We got some errors running Chrome, Opening Opera instead..."
+				web = webdriver.Opera()
 				return web
 			except:
 				try:
-					web = webdriver.Edge()
 					print " [*] We got some errors running Opera, Opening Edge instead..."
+					web = webdriver.Edge()
 					return web
 				except:
 					try:
-						web = webdriver.Ie()
 						print " [*] We got some errors running Edge, Opening Internet Explorer instead..."
+						web = webdriver.Ie()
 						return web
 					except:
 						print " Error: \n Can not call any WebBrowsers\n  Check your Installed Browsers!"
