@@ -136,29 +136,35 @@ Module commands
 
 ## Taking advantage of the core
 ### Commands autocomplete
-The autocomplete done in this framework is not the usual one you always see :smile:
-	1. It's designed to fix typos in typed commands to the most similar command with just one tab click so `saerch` becomes `search` and so on, even if you typed any random word similar to an command in this framework.
-	2. For the lazy ones like me, it can predict what module you are trying to use by typing any part of it. For example if you typed `use wh` and clicked tab, it would be replaced with `use grabber/whatsapp` and so on. You are welcome :smile:
-	3. If you typed some command wrong and pressed enter, the framework tells you what's the nearest command to what you wrote which could be what you wanted.
-	4. Some less impressive things like autocomplete for options of the current module after `set` command, autocomplete for modules after `use` and `info` commands and finally it converts all uppercase to lowercase automatically just-in-case you switched cases by mistake while typing :3
-	5. Finally you find the normal things you expect in autocomplete like commands autocompletion and persistent history :smile:
+The autocomplete feature that has been implemented in this framework is not the usual one you always see, here are some highlights:
+
+1. It's designed to fix typos in typed commands to the most similar command with just one tab click so `saerch` becomes `search` and so on, even if you typed any random word similar to an command in this framework.
+
+2. For you lazy-ones out there like me, it can predict what module you are trying to use by typing any part of it. For example if you typed `use wh` and clicked tab, it would be replaced with `use grabber/whatsapp` and so on. I can see your smile, You are welcome!
+
+3. If you typed any wrong command then pressed enter, the framework will tell you what is the nearest command to what you have typed which could be the one you really wanted.
+
+4. Some less impressive things like autocomplete for options of the current module after `set` command, autocomplete for modules after `use` and `info` commands and finally it converts all uppercase to lowercase automatically just-in-case you switched cases by mistake while typing.
+
+5. Finally, you'll find your normal autocopmletion things you were using before, like commands autocompletion and persistent history, etc...
 
 ### Searching for modules
-- In QrlJacker you can search for a module by its name, something written in its description or even the author name!
+- In QRLJacker you can search for a module by its name, something written in its description or even the author name!
 
 ### Automation
-	- As you must noticed you can use a resource file from command-line arguments or send commands directly
-	- Inside the framework you can use `makerc` command like in Metasploit but this time it only saves the important commands which doesn't gave error also.
+	- As you may noticed, you can use a resource file from command-line arguments before starting the framework itself or send commands directly.
+	- Inside the framework you can use `makerc` command like in Metasploit but this time it only saves the correct important commands.
 	- There are `history` and `resource` commands so you don't need to exit the framework.
-	- You can execute many commands at the same time by splitting them with semi-colon and more
+	- You can execute as many commands as you want at the same time by splitting them with semi-colon and many more left to be discovered by yourself.
 
 **Reporting an issue**
-	- Before reporting an issue you found, activate the debug mode by using the `debug` command or the debug command-line argument and once the error happens again, the framework will print the error trace-back. Also debug mode activates some hidden commands which will help us in debugging the error with you :smile:
-	- And now make sure when you are reporting an issue to provide the basic info like your system, python version and the output from the debug mode.
+	- Before reporting an issue, activate the debug mode by using the `debug` command or the debug commandline argument and once the error happens again, the framework will print the error trace-back. Also debug mode activates some hidden commands which will help us in debugging the error and fix the problem for you.
+	- Finally, make sure when reporting the issue to provide the very basic info like your system, python version and the output from the debugging mode.
 
 ## Development
 If you want to write your own module, read [the development docs from here](docs/README.md)
 
 ## ToDo:
-1. Write modules for other websites
-2. Write post modules for the framework
+1. Write modules for other websites and services.
+2. Write post-exploitation modules for the framework.
+3. TBD
