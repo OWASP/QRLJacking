@@ -91,6 +91,7 @@ MyDigiPass, Zapper & Zapper WordPress Login by QR Code plugin, Trustly App, Yelo
 
 
 [Mohamed Abdelbasset Elnouby (@SymbianSyMoh)](https://github.com/SymbianSyMoh)
+
 Mohamed.Baset@OWASP.org
 
 # Acknowledgements
