@@ -1,5 +1,5 @@
 # QRLJacker - QRLJacking Exploitation Framework
-### A customizable framework to demonstrate "QRLJacking Attack Vector" and to show how easy it is to hijack services that rely on QR Code Authentication!
+### A highly customizable framework to demonstrate "[QRLJacking Attack Vector](https://github.com/OWASP/QRLJacking)" mainly to show how it easy to hijack services that rely on QR Code Authentication!
 
 ## Screenshot
 ![alt img](Screenshots/Screenshot1.png)
@@ -156,7 +156,7 @@ The autocomplete feature that has been implemented in this framework is not the 
 - There are `history` and `resource` commands so you don't need to exit the framework.
 - You can execute as many commands as you want at the same time by splitting them with semi-colon and many more left to be discovered by yourself.
 
-## Reporting an issue**
+## Reporting an issue
 - Before reporting an issue, activate the debug mode by using the `debug` command or the debug commandline argument and once the error happens again, the framework will print the error trace-back. Also debug mode activates some hidden commands which will help us in debugging the error and fix the problem for you.
 - Finally, make sure when reporting the issue to provide the very basic info like your system, python version and the output from the debugging mode.
 
