@@ -62,7 +62,7 @@ def grab_wanted(cmd,keywords):
 
 def check_version():
     #check for core version online
-    u = "https://raw.githubusercontent.com/OWASP/QRLJacking/tree/master/QrlJacking-Framework/core/Data/version.txt"
+    u = "https://raw.githubusercontent.com/OWASP/QRLJacking/master/QRLJacker/core/Data/version.txt"
     try:
         res = urlopen(u).read().decode('utf-8').strip()
         return res

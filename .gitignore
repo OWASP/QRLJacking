@@ -6,3 +6,8 @@ QRLJacking-Framework/tmp.png
 QRLJacking-Framework/tmp.svg
 
 .DS_Store
+
+__pycache__
+.autocomplete_history
+tmp.png
+full.png
