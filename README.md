@@ -91,17 +91,10 @@ MyDigiPass, Zapper & Zapper WordPress Login by QR Code plugin, Trustly App, Yelo
 
 
 [Mohamed Abdelbasset Elnouby (@SymbianSyMoh)](https://github.com/SymbianSyMoh)
-
-Information Security Researcher
-
-Seekurity Labs
-
-MaeBaset@Seekurity.com
+Mohamed.Baset@OWASP.org
 
 # Acknowledgements
-I would like to personally thank the talented people who helped shape the QRLJacking attack and got it out into the light. (List in no particular order)
-
-Thanks to:
+(List in no particular order)
 
 - [Mohamed Abdel Aty (@M_Aty)](https://github.com/mohamedaty)
 - [Mostafa Kassem (@Zanzofily)](https://github.com/Zanzofily)
