@@ -171,4 +171,5 @@ If you want to write your own module, read [the development docs from here](docs
 
 ## OWASP's links reference
 https://www.owasp.org/index.php/QRLJacking
+
 https://www.owasp.org/index.php/OWASP_QRLJacker
