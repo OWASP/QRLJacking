@@ -148,16 +148,15 @@ The autocomplete feature that has been implemented in this framework is not the 
 
 5. Finally, you'll find your normal autocopmletion things you were using before, like commands autocompletion and persistent history, etc...
 
-### Searching for modules
-- In QRLJacker you can search for a module by its name, something written in its description or even the author name!
+6. Searching for modules in QRLJacker is so easy, you can search for a module by its name, something written in its description or even the author name.
 
-### Automation
+## Automation
 - As you may noticed, you can use a resource file from command-line arguments before starting the framework itself or send commands directly.
 - Inside the framework you can use `makerc` command like in Metasploit but this time it only saves the correct important commands.
 - There are `history` and `resource` commands so you don't need to exit the framework.
 - You can execute as many commands as you want at the same time by splitting them with semi-colon and many more left to be discovered by yourself.
 
-**Reporting an issue**
+## Reporting an issue**
 - Before reporting an issue, activate the debug mode by using the `debug` command or the debug commandline argument and once the error happens again, the framework will print the error trace-back. Also debug mode activates some hidden commands which will help us in debugging the error and fix the problem for you.
 - Finally, make sure when reporting the issue to provide the very basic info like your system, python version and the output from the debugging mode.
 
