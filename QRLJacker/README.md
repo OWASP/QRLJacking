@@ -164,7 +164,11 @@ The autocomplete feature that has been implemented in this framework is not the 
 ## Development
 If you want to write your own module, read [the development docs from here](docs/README.md)
 
-## ToDo:
+## Future ToDos:
 1. Write modules for other websites and services.
 2. Write post-exploitation modules for the framework.
 3. TBD
+
+## OWASP's links reference
+https://www.owasp.org/index.php/QRLJacking
+https://www.owasp.org/index.php/OWASP_QRLJacker
