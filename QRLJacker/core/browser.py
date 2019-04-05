@@ -41,6 +41,7 @@ class headless_browsers:
         self.opts.add_argument("--headless") # To make firefox invisible of course (Headless)
         self.browsers = {} # Here we save all the browsers we create so we can control and use later
         self.useragent = ""
+        self.sessions_file = os.path.join("core","sessions.json")
 
     def new_session(self, module_name, url, useragent="(random)"):
         if self.browsers!={} and module_name in list(self.browsers.keys()) and self.browsers[module_name]["Status"]:
@@ -149,7 +150,7 @@ class headless_browsers:
         if Settings.debug:
             status("localStorage data saved in "+session_file_name)
         # Now let's save session details into sessions file
-        with open( os.path.join("sessions","sessions.json") ) as f:
+        with open( self.sessions_file ) as f:
             try:
                 sessions = json.load(f)
             except:
@@ -170,7 +171,7 @@ class headless_browsers:
             }
         }
         sessions.update(session)
-        f = open( os.path.join("sessions","sessions.json"),"w" )
+        f = open( self.sessions_file,"w" )
         json.dump(sessions, f, indent=2)
         f.close()
         status("Session saved successfully")
@@ -185,7 +186,7 @@ class headless_browsers:
         if Settings.debug:
             status("Cookies saved in "+session_file_name)
         # Now let's save session details into sessions file
-        with open( os.path.join("sessions","sessions.json") ) as f:
+        with open( self.sessions_file ) as f:
             try:
                 sessions = json.load(f)
             except:
@@ -206,7 +207,7 @@ class headless_browsers:
             }
         }
         sessions.update(session)
-        f = open( os.path.join("sessions","sessions.json"),"w" )
+        f = open( self.sessions_file,"w" )
         json.dump(sessions, f, indent=2)
         f.close()
         status("Session saved successfully")
@@ -235,9 +236,10 @@ class visible_browsers:
     # Here we open sessions for user with cookies we already have from sessions
     def __init__(self):
         self.browsers = []
+        self.sessions_file = os.path.join("core","sessions.json")
 
     def load_localstorage(self, session_id):
-        sessions = json.load(open( os.path.join("sessions","sessions.json") ))
+        sessions = json.load(open( self.sessions_file ))
         storage_path = sessions[str(session_id)]["session_path"]
         url = sessions[str(session_id)]["web_url"]
         # Setting useragent to the same one the session saved with
@@ -260,7 +262,7 @@ class visible_browsers:
         self.browsers.append(browser)
 
     def load_cookie(self, session_id):
-        sessions = json.load(open( os.path.join("sessions","sessions.json") ))
+        sessions = json.load(open( self.sessions_file ))
         cookie_path = sessions[str(session_id)]["session_path"]
         url = sessions[str(session_id)]["web_url"]
         # Setting useragent to the same one the session saved with

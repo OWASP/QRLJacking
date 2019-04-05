@@ -250,7 +250,8 @@ def command_use(p=False):
 			error(p+" module not found!")
 
 def command_sessions(text=""):
-	sessions = json.load(open( os.path.join("sessions","sessions.json") ))
+	sessions_file = os.path.join("core","sessions.json")
+	sessions = json.load(open( sessions_file ))
 	try:
 		cmd = sessions_parser.parse_args(text.split())
 	except:
@@ -302,7 +303,7 @@ def command_sessions(text=""):
 				session_file = sessions[cmd.k]["session_path"]
 				os.remove(session_file)
 				sessions.pop(cmd.k)
-				f = open( os.path.join("sessions","sessions.json"),"w" )
+				f = open( sessions_file,"w" )
 				json.dump(sessions, f, indent=2)
 				f.close()
 				status(f"Session ({cmd.k}) removed!")
@@ -332,7 +333,7 @@ def command_sessions(text=""):
 			for sess in list(sessions.keys()):
 				session_file = sessions[sess]["session_path"]
 				os.remove(session_file)
-			f = open( os.path.join("sessions","sessions.json"),"w" )
+			f = open( sessions_file,"w" )
 			json.dump({}, f, indent=2)
 			f.close()
 			status(f"All captured sessions removed!")
