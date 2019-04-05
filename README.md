@@ -12,22 +12,6 @@ Find documentation in our [Wiki](https://github.com/OWASP/QRLJacking/wiki).
 QRLJacking or Quick Response Code Login Jacking is a simple social engineering attack vector capable of session hijacking affecting all applications that rely on the “Login with QR code” feature as a secure way to login into accounts. In a nutshell, the victim scans the attacker’s QR code which results in session hijacking.
 
 
-## What are the requirements to achieve a successful QRLJacking attack?
-The QRLJacking attack consists of two sides:
-
-1. Server Side: A server side script is needed to serve and shape the final look to the victim.
-2. Client Side: Cloning the QR Code and pushing it to the phishing page.
-
-### Our example will be: The WhatsApp Web Application!
-
-## Server Setup (Attacker's hosting):
-1. Upload "qrHandler.php" to your server. This php file is used to convert the base64 QR Code string into a valid .JPG file.
-
-	Now you have a valid, generated, QR image named "tmp.jpg" residing in the same root folder as your files which will be updated whenever that php file is called, so we can put it anywhere. For example: a fake WhatsApp page, a scam page with an offer related to WhatsApp, etc. Depending on your creativity.
-
-2. Now update the "phishing.html" file with your prefered phishing page source code.
-
-
 ## Exploitation, Client Side Setup (Attacker's browser):
 
 Using QRLJacker - [QRLJacking Exploitation Framework](https://github.com/OWASP/QRLJacking/tree/master/QRLJacker)
