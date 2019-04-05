@@ -1,0 +1,5 @@
+terminaltables>=3.1.0
+selenium>=3.141.0
+Pillow>=5.4.1
+Jinja2>=2.10
+user-agent>=0.1.9
