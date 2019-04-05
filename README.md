@@ -30,19 +30,6 @@ The QRLJacking attack consists of two sides:
 
 ## Exploitation, Client Side Setup (Attacker's browser):
 
-Manually:
-
-1. Open your Firefox browser.
-2. Write "about:config" in the url area, click the "I'll be careful, I promise" confirmation button.
-3. Search for a preference named "security.csp.enable" and change its value to "false" by double clicking it to allow performing an XHR Request from a different domain (we're not supporting leaving this preference disabled, you may do that while testing, but after that you should set the preference to its original state).
-4. Install the Greasemonkey add-on (https://addons.mozilla.org/en-US/firefox/addon/greasemonkey) and be sure that the module file "WhatsAppQRJackingModule.js" is loaded and already running.
-5. Now we're ready. Browse to our example "https://web.whatsapp.com" on your side and wait for a WhatsApp session to be loaded. Greasemonkey should now inject our WhatsApp module file to catch.
-6. Send the direct link of the final phishing page to a victim.
-
-Once the QR Code is scanned, the victim's session is yours.
-
-Automatically:
-
 Using QRLJacker - [QRLJacking Exploitation Framework](https://github.com/OWASP/QRLJacking/tree/master/QRLJacker)
 
 ## Demo Video:
