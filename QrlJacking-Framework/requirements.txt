@@ -1,4 +1,0 @@
-requests>=2.11.1
-Pillow>=3.3.1
-selenium==3.14.1
-configparser>=3.5.0
