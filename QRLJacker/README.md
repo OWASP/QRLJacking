@@ -152,14 +152,14 @@ The autocomplete feature that has been implemented in this framework is not the 
 - In QRLJacker you can search for a module by its name, something written in its description or even the author name!
 
 ### Automation
-	- As you may noticed, you can use a resource file from command-line arguments before starting the framework itself or send commands directly.
-	- Inside the framework you can use `makerc` command like in Metasploit but this time it only saves the correct important commands.
-	- There are `history` and `resource` commands so you don't need to exit the framework.
-	- You can execute as many commands as you want at the same time by splitting them with semi-colon and many more left to be discovered by yourself.
+- As you may noticed, you can use a resource file from command-line arguments before starting the framework itself or send commands directly.
+- Inside the framework you can use `makerc` command like in Metasploit but this time it only saves the correct important commands.
+- There are `history` and `resource` commands so you don't need to exit the framework.
+- You can execute as many commands as you want at the same time by splitting them with semi-colon and many more left to be discovered by yourself.
 
 **Reporting an issue**
-	- Before reporting an issue, activate the debug mode by using the `debug` command or the debug commandline argument and once the error happens again, the framework will print the error trace-back. Also debug mode activates some hidden commands which will help us in debugging the error and fix the problem for you.
-	- Finally, make sure when reporting the issue to provide the very basic info like your system, python version and the output from the debugging mode.
+- Before reporting an issue, activate the debug mode by using the `debug` command or the debug commandline argument and once the error happens again, the framework will print the error trace-back. Also debug mode activates some hidden commands which will help us in debugging the error and fix the problem for you.
+- Finally, make sure when reporting the issue to provide the very basic info like your system, python version and the output from the debugging mode.
 
 ## Development
 If you want to write your own module, read [the development docs from here](docs/README.md)
