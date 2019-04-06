@@ -31,7 +31,7 @@ def main():
         Cli.start()
     elif args.r:
         try:
-            with open(p,"r") as f:
+            with open(args.r,"r") as f:
                 cmds = f.readlines()
                 for cmd in cmds:
                     Cli.start(cmd.strip())
