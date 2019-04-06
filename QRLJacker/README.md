@@ -133,6 +133,28 @@ Module commands
 	previous              Sets the previously loaded module as the current module.
 	back                  Move back from the current context.
 ```
+### Sessions command help menu
+```
+usage: sessions [-h] [-l] [-K] [-s] [-k] [-i]
+
+optional arguments:
+  -h   Show this help message.
+  -l   List all captured sessions.
+  -K   Remove all captured sessions.
+  -s   Search for sessions with a specifed type.
+  -k   Remove a specifed captured session by ID
+  -i   Interact with a captured session by ID.
+```
+### Jobs command help menu
+```
+usage: jobs [-h] [-l] [-K] [-k]
+
+optional arguments:
+  -h   Show this help message.
+  -l   List all running jobs.
+  -K   Terminate all running jobs.
+  -k   Terminate jobs by job ID or module name
+```
 
 ## Taking advantage of the core
 ### Commands autocomplete

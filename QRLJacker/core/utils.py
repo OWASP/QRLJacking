@@ -57,7 +57,11 @@ def grab_wanted(cmd,keywords):
     #To check for the wanted command on typos
     wanted = ""
     for i in reversed(range(1,5)): # Danger! Magic,don't touch :"D
-        wanted += ", ".join([s for s in keywords if (s[:i]==cmd[:i] and s not in wanted) ])
+        oo = [s for s in keywords if (s[:i]==cmd[:i] and s not in wanted) ]
+        if len(oo)>1:
+            wanted += ", ".join(oo)
+        elif len(oo)==1:
+            wanted += ", "+oo[0]
     return wanted
 
 def check_version():
