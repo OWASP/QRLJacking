@@ -47,7 +47,7 @@ def handle(c):
 		# Yeah, we don't have switch case in python...
 		if not Cli.general_commands(head, args, module_help):
 			if head in ["database","debug","dev","verbose","reload","refresh","list","show","resource","os","use","exec",
-							"search","info","previous","sessions","jobs"]:
+							"search","info","previous","sessions","jobs","eval","report"]:
 				exec("Cli.command_{}(args)".format(head))
 				Settings.update_history(c)
 			else:

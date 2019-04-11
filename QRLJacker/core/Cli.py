@@ -27,7 +27,7 @@ Core commands
 =============
 	Command               Description
 	---------             -------------
-	database              Prints the core version and then check if it's up-to-date.
+	database              Prints the core version, check if framework is up-to-date and update if you are not up-to-date.
 	debug                 Drop into debug mode or disable it. (Making identifying problems easier)
 	dev                   Drop into development mode or disable it. (Reload modules every use)
 	verbose               Drop into verbose mode or disable it. (Make framework displays more details)
@@ -455,6 +455,11 @@ def command_database(text=False):
 		error("Error in connection! Check your internet!")
 	else:
 		error("The latest core database is "+lol)
+		status("Updating...")
+		os.chdir("..")
+		os.popen("git pull")
+		os.chdir("QRLJacker")
+		status("Framework updated successfully!")
 
 def command_exec(text=False): # A hidden command to use in debugging :D
 	if Settings.debug and text:
@@ -463,6 +468,15 @@ def command_exec(text=False): # A hidden command to use in debugging :D
 def command_eval(text=False): # Aaaaaand another hidden one :D
 	if Settings.debug and text:
 		eval(text)
+
+def command_report(text=False):
+	if Settings.debug:
+		if Settings.headless_browser:
+			for key in Settings.headless_browser.browsers:
+				print("Key: "+key)
+				print("Data: ")
+				print(Settings.headless_browser.browsers[key]["Controller"].capabilities)
+				break
 
 # if its value is False the result will be mode=(False==False) so the mode will be True and so on, yup it's magic :D
 def command_debug(text=False):

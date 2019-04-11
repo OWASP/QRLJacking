@@ -1,8 +1,9 @@
-# QRLJacker - QRLJacking Exploitation Framework
+# QRLJacker - QRLJacking Exploitation Framework ![Build Status](https://img.shields.io/badge/Version-2.1-green.svg)
 ### QRLJacker is a highly customizable exploitation framework to demonstrate "[QRLJacking Attack Vector](https://www.owasp.org/index.php/Qrljacking)" to show how it is easy to hijack services that depend on QR Code as an authentication and login method, Mainly it aims to raise the security awareness regarding all the services using the QR Code as a main way to login users to different services!
 
 ## Screenshot
 ![alt img](Screenshots/Screenshot1.png)
+[Youtube Tutorial for installing and running it](https://www.youtube.com/watch?v=sYtH5-K2JZc)
 
 ## Prerequisites before installing:
 1. Linux or MacOS. (Not working on windows)
@@ -52,7 +53,7 @@ Core commands
 =============
 	Command               Description
 	---------             -------------
-	database              Prints the core version and then check if it's up-to-date.
+	database              Prints the core version, check if framework is up-to-date and update if you are not up-to-date.
 	debug                 Drop into debug mode or disable it. (Making identifying problems easier)
 	dev                   Drop into development mode or disable it. (Reload modules every use)
 	verbose               Drop into verbose mode or disable it. (Make framework displays more details)
