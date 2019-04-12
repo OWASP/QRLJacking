@@ -10,6 +10,7 @@
 2. Python 3.7+
 
 ## Installing instructions:
+> Note: Don't install QRLJacker and Firefox as root in a regular user's session because it's not supported by Firefox which would give error on running modules in framework.
 1. Update Firefox browser to the latest version
 2. Install the latest geckodriver from https://github.com/mozilla/geckodriver/releases and extract the file then do :
 	* `chmod +x geckodriver`
