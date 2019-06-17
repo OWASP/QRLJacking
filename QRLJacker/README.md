@@ -1,4 +1,4 @@
-# QRLJacker - QRLJacking Exploitation Framework ![Build Status](https://img.shields.io/badge/Version-2.1-green.svg)
+# QRLJacker - QRLJacking Exploitation Framework ![Build Status](https://img.shields.io/badge/Version-2.1.1-green.svg)
 ### QRLJacker is a highly customizable exploitation framework to demonstrate "[QRLJacking Attack Vector](https://www.owasp.org/index.php/Qrljacking)" to show how it is easy to hijack services that depend on QR Code as an authentication and login method, Mainly it aims to raise the security awareness regarding all the services using the QR Code as a main way to login users to different services!
 
 ## Screenshot
@@ -11,6 +11,9 @@
 
 ## Installing instructions:
 > Note: Don't install QRLJacker and Firefox as root in a regular user's session because it's not supported by Firefox which would give error on running modules in framework.
+
+***Important note: If you have multiple python version, use `python3.7` command instead of `python3` in the following steps and use `python3.7 -m pip` instead of `pip`, `pip3` or even `python3 -m pip` because that's the reason of 95% of the issues opened here. I think people often skip the important parts :smile:***
+
 1. Update Firefox browser to the latest version
 2. Install the latest geckodriver from https://github.com/mozilla/geckodriver/releases and extract the file then do :
 	* `chmod +x geckodriver`
