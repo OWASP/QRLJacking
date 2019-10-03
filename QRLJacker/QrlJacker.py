@@ -6,6 +6,7 @@ from core.color import *
 from sys import version_info as py_ver
 import argparse,os
 
+# Use anaconda version for better performance.
 if ( (py_ver.major,py_ver.minor) !=(3,7) ) or ( py_ver.major==3 and py_ver.minor<7 ):
     # The second condition is for the future releases of python
     error("The framework is designed to work only on python 3.7 or above!")
