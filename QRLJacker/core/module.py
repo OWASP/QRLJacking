@@ -125,7 +125,7 @@ def command_run(text=False):
 	# Required     --> 1 # Means that it must have value
 	# Not required --> 0 # Means that it could have value or not
 	for key in global_options.keys():
-		if global_options[key][0]==1 and not global_options[key][2].strip(): # A required option but has empty value
+		if global_options[key][0]==1 and not str(global_options[key][2]).strip(): # A required option but has empty value
 			error("Error! the following option have not been set ("+ key + ")" )
 			return
 	module = importlib.import_module(utils.pythonize("core.modules."+Settings.running_module))
@@ -140,6 +140,8 @@ def command_run(text=False):
 
 	if current_browser["Status"]=="Duplicate":
 		error("Module already running!")
+	elif current_browser["Status"]=="NoBrowser":
+		error("Couldn't find Firefox file path!")
 	elif current_browser["Status"]=="Failed":
 		error("Couldn't open Firefox! Check the installation instructions again!")
 	elif current_browser["Status"]=="Invalid useragent":

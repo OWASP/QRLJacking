@@ -1,11 +1,12 @@
 #!/usr/bin/python3.7
 from selenium.webdriver import Firefox,FirefoxProfile
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from user_agent import generate_user_agent
 from core.color import *
 from core.module_utils import *
 from core import Settings
-import os, pickle, json, time, threading, functools, traceback
+import os, pickle, json, time, threading, functools, traceback, subprocess
 
 # In Sessions folder we have a json file contains all data about sessions like ids and cookie file path that saved with pickle
 
@@ -41,7 +42,14 @@ class headless_browsers:
         self.opts.add_argument("--headless") # To make firefox invisible of course (Headless)
         self.browsers = {} # Here we save all the browsers we create so we can control and use later
         self.useragent = ""
+        self.browser_path = ""
         self.sessions_file = os.path.join("core","sessions.json")
+        p = subprocess.Popen(["which","firefox"], stdout= subprocess.PIPE, stderr= subprocess.PIPE)
+        out, err = p.communicate()
+        if err or not out.decode():
+            return {"Status":"NoBrowser"}
+        else:
+            self.browser_path = out.decode().strip()
 
     def new_session(self, module_name, url, useragent="(random)"):
         if self.browsers!={} and module_name in list(self.browsers.keys()) and self.browsers[module_name]["Status"]:
@@ -55,12 +63,15 @@ class headless_browsers:
         else:
             profile = generate_profile(useragent)
         try:
-            #TODO
             new_headless[module_name]["Controller"] = None
+            caps = DesiredCapabilities.FIREFOX.copy()
+            # Disabling the new Firefox driver called marionette so it won't override geckodriver
+            caps['marionette'] = False
+            caps['binary_location'] = self.browser_path
             if Settings.debug:
-                new_headless[module_name]["Controller"] = Firefox(profile)#options=self.opts) # Inserting the browser object
+                new_headless[module_name]["Controller"] = Firefox(profile, executable_path="/usr/local/share/geckodriver", capabilities=caps)#options=self.opts) # Inserting the browser object
             else:
-                new_headless[module_name]["Controller"] = Firefox(profile, options=self.opts) # Inserting the browser object
+                new_headless[module_name]["Controller"] = Firefox(profile, executable_path="/usr/local/share/geckodriver", capabilities=caps, options=self.opts) # Inserting the browser object
         except Exception as e:
             if Settings.debug:
                 print(" Exception: "+str(e))
