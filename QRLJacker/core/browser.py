@@ -66,7 +66,7 @@ class headless_browsers:
             new_headless[module_name]["Controller"] = None
             caps = DesiredCapabilities.FIREFOX.copy()
             # Disabling the new Firefox driver called marionette so it won't override geckodriver
-            caps['marionette'] = False
+            # caps['marionette'] = False
             caps['binary_location'] = self.browser_path
             if Settings.debug:
                 new_headless[module_name]["Controller"] = Firefox(profile, executable_path="/usr/local/share/geckodriver", capabilities=caps)#options=self.opts) # Inserting the browser object
