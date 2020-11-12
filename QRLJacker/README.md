@@ -183,6 +183,8 @@ The autocomplete feature that has been implemented in this framework is not the 
 - You can execute as many commands as you want at the same time by splitting them with semi-colon and many more left to be discovered by yourself.
 - Searching for modules in QRLJacker is so easy, you can search for a module by its name, something written in its description or even the author name.
 
+## Framework Maintainers
+- [Mohamed Elbadry (@melbadry9)](https://github.com/melbadry9)
 
 ## Reporting an issue
 - Before reporting an issue, activate the debug mode by using the `debug` command or the debug commandline argument and once the error happens again, the framework will print the error trace-back. Also debug mode activates some hidden commands which will help us in debugging the error and fix the problem for you.
