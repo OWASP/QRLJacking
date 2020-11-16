@@ -194,6 +194,7 @@ The autocomplete feature that has been implemented in this framework is not the 
 - [@OmarMerghany](https://github.com/OmarMerghany)
 - [@TheRubick](https://github.com/TheRubick)
 - [@mikeashi](https://github.com/mikeashi)
+- [@mxfoxawy](https://github.com/xfoxawy)
 
 ## Reporting an issue
 - Before reporting an issue, activate the debug mode by using the `debug` command or the debug commandline argument and once the error happens again, the framework will print the error trace-back. Also debug mode activates some hidden commands which will help us in debugging the error and fix the problem for you.
