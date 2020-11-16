@@ -184,7 +184,16 @@ The autocomplete feature that has been implemented in this framework is not the 
 - Searching for modules in QRLJacker is so easy, you can search for a module by its name, something written in its description or even the author name.
 
 ## Framework Maintainers
-- [Mohamed Elbadry (@melbadry9)](https://github.com/melbadry9)
+- [@melbadry9](https://github.com/melbadry9)
+- [@samm0uda](https://github.com/samm0uda)
+- [@Lekssays](https://github.com/Lekssays)
+- [@0xGuindi](https://github.com/0xGuindi)
+- [@Kiro24](https://github.com/Kiro24)
+- [@MohamedAbdultawab](https://github.com/MohamedAbdultawab)
+- [@mohmyo](https://github.com/mohmyo)
+- [@OmarMerghany](https://github.com/OmarMerghany)
+- [@TheRubick](https://github.com/TheRubick)
+- [@mikeashi](https://github.com/mikeashi)
 
 ## Reporting an issue
 - Before reporting an issue, activate the debug mode by using the `debug` command or the debug commandline argument and once the error happens again, the framework will print the error trace-back. Also debug mode activates some hidden commands which will help us in debugging the error and fix the problem for you.
