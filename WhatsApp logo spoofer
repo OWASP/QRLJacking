@@ -1,0 +1,19 @@
+#!/usr/bin/env python
+import PIL
+from PIL import Image
+import numpy as np
+
+
+
+image_path = Image.open("./qr.png")
+image_pathFiltre = Image.open("./filtre.png")
+
+def spoof(image_path, image_pathFiltre):
+	image_path.paste(image_pathFiltre, (0, 0), image_pathFiltre)
+	image_path.save('tmp.png',"PNG")
+
+
+spoof(image_path,image_pathFiltre)
+
+imageFinal = Image.open("tmp.png")
+imageFinal.show()
