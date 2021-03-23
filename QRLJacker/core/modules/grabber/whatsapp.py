@@ -17,4 +17,4 @@ class execution:
                         #'/html/body/div[1]/div/div/div[2]/div[1]/div[2]/div/span/div'
     change_identifier = '/html/body/div[1]/div/div/div[2]/div[1]/div/div[3]/label/input'
                         #"/html/body/div[1]/div/div/div[2]/div[1]/div[3]/label/input"
-    session_type      = "localStorage"
+    session_type      = "profile"

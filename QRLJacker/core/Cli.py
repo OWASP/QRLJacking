@@ -288,8 +288,10 @@ def command_sessions(text=""):
 				status(f"Starting interaction with ({cmd.i})...")
 				if sessions[cmd.i]["session_type"] == "localStorage":
 					Settings.visible_browser.load_localstorage(cmd.i)
-				else:
+				elif sessions[cmd.i]["session_type"] == "cookies":
 					Settings.visible_browser.load_cookie(cmd.i)
+				else:
+					Settings.visible_browser.load_profile(cmd.i)
 
 	elif cmd.k:
 		if not sessions:

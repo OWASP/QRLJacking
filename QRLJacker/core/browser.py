@@ -6,10 +6,10 @@ from user_agent import generate_user_agent
 from core.color import *
 from core.module_utils import *
 from core import Settings
+from pathlib2 import Path
 import os, pickle, json, time, threading, functools, traceback, subprocess
 
 # In Sessions folder we have a json file contains all data about sessions like ids and cookie file path that saved with pickle
-
 def generate_profile(useragent="(default)"):
     profile = FirefoxProfile()
     if useragent.strip().lower()=="(default)":
@@ -51,8 +51,8 @@ class headless_browsers:
         else:
             self.browser_path = out.decode().strip()
 
-    def new_session(self, module_name, url, useragent="(random)"):
-        if self.browsers!={} and module_name in list(self.browsers.keys()) and self.browsers[module_name]["Status"]:
+    def new_session(self, module_name, url, useragent="(random)", force=False):
+        if self.browsers!={} and module_name in list(self.browsers.keys()) and self.browsers[module_name]["Status"] and force:
             return {"Status":"Duplicate"}
         else:
             new_headless = {module_name:{"host":"","port":""}}
@@ -101,18 +101,24 @@ class headless_browsers:
                         status(f"Got session on {module_name} module")
                         if session_type.lower() == "localstorage":
                             self.save_localstorage(module_name)
-                        else:
+                        elif session_type.lower() == "cookies":
                             self.save_cookie(module_name)
+                        else:
+                            self.save_profile(module_name)
 
                         if Settings.verbose:
                             status("Reseting browser cookies and localStorage to start over..")
-                        #self.restart_session(self.browsers[module_name])
-                        controller.delete_all_cookies()
-                        controller.execute_script("window.localStorage.clear()")
-                        controller.refresh()
-                        if Settings.verbose:
-                            status("Session reset successfully")
-                        time.sleep(5)
+                        
+                        if not session_type.lower() == "profile":
+                            controller.delete_all_cookies()
+                            controller.execute_script("window.localStorage.clear()")
+                            controller.refresh()
+                            if Settings.verbose:
+                                status("Session reset successfully")
+                            time.sleep(5)
+                        else:
+                            self.close_job()
+                            self.close_all()
                     else:
                         time.sleep(5)
             else:
@@ -238,6 +244,42 @@ class headless_browsers:
         f.close()
         status("Session saved successfully")
 
+    def save_profile(self, module_name):
+        browser = self.browsers[module_name]["Controller"]
+        profile_file_name = os.path.join( "profiles",time.ctime().replace(" ","-")) + ".pf"
+        profile_file = open(profile_file_name,"w")
+        profile_file.write(browser.capabilities['moz:profile'])
+        profile_file.close()
+
+        if Settings.debug:
+            status("Profile location saved in " + profile_file_name)
+        
+        with open( self.sessions_file ) as f:
+            try:
+                sessions = json.load(f)
+            except:
+                sessions = {}
+            
+            for i in range(0,1000):
+                if str(i) not in list(sessions.keys()):
+                    session_id = str(i)
+                    break
+
+        session = {
+            session_id:{
+                "name":module_name,
+                "web_url":self.browsers[module_name]["url"],
+                "session_type":"profile",
+                "useragent":self.useragent,
+                "session_path":profile_file_name
+            }
+        }
+        sessions.update(session)
+        f = open( self.sessions_file,"w" )
+        json.dump(sessions, f, indent=2)
+        f.close()
+        status("Session saved successfully")
+
     def close_all(self):
         if self.browsers!={}: # I'm using this comparsion because it's is faster than comparsion with keys length btw
             for module_name in list(self.browsers.keys()):
@@ -308,4 +350,20 @@ class visible_browsers:
             browser.add_cookie(cookie)
         status(f"Session {session_id} loaded")
         browser.refresh()
+        self.browsers.append(browser)
+    
+    def load_profile(self, session_id):
+        sessions = json.load(open( self.sessions_file ))
+        profile_path = sessions[str(session_id)]["session_path"]
+        url = sessions[str(session_id)]["web_url"]
+        useragent = sessions[str(session_id)]["useragent"]
+        with open(profile_path, "r") as ff:
+            pro_path = Path(ff.read())
+        profile = FirefoxProfile(str(pro_path))
+        try:
+            browser = Firefox(profile)
+        except:
+            error("Couldn't open browser to view session!")
+            return
+        browser.get(url)
         self.browsers.append(browser)
