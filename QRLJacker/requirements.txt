@@ -3,4 +3,3 @@ selenium>=3.141.0
 Pillow>=5.4.1
 Jinja2>=2.10
 user-agent>=0.1.9
-pathlib2>=2.3.5
