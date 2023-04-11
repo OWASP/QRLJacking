@@ -281,7 +281,7 @@ class headless_browsers:
         #
         # When the session is closed, the profile path 
         # declared in "moz:profile" is deleted:
-        #   example login https://github.com/SeleniumHQ/selenium/blob/e4b87d445601fcb1f9bbb2dcc6f47848673ce800/py/selenium/webdriver/firefox/webdriver.py#L213
+        #   example logic https://github.com/SeleniumHQ/selenium/blob/e4b87d445601fcb1f9bbb2dcc6f47848673ce800/py/selenium/webdriver/firefox/webdriver.py#L213
         # 
         # This means that interacting with previously 
         # saved session will throw a "file not found"
