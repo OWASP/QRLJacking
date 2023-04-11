@@ -10,7 +10,7 @@ if ( py_ver.major==3 and py_ver.minor<7 ):
     exit(0)
 
 elif os.name=="nt":
-    error("The framework is designed to work on linux or windows only! Sorry for that :)")
+    error("The framework is designed to work on Linux or MacOS only! Sorry for that :)")
     exit(0)
 
 from core import Cli,utils,Settings,db
