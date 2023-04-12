@@ -131,10 +131,10 @@ def command_run(text=False):
 	module = importlib.import_module(utils.pythonize("core.modules."+Settings.running_module))
 	if Settings.development: module = utils.reload(module)
 	exec_info  = getattr(module, "execution")
+	current_browser = {"Status":"Ok"}
 	if not Settings.headless_browser:
 		Settings.headless_browser = browser.headless_browsers()
-		current_browser = {"Status":"LOL"}
-		Settings.headless_browser.new_session(exec_info.name, exec_info.url, global_options["useragent"][2])
+		current_browser = Settings.headless_browser.new_session(exec_info.name, exec_info.url, global_options["useragent"][2])
 	else:
 		current_browser = Settings.headless_browser.new_session(exec_info.name, exec_info.url, global_options["useragent"][2])
 

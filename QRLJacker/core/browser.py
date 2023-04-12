@@ -49,11 +49,13 @@ class headless_browsers:
         p = subprocess.Popen(["which","firefox"], stdout= subprocess.PIPE, stderr= subprocess.PIPE)
         out, err = p.communicate()
         if err or not out.decode():
-            return {"Status":"NoBrowser"}
+            self.browser_path = ""
         else:
             self.browser_path = out.decode().strip()
 
     def new_session(self, module_name, url, useragent="(random)", force=False):
+        if self.browser_path == "":
+            return {"Status":"NoBrowser"}
         if self.browsers!={} and module_name in list(self.browsers.keys()) and self.browsers[module_name]["Status"] and force:
             return {"Status":"Duplicate"}
         else:
