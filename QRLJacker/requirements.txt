@@ -1,5 +1,7 @@
 terminaltables>=3.1.0
-selenium>=3.141.0
+selenium==3.141.0
+urllib3==1.26.15
+requests==2.28.2
 Pillow>=5.4.1
 Jinja2>=2.10
 user-agent>=0.1.9
